@@ -198,9 +198,7 @@ class _UserSearchScreenState extends State<UserSearchScreen> {
                                   style: TextButton.styleFrom(
                                       padding: const EdgeInsets.all(7),
                                       minimumSize: const Size(
-                                        40,
-                                        25,
-                                      ), // 버튼 최소 사이즈 조절 (가로, 세로)
+                                          40, 25), // 버튼 최소 사이즈 조절 (가로, 세로)
                                       tapTargetSize: MaterialTapTargetSize
                                           .shrinkWrap // 버튼 영역 최소화
                                       ),
