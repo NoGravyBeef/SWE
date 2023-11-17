@@ -71,6 +71,7 @@ class Calendar extends StatelessWidget {
   }
 }
 */
+import 'package:calendar/screens/join_screen.dart';
 import 'package:calendar/screens/user_search_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -84,7 +85,7 @@ class Calendar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: UserSearchScreen(),
+      home: JoinScreen(),
     );
   }
 }
