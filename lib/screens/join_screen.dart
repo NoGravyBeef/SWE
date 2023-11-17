@@ -13,6 +13,8 @@ class _JoinScreenState extends State<JoinScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
+
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
@@ -30,7 +32,7 @@ class _JoinScreenState extends State<JoinScreen> {
             children: [
               Container(
                 alignment: Alignment.center,
-                height: 180,
+                height: screenSize.height * 0.20, // 화면 높이의 20%
                 child: const Text(
                   '회원가입',
                   style: TextStyle(
@@ -43,9 +45,9 @@ class _JoinScreenState extends State<JoinScreen> {
               ),
               Row(
                 children: [
-                  const Flexible(
+                  Flexible(
                     flex: 1,
-                    child: SizedBox(width: 50),
+                    child: SizedBox(width: screenSize.width * 0.05),
                   ),
                   Flexible(
                     flex: 11,
@@ -66,23 +68,23 @@ class _JoinScreenState extends State<JoinScreen> {
                         ),
                       ),
                       child: const JoinTextField(
-                          labelText: '아이디', hintText: 'Enter the ID'),
+                        labelText: '아이디',
+                        hintText: 'Enter the ID',
+                      ),
                     ),
                   ),
-                  const Flexible(
+                  Flexible(
                     flex: 1,
-                    child: SizedBox(width: 50),
+                    child: SizedBox(width: screenSize.width * 0.05),
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 35,
-              ),
+              SizedBox(height: screenSize.height * 0.04), // 화면 높이에 따른 간격 조정
               Row(
                 children: [
-                  const Flexible(
+                  Flexible(
                     flex: 1,
-                    child: SizedBox(width: 50),
+                    child: SizedBox(width: screenSize.width * 0.05),
                   ),
                   Flexible(
                     flex: 11,
@@ -103,23 +105,23 @@ class _JoinScreenState extends State<JoinScreen> {
                         ),
                       ),
                       child: const JoinTextField(
-                          labelText: '비밀번호', hintText: 'Enter the password'),
+                        labelText: '비밀번호',
+                        hintText: 'Enter the Password',
+                      ),
                     ),
                   ),
-                  const Flexible(
+                  Flexible(
                     flex: 1,
-                    child: SizedBox(width: 50),
+                    child: SizedBox(width: screenSize.width * 0.05),
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 35,
-              ),
+              SizedBox(height: screenSize.height * 0.04), // 화면 높이에 따른 간격 조정
               Row(
                 children: [
-                  const Flexible(
+                  Flexible(
                     flex: 1,
-                    child: SizedBox(width: 50),
+                    child: SizedBox(width: screenSize.width * 0.05),
                   ),
                   Flexible(
                     flex: 11,
@@ -140,88 +142,90 @@ class _JoinScreenState extends State<JoinScreen> {
                         ),
                       ),
                       child: const JoinTextField(
-                          labelText: '비밀번호 확인', hintText: 'Check the password'),
+                        labelText: '비밀번호 확인',
+                        hintText: 'Check the Password',
+                      ),
                     ),
                   ),
-                  const Flexible(
+                  Flexible(
                     flex: 1,
-                    child: SizedBox(width: 50),
+                    child: SizedBox(width: screenSize.width * 0.05),
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 35,
-              ),
+              SizedBox(height: screenSize.height * 0.04), // 화면 높이에 따른 간격 조정
               Row(
                 children: [
-                  const Flexible(
+                  Flexible(
                     flex: 4,
-                    child: SizedBox(width: 50),
+                    child: SizedBox(width: screenSize.width * 0.05),
                   ),
                   Flexible(
                     flex: 20,
                     child: Container(
-                        decoration: const ShapeDecoration(
-                          gradient: LinearGradient(
-                            colors: [
-                              Color.fromARGB(255, 196, 196, 196),
-                              Color.fromARGB(255, 255, 255, 255)
-                            ],
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            stops: [0.0, 0.12],
-                            tileMode: TileMode.clamp,
-                          ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(18.0)),
-                          ),
+                      decoration: const ShapeDecoration(
+                        gradient: LinearGradient(
+                          colors: [
+                            Color.fromARGB(255, 196, 196, 196),
+                            Color.fromARGB(255, 255, 255, 255)
+                          ],
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          stops: [0.0, 0.12],
+                          tileMode: TileMode.clamp,
                         ),
-                        child: const JoinTextField(
-                            labelText: '성', hintText: 'Last Name')),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(18.0)),
+                        ),
+                      ),
+                      child: const JoinTextField(
+                        labelText: '성',
+                        hintText: 'Last Name',
+                      ),
+                    ),
                   ),
-                  const Flexible(
+                  Flexible(
                     flex: 1,
-                    child: SizedBox(width: 50),
+                    child: SizedBox(width: screenSize.width * 0.02),
                   ),
                   Flexible(
                     flex: 20,
                     child: Container(
-                        decoration: const ShapeDecoration(
-                          gradient: LinearGradient(
-                            colors: [
-                              Color.fromARGB(255, 196, 196, 196),
-                              Color.fromARGB(255, 255, 255, 255)
-                            ],
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            stops: [0.0, 0.12],
-                            tileMode: TileMode.clamp,
-                          ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(18.0)),
-                          ),
+                      decoration: const ShapeDecoration(
+                        gradient: LinearGradient(
+                          colors: [
+                            Color.fromARGB(255, 196, 196, 196),
+                            Color.fromARGB(255, 255, 255, 255)
+                          ],
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          stops: [0.0, 0.12],
+                          tileMode: TileMode.clamp,
                         ),
-                        child: const JoinTextField(
-                            labelText: '이름', hintText: 'First Name')),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(18.0)),
+                        ),
+                      ),
+                      child: const JoinTextField(
+                        labelText: '이름',
+                        hintText: 'First Name',
+                      ),
+                    ),
                   ),
-                  const Flexible(
+                  Flexible(
                     flex: 4,
-                    child: SizedBox(width: 50),
+                    child: SizedBox(width: screenSize.width * 0.05),
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 35,
-              ),
+              SizedBox(height: screenSize.height * 0.04), // 화면 높이에 따른 간격 조정
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Flexible(
+                  Flexible(
                     fit: FlexFit.tight,
                     flex: 1,
-                    child: SizedBox(width: 50),
+                    child: SizedBox(width: screenSize.width * 0.05),
                   ),
                   Flexible(
                     flex: 10,
@@ -261,21 +265,21 @@ class _JoinScreenState extends State<JoinScreen> {
                       ),
                     ),
                   ),
-                  const Flexible(
+                  Flexible(
                     fit: FlexFit.tight,
                     flex: 1,
-                    child: SizedBox(width: 50),
+                    child: SizedBox(width: screenSize.width * 0.05),
                   ),
                 ],
               ),
               SizedBox(
-                height: 220,
+                height: screenSize.height * 0.2,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Flexible(
+                    Flexible(
                       flex: 2,
-                      child: SizedBox(width: 50),
+                      child: SizedBox(width: screenSize.width * 0.05),
                     ),
                     Flexible(
                       flex: 10,
@@ -326,9 +330,9 @@ class _JoinScreenState extends State<JoinScreen> {
                         ),
                       ),
                     ),
-                    const Flexible(
+                    Flexible(
                       flex: 2,
-                      child: SizedBox(width: 50),
+                      child: SizedBox(width: screenSize.width * 0.05),
                     ),
                   ],
                 ),
