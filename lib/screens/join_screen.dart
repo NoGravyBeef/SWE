@@ -218,7 +218,7 @@ class _JoinScreenState extends State<JoinScreen> {
                   ),
                 ],
               ),
-              SizedBox(height: screenSize.height * 0.04), // 화면 높이에 따른 간격 조정
+              SizedBox(height: screenSize.height * 0.06), // 화면 높이에 따른 간격 조정
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
