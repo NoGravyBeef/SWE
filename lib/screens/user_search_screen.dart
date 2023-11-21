@@ -7,6 +7,7 @@ class User {
   User(this.name);
 }
 
+// 사용자 검색 화면 위젯
 class UserSearchScreen extends StatefulWidget {
   const UserSearchScreen({super.key});
 
@@ -14,12 +15,14 @@ class UserSearchScreen extends StatefulWidget {
   State<UserSearchScreen> createState() => _UserSearchScreenState();
 }
 
+// 사용자 검색 화면의 상태 관리
 class _UserSearchScreenState extends State<UserSearchScreen> {
   void onpressed() {}
 
+  // 예시 사용자 데이터 생성
   final List<User> users = List.generate(
     10,
-    (index) => User('User $index'), // 예시 사용자들 생성
+    (index) => User('User $index'),
   );
 
   @override
@@ -27,6 +30,7 @@ class _UserSearchScreenState extends State<UserSearchScreen> {
     var screenSize = MediaQuery.of(context).size; // 현재 화면 크기를 가져옵니다.
 
     return Container(
+      // 배경 이미지 설정
       decoration: const BoxDecoration(
         image: DecorationImage(
           fit: BoxFit.cover,
@@ -39,7 +43,9 @@ class _UserSearchScreenState extends State<UserSearchScreen> {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(height: screenSize.height * 0.05), // 화면 높이의 5%
+              // 상단 여백
+              SizedBox(height: screenSize.height * 0.05),
+              // 타이틀 행
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -59,11 +65,13 @@ class _UserSearchScreenState extends State<UserSearchScreen> {
                   ),
                 ],
               ),
-              SizedBox(height: screenSize.height * 0.08), // 화면 높이의 8%
+              SizedBox(height: screenSize.height * 0.08),
+              // 검색 입력 필드
               Row(
                 children: [
-                  SizedBox(width: screenSize.width * 0.1), // 화면 너비의 10%
+                  SizedBox(width: screenSize.width * 0.1),
                   Expanded(
+                    // 검색 필드 스타일링
                     child: Container(
                       decoration: ShapeDecoration(
                         gradient: const LinearGradient(
@@ -115,10 +123,14 @@ class _UserSearchScreenState extends State<UserSearchScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(width: screenSize.width * 0.05), // 화면 너비의 2%
+                  SizedBox(width: screenSize.width * 0.05),
+                  // 검색 버튼
                   IconButton(
                     icon: Transform.translate(
-                      offset: const Offset(-7, -7),
+                      offset: Offset(
+                        -screenSize.width * 0.005,
+                        -screenSize.height * 0.003,
+                      ),
                       child: const Icon(
                         Icons.search_rounded,
                         size: 50,
@@ -126,43 +138,45 @@ class _UserSearchScreenState extends State<UserSearchScreen> {
                     ),
                     onPressed: onpressed,
                   ),
-                  SizedBox(width: screenSize.width * 0.08), // 화면 너비의 10%
+                  SizedBox(width: screenSize.width * 0.08),
                 ],
               ),
-              SizedBox(height: screenSize.height * 0.02), // 화면 높이의 2%
-              //
-              //여기서부터 검색된 공간
+              SizedBox(height: screenSize.height * 0.02),
+              // 검색 결과 표시 영역
               Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Container(
+                  // 검색 결과 영역 스타일링
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(40),
                     color: Colors.white.withOpacity(0.5),
                     border: Border.all(color: Colors.black12, width: 3),
                   ),
                   height: screenSize.height * 0.65, // 화면 높이의 65%
-                  padding: const EdgeInsets.fromLTRB(8, 0, 8, 8),
+                  padding: const EdgeInsets.fromLTRB(8, 16, 8, 16),
                   child: ShaderMask(
                     shaderCallback: (Rect bounds) {
                       return LinearGradient(
                         begin: Alignment.center,
                         end: Alignment.topCenter,
                         colors: [Colors.white, Colors.white.withOpacity(0.02)],
-                        stops: const [0.9, 1],
+                        stops: const [0.8, 1],
                         tileMode: TileMode.mirror,
                       ).createShader(bounds);
                     },
+                    // 검색 결과 리스트
                     child: ListView.builder(
                       itemCount: users.length,
                       itemBuilder: (context, index) {
                         return Container(
-                          margin: const EdgeInsets.symmetric(
-                            vertical: 7,
-                            horizontal: 10,
+                          // 각 검색 결과 항목 스타일링
+                          margin: EdgeInsets.symmetric(
+                            vertical: screenSize.height * 0.007,
+                            horizontal: screenSize.width * 0.02,
                           ),
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 14,
-                            vertical: 10,
+                          padding: EdgeInsets.symmetric(
+                            horizontal: screenSize.width * 0.025,
+                            vertical: screenSize.height * 0.012,
                           ),
                           decoration: BoxDecoration(
                             color: Colors.white,
@@ -179,6 +193,7 @@ class _UserSearchScreenState extends State<UserSearchScreen> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
+                              // 사용자 이름 표시
                               Text(
                                 users[index].name,
                                 style: const TextStyle(
@@ -186,6 +201,7 @@ class _UserSearchScreenState extends State<UserSearchScreen> {
                                     fontFamily: 'JetBrain',
                                     fontWeight: FontWeight.w700),
                               ),
+                              // 친구 추가 버튼
                               Container(
                                 decoration: BoxDecoration(
                                   color: const Color(0xffd1d1ea),
@@ -197,8 +213,10 @@ class _UserSearchScreenState extends State<UserSearchScreen> {
                                   },
                                   style: TextButton.styleFrom(
                                       padding: const EdgeInsets.all(7),
-                                      minimumSize: const Size(
-                                          40, 25), // 버튼 최소 사이즈 조절 (가로, 세로)
+                                      minimumSize: Size(
+                                          screenSize.width * 0.4,
+                                          screenSize.height *
+                                              0.01), // 버튼 최소 사이즈 조절 (가로, 세로)
                                       tapTargetSize: MaterialTapTargetSize
                                           .shrinkWrap // 버튼 영역 최소화
                                       ),

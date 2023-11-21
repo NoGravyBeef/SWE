@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:calendar/widgets/join_text_field.dart';
 
+// 회원가입 화면 위젯
 class JoinScreen extends StatefulWidget {
   const JoinScreen({super.key});
 
@@ -8,6 +9,7 @@ class JoinScreen extends StatefulWidget {
   State<JoinScreen> createState() => _JoinScreenState();
 }
 
+// 회원가입 화면의 상태 관리
 class _JoinScreenState extends State<JoinScreen> {
   void pressed() {}
 
@@ -16,6 +18,7 @@ class _JoinScreenState extends State<JoinScreen> {
     final screenSize = MediaQuery.of(context).size;
 
     return Container(
+      // 배경 이미지 설정
       decoration: const BoxDecoration(
         image: DecorationImage(
           fit: BoxFit.cover,
@@ -30,9 +33,10 @@ class _JoinScreenState extends State<JoinScreen> {
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              // 상단 타이틀
               Container(
                 alignment: Alignment.center,
-                height: screenSize.height * 0.20, // 화면 높이의 20%
+                height: screenSize.height * 0.20,
                 child: const Text(
                   '회원가입',
                   style: TextStyle(
@@ -43,6 +47,7 @@ class _JoinScreenState extends State<JoinScreen> {
                   ),
                 ),
               ),
+              // 아이디 입력 필드
               Row(
                 children: [
                   Flexible(
@@ -79,7 +84,8 @@ class _JoinScreenState extends State<JoinScreen> {
                   ),
                 ],
               ),
-              SizedBox(height: screenSize.height * 0.04), // 화면 높이에 따른 간격 조정
+              SizedBox(height: screenSize.height * 0.04),
+              // 비밀번호 입력 필드
               Row(
                 children: [
                   Flexible(
@@ -116,7 +122,8 @@ class _JoinScreenState extends State<JoinScreen> {
                   ),
                 ],
               ),
-              SizedBox(height: screenSize.height * 0.04), // 화면 높이에 따른 간격 조정
+              SizedBox(height: screenSize.height * 0.04),
+              // 비밀번호 확인 필드
               Row(
                 children: [
                   Flexible(
@@ -153,7 +160,8 @@ class _JoinScreenState extends State<JoinScreen> {
                   ),
                 ],
               ),
-              SizedBox(height: screenSize.height * 0.04), // 화면 높이에 따른 간격 조정
+              SizedBox(height: screenSize.height * 0.04),
+              // 성 및 이름 입력 필드
               Row(
                 children: [
                   Flexible(
@@ -218,7 +226,8 @@ class _JoinScreenState extends State<JoinScreen> {
                   ),
                 ],
               ),
-              SizedBox(height: screenSize.height * 0.06), // 화면 높이에 따른 간격 조정
+              SizedBox(height: screenSize.height * 0.06),
+              // 회원가입 버튼
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -272,70 +281,69 @@ class _JoinScreenState extends State<JoinScreen> {
                   ),
                 ],
               ),
-              SizedBox(
-                height: screenSize.height * 0.2,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Flexible(
-                      flex: 2,
-                      child: SizedBox(width: screenSize.width * 0.05),
-                    ),
-                    Flexible(
-                      flex: 10,
-                      fit: FlexFit.tight,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withOpacity(0.5),
-                              spreadRadius: -4.0,
-                              blurRadius: 7.0,
-                              offset: const Offset(0, 6.0),
+              SizedBox(height: screenSize.height * 0.2),
+              // 구글로 시작 버튼
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Flexible(
+                    flex: 2,
+                    child: SizedBox(width: screenSize.width * 0.05),
+                  ),
+                  Flexible(
+                    flex: 10,
+                    fit: FlexFit.tight,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.5),
+                            spreadRadius: -4.0,
+                            blurRadius: 7.0,
+                            offset: const Offset(0, 6.0),
+                          ),
+                        ],
+                      ),
+                      child: TextButton(
+                        onPressed: pressed,
+                        style: TextButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              'assets/google_logo.png',
+                              width: 30,
+                              height: 30,
+                            ),
+                            const SizedBox(
+                              width: 20,
+                            ),
+                            const Text(
+                              'Start with google',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontFamily: 'JetBrain',
+                                fontWeight: FontWeight.w600,
+                                color: Color.fromARGB(255, 116, 115, 115),
+                                letterSpacing: 1,
+                              ),
                             ),
                           ],
                         ),
-                        child: TextButton(
-                          onPressed: pressed,
-                          style: TextButton.styleFrom(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30),
-                            ),
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Image.asset(
-                                'assets/google_logo.png',
-                                width: 30,
-                                height: 30,
-                              ),
-                              const SizedBox(
-                                width: 20,
-                              ),
-                              const Text(
-                                'Start with google',
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  fontFamily: 'JetBrain',
-                                  fontWeight: FontWeight.w600,
-                                  color: Color.fromARGB(255, 116, 115, 115),
-                                  letterSpacing: 1,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
                       ),
                     ),
-                    Flexible(
-                      flex: 2,
-                      child: SizedBox(width: screenSize.width * 0.05),
-                    ),
-                  ],
-                ),
+                  ),
+                  Flexible(
+                    flex: 2,
+                    child: SizedBox(width: screenSize.width * 0.05),
+                  ),
+                ],
               ),
             ],
           ),
