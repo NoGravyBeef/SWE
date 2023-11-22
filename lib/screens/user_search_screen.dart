@@ -203,6 +203,11 @@ class _UserSearchScreenState extends State<UserSearchScreen> {
                               ),
                               // 친구 추가 버튼
                               Container(
+                                padding: EdgeInsets.fromLTRB(
+                                    0,
+                                    screenSize.height * 0.005,
+                                    0,
+                                    screenSize.height * 0.005),
                                 decoration: BoxDecoration(
                                   color: const Color(0xffd1d1ea),
                                   borderRadius: BorderRadius.circular(25),
