@@ -67,7 +67,7 @@ class _FriendRequestScreenState extends State<FriendRequestScreen> {
                 ),
               ],
             ),
-            SizedBox(height: screenSize.height * 0.02),
+            SizedBox(height: screenSize.height * 0.03),
             // 전체 레이아웃을 수평으로 분할
             Expanded(
               child: Row(
@@ -99,7 +99,6 @@ class _FriendRequestScreenState extends State<FriendRequestScreen> {
                                     Border.all(color: Colors.black12, width: 3),
                               ),
                               padding: const EdgeInsets.fromLTRB(8, 16, 8, 16),
-                              //listview 내용
                               child: ShaderMask(
                                 shaderCallback: (Rect bounds) {
                                   return LinearGradient(
@@ -113,11 +112,96 @@ class _FriendRequestScreenState extends State<FriendRequestScreen> {
                                     tileMode: TileMode.mirror,
                                   ).createShader(bounds);
                                 },
+                                //listview 내용
                                 child: ListView.builder(
                                   itemCount: sentRequests.length,
                                   itemBuilder: (context, index) {
-                                    return ListTile(
-                                      title: Text(sentRequests[index].name),
+                                    return Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        //유저이름 표시부분
+                                        Container(
+                                          width: screenSize.width * 0.23,
+                                          margin: EdgeInsets.symmetric(
+                                            vertical: screenSize.height * 0.014,
+                                            horizontal: screenSize.width * 0.01,
+                                          ),
+                                          padding: EdgeInsets.symmetric(
+                                            horizontal:
+                                                screenSize.width * 0.025,
+                                            vertical: screenSize.height * 0.008,
+                                          ),
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Colors.grey
+                                                    .withOpacity(0.7),
+                                                spreadRadius: 1,
+                                                blurRadius: 4,
+                                                offset: const Offset(0, 3),
+                                              ),
+                                            ],
+                                          ),
+                                          child: Text(
+                                            sentRequests[index].name,
+                                            style: const TextStyle(
+                                                fontSize: 12,
+                                                fontFamily: 'JetBrain',
+                                                fontWeight: FontWeight.w700),
+                                          ),
+                                        ),
+                                        //취소버튼 부분
+                                        Container(
+                                          width: screenSize.width * 0.13,
+                                          padding: const EdgeInsets.symmetric(
+                                              vertical: 1.5),
+                                          margin: const EdgeInsets.symmetric(
+                                              horizontal: 2.5),
+                                          decoration: BoxDecoration(
+                                            color: const Color(0xffd1d1ea),
+                                            borderRadius:
+                                                BorderRadius.circular(25),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Colors.grey
+                                                    .withOpacity(0.7),
+                                                spreadRadius: 1,
+                                                blurRadius: 4,
+                                                offset: const Offset(0, 3),
+                                              ),
+                                            ],
+                                          ),
+                                          child: TextButton(
+                                            //버튼 기능
+                                            onPressed: () {},
+                                            style: TextButton.styleFrom(
+                                                padding:
+                                                    const EdgeInsets.all(7),
+                                                minimumSize: Size(
+                                                    screenSize.width * 0.14,
+                                                    screenSize.height *
+                                                        0.01), // 버튼 최소 사이즈 조절 (가로, 세로)
+                                                tapTargetSize:
+                                                    MaterialTapTargetSize
+                                                        .shrinkWrap // 버튼 영역 최소화
+                                                ),
+                                            child: const Text(
+                                              '취소',
+                                              style: TextStyle(
+                                                fontSize: 10,
+                                                fontFamily: 'JetBrain',
+                                                fontWeight: FontWeight.w700,
+                                                letterSpacing: 3,
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
                                     );
                                   },
                                 ),
@@ -133,7 +217,7 @@ class _FriendRequestScreenState extends State<FriendRequestScreen> {
                   // 세로 점선 경계
                   CustomPaint(
                     painter: DottedLinePainter(),
-                    size: Size(1, screenSize.height * 0.77),
+                    size: Size(1, screenSize.height * 0.76),
                   ),
                   // 받은 친구 신청 섹션
                   Expanded(
@@ -160,7 +244,7 @@ class _FriendRequestScreenState extends State<FriendRequestScreen> {
                                 border:
                                     Border.all(color: Colors.black12, width: 3),
                               ),
-                              padding: const EdgeInsets.fromLTRB(8, 16, 8, 16),
+                              padding: const EdgeInsets.fromLTRB(4, 16, 4, 16),
                               //listview 내용
                               child: ShaderMask(
                                 shaderCallback: (Rect bounds) {
@@ -176,10 +260,137 @@ class _FriendRequestScreenState extends State<FriendRequestScreen> {
                                   ).createShader(bounds);
                                 },
                                 child: ListView.builder(
-                                  itemCount: sentRequests.length,
+                                  itemCount: receivedRequests.length,
                                   itemBuilder: (context, index) {
-                                    return ListTile(
-                                      title: Text(sentRequests[index].name),
+                                    return Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        //유저이름 표시부분
+                                        Container(
+                                          width: screenSize.width * 0.205,
+                                          margin: EdgeInsets.symmetric(
+                                            vertical: screenSize.height * 0.014,
+                                            horizontal: screenSize.width * 0.01,
+                                          ),
+                                          padding: EdgeInsets.symmetric(
+                                            horizontal:
+                                                screenSize.width * 0.025,
+                                            vertical: screenSize.height * 0.008,
+                                          ),
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Colors.grey
+                                                    .withOpacity(0.7),
+                                                spreadRadius: 1,
+                                                blurRadius: 4,
+                                                offset: const Offset(0, 3),
+                                              ),
+                                            ],
+                                          ),
+                                          child: Text(
+                                            receivedRequests[index].name,
+                                            style: const TextStyle(
+                                                fontSize: 12,
+                                                fontFamily: 'JetBrain',
+                                                fontWeight: FontWeight.w700),
+                                          ),
+                                        ),
+                                        //친구신청 수락버튼
+                                        Container(
+                                          padding: const EdgeInsets.symmetric(
+                                              vertical: 1.5),
+                                          margin: const EdgeInsets.symmetric(
+                                              horizontal: 2.5),
+                                          decoration: BoxDecoration(
+                                            color: const Color(0xffd1d1ea),
+                                            borderRadius:
+                                                BorderRadius.circular(25),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Colors.grey
+                                                    .withOpacity(0.7),
+                                                spreadRadius: 1,
+                                                blurRadius: 4,
+                                                offset: const Offset(0, 3),
+                                              ),
+                                            ],
+                                          ),
+                                          child: TextButton(
+                                            onPressed: () {},
+                                            style: TextButton.styleFrom(
+                                                padding:
+                                                    const EdgeInsets.all(7),
+                                                minimumSize: Size(
+                                                    screenSize.width * 0.07,
+                                                    screenSize.height *
+                                                        0.01), // 버튼 최소 사이즈 조절 (가로, 세로)
+                                                tapTargetSize:
+                                                    MaterialTapTargetSize
+                                                        .shrinkWrap // 버튼 영역 최소화
+                                                ),
+                                            child: const Text(
+                                              '수락',
+                                              style: TextStyle(
+                                                fontSize: 10,
+                                                fontFamily: 'JetBrain',
+                                                fontWeight: FontWeight.w700,
+                                                letterSpacing: 1.5,
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        //친구신청 거절버튼
+                                        Container(
+                                          padding: const EdgeInsets.symmetric(
+                                              vertical: 1.5),
+                                          margin: const EdgeInsets.symmetric(
+                                              horizontal: 2.5),
+                                          decoration: BoxDecoration(
+                                            color: const Color(0xffd1d1ea),
+                                            borderRadius:
+                                                BorderRadius.circular(25),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Colors.grey
+                                                    .withOpacity(0.7),
+                                                spreadRadius: 1,
+                                                blurRadius: 4,
+                                                offset: const Offset(0, 3),
+                                              ),
+                                            ],
+                                          ),
+                                          child: TextButton(
+                                            onPressed: () {},
+                                            style: TextButton.styleFrom(
+                                                padding:
+                                                    const EdgeInsets.all(7),
+                                                minimumSize: Size(
+                                                    screenSize.width * 0.07,
+                                                    screenSize.height *
+                                                        0.01), // 버튼 최소 사이즈 조절 (가로, 세로)
+                                                tapTargetSize:
+                                                    MaterialTapTargetSize
+                                                        .shrinkWrap // 버튼 영역 최소화
+                                                ),
+                                            child: const Text(
+                                              '거절',
+                                              style: TextStyle(
+                                                fontSize: 10,
+                                                fontFamily: 'JetBrain',
+                                                fontWeight: FontWeight.w700,
+                                                letterSpacing: 1.5,
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
                                     );
                                   },
                                 ),
