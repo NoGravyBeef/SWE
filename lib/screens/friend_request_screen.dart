@@ -25,7 +25,7 @@ class _FriendRequestScreenState extends State<FriendRequestScreen> {
   // 예시 데이터: 받은 친구 신청 목록
   final List<User> receivedRequests = List.generate(
     20,
-    (index) => User('User ${index + 5}'),
+    (index) => User('User ${index + 1}'),
   );
 
   @override
