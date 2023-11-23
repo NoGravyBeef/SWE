@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:calendar/popup/holyday_setup.dart';
 
 // 사용자 데이터 구조
 class User {
@@ -88,22 +89,22 @@ class _UserSearchScreenState extends State<UserSearchScreen> {
                           borderRadius: BorderRadius.circular(18.0),
                         ),
                       ),
-                      child: const TextField(
+                      child: TextField(
                         decoration: InputDecoration(
                           labelText: '사용자 검색',
                           hintText: 'Enter the Username',
                           contentPadding: EdgeInsets.symmetric(
-                            vertical: 10,
-                            horizontal: 12,
+                            vertical: screenSize.height * 0.01,
+                            horizontal: screenSize.width * 0.04,
                           ), // 내부 패딩 조절
-                          labelStyle: TextStyle(
+                          labelStyle: const TextStyle(
                             color: Colors.grey,
                             fontSize: 14, // 폰트 크기 조절
                             fontFamily: 'JetBrain',
                             fontWeight: FontWeight.w700,
                             letterSpacing: 2,
                           ),
-                          enabledBorder: OutlineInputBorder(
+                          enabledBorder: const OutlineInputBorder(
                             borderSide: BorderSide(
                               width: 1, // 테두리 두께 조절
                               color: Colors.white,
@@ -111,7 +112,7 @@ class _UserSearchScreenState extends State<UserSearchScreen> {
                             borderRadius:
                                 BorderRadius.all(Radius.circular(18.0)),
                           ),
-                          focusedBorder: OutlineInputBorder(
+                          focusedBorder: const OutlineInputBorder(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(18.0)),
                             borderSide: BorderSide(
@@ -136,7 +137,9 @@ class _UserSearchScreenState extends State<UserSearchScreen> {
                         size: 50,
                       ),
                     ),
-                    onPressed: onpressed,
+                    onPressed: () {
+                      //검색기능 구현
+                    },
                   ),
                   SizedBox(width: screenSize.width * 0.08),
                 ],
@@ -214,6 +217,11 @@ class _UserSearchScreenState extends State<UserSearchScreen> {
                                 ),
                                 child: TextButton(
                                   onPressed: () {
+                                    showDialog(
+                                        context: context,
+                                        builder: (BuildContext context) {
+                                          return const HolydaySet();
+                                        });
                                     // 친구 추가 로직
                                   },
                                   style: TextButton.styleFrom(
@@ -245,7 +253,7 @@ class _UserSearchScreenState extends State<UserSearchScreen> {
                   ),
                 ),
               ),
-              SizedBox(height: screenSize.height * 0.1), // 화면 높이의 10%
+              SizedBox(height: screenSize.height * 0.01), // 화면 높이의 1%
             ],
           ),
         ),
