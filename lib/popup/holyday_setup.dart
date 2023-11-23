@@ -22,10 +22,10 @@ class HolydaySet extends StatefulWidget {
 }
 
 class _HolydaySetState extends State<HolydaySet> {
+  bool isChecked = true;
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
-    bool isChecked = true;
 
     return Dialog(
       child: Container(
@@ -45,9 +45,9 @@ class _HolydaySetState extends State<HolydaySet> {
                     '휴일 선택',
                     style: TextStyle(
                       color: Color.fromARGB(255, 61, 61, 61),
-                      fontSize: 17, // 폰트 크기 조절
+                      fontSize: 18, // 폰트 크기 조절
                       fontFamily: 'JetBrain',
-                      fontWeight: FontWeight.w700,
+                      fontWeight: FontWeight.w500,
                       letterSpacing: -3,
                     ),
                   ),
@@ -55,18 +55,18 @@ class _HolydaySetState extends State<HolydaySet> {
                     '휴일 선택 활성화',
                     style: TextStyle(
                       color: Color.fromARGB(255, 61, 61, 61),
-                      fontSize: 17, // 폰트 크기 조절
+                      fontSize: 18, // 폰트 크기 조절
                       fontFamily: 'JetBrain',
-                      fontWeight: FontWeight.w700,
+                      fontWeight: FontWeight.w500,
                       letterSpacing: -3,
                     ),
                   ),
                 ],
               ),
             ),
-            SizedBox(height: screenSize.height * 0.01),
             //"월 화 수 목 금 토 일" 버튼 파트
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
                   height: screenSize.height * 0.032,
@@ -91,7 +91,7 @@ class _HolydaySetState extends State<HolydaySet> {
                         color: const Color.fromARGB(255, 61, 61, 61),
                         fontSize: screenSize.height * 0.02, // 폰트 크기 조절
                         fontFamily: 'JetBrain',
-                        fontWeight: FontWeight.w700,
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
                   ),
@@ -114,12 +114,12 @@ class _HolydaySetState extends State<HolydaySet> {
                       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                     ),
                     child: Text(
-                      '월',
+                      '화',
                       style: TextStyle(
                         color: const Color.fromARGB(255, 61, 61, 61),
                         fontSize: screenSize.height * 0.02, // 폰트 크기 조절
                         fontFamily: 'JetBrain',
-                        fontWeight: FontWeight.w700,
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
                   ),
@@ -142,12 +142,12 @@ class _HolydaySetState extends State<HolydaySet> {
                       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                     ),
                     child: Text(
-                      '월',
+                      '수',
                       style: TextStyle(
                         color: const Color.fromARGB(255, 61, 61, 61),
                         fontSize: screenSize.height * 0.02, // 폰트 크기 조절
                         fontFamily: 'JetBrain',
-                        fontWeight: FontWeight.w700,
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
                   ),
@@ -170,12 +170,12 @@ class _HolydaySetState extends State<HolydaySet> {
                       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                     ),
                     child: Text(
-                      '월',
+                      '목',
                       style: TextStyle(
                         color: const Color.fromARGB(255, 61, 61, 61),
                         fontSize: screenSize.height * 0.02, // 폰트 크기 조절
                         fontFamily: 'JetBrain',
-                        fontWeight: FontWeight.w700,
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
                   ),
@@ -198,12 +198,12 @@ class _HolydaySetState extends State<HolydaySet> {
                       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                     ),
                     child: Text(
-                      '월',
+                      '금',
                       style: TextStyle(
                         color: const Color.fromARGB(255, 61, 61, 61),
                         fontSize: screenSize.height * 0.02, // 폰트 크기 조절
                         fontFamily: 'JetBrain',
-                        fontWeight: FontWeight.w700,
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
                   ),
@@ -226,12 +226,12 @@ class _HolydaySetState extends State<HolydaySet> {
                       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                     ),
                     child: Text(
-                      '월',
+                      '토',
                       style: TextStyle(
                         color: const Color.fromARGB(255, 61, 61, 61),
                         fontSize: screenSize.height * 0.02, // 폰트 크기 조절
                         fontFamily: 'JetBrain',
-                        fontWeight: FontWeight.w700,
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
                   ),
@@ -254,12 +254,12 @@ class _HolydaySetState extends State<HolydaySet> {
                       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                     ),
                     child: Text(
-                      '월',
+                      '일',
                       style: TextStyle(
                         color: const Color.fromARGB(255, 61, 61, 61),
                         fontSize: screenSize.height * 0.02, // 폰트 크기 조절
                         fontFamily: 'JetBrain',
-                        fontWeight: FontWeight.w700,
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
                   ),
@@ -270,12 +270,29 @@ class _HolydaySetState extends State<HolydaySet> {
                   onChanged: (value) {
                     setState(() {
                       isChecked = value;
-                      print(isChecked);
                     });
                   },
                 ),
               ],
             ),
+            SizedBox(height: screenSize.height * 0.01),
+            Row(
+              children: [
+                SizedBox(width: screenSize.width * 0.05),
+                const Text(
+                  '휴일 색상 선택',
+                  style: TextStyle(
+                    color: Color.fromARGB(255, 61, 61, 61),
+                    fontSize: 18, // 폰트 크기 조절
+                    fontFamily: 'JetBrain',
+                    fontWeight: FontWeight.w500,
+                    letterSpacing: -3,
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(width: screenSize.width * 0.05),
+            //색상 선택 버튼 부분
           ],
         ),
       ),
