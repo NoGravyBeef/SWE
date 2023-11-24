@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 /* 값 전달할땐
 void showCustomDialog() async {
@@ -28,12 +29,13 @@ class _HolydaySetState extends State<HolydaySet> {
     var screenSize = MediaQuery.of(context).size;
 
     return Dialog(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15),
+      ),
       child: Container(
-        height: screenSize.height * 0.35,
-        padding: const EdgeInsets.all(20),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-        ),
+        height: screenSize.height * 0.212,
+        padding: const EdgeInsets.fromLTRB(17, 7, 17, 7),
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(30)),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -44,21 +46,21 @@ class _HolydaySetState extends State<HolydaySet> {
                   Text(
                     '휴일 선택',
                     style: TextStyle(
-                      color: Color.fromARGB(255, 61, 61, 61),
-                      fontSize: 18, // 폰트 크기 조절
-                      fontFamily: 'JetBrain',
-                      fontWeight: FontWeight.w500,
-                      letterSpacing: -3,
+                      color: Color(0xff535353),
+                      fontSize: 17, // 폰트 크기 조절
+
+                      fontWeight: FontWeight.w600,
+                      letterSpacing: -1,
                     ),
                   ),
                   Text(
                     '휴일 선택 활성화',
                     style: TextStyle(
-                      color: Color.fromARGB(255, 61, 61, 61),
-                      fontSize: 18, // 폰트 크기 조절
-                      fontFamily: 'JetBrain',
-                      fontWeight: FontWeight.w500,
-                      letterSpacing: -3,
+                      color: Color(0xff535353),
+                      fontSize: 17, // 폰트 크기 조절
+
+                      fontWeight: FontWeight.w600,
+                      letterSpacing: -1,
                     ),
                   ),
                 ],
@@ -68,231 +70,351 @@ class _HolydaySetState extends State<HolydaySet> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                //휴일 선택 버튼 외부 꾸미기
                 Container(
-                  height: screenSize.height * 0.032,
-                  width: screenSize.height * 0.032,
+                  height: screenSize.height * 0.03,
+                  width: screenSize.height * 0.03,
                   margin: const EdgeInsets.all(2.5),
                   decoration: BoxDecoration(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.circular(5),
+                    borderRadius: BorderRadius.circular(7),
                   ),
-                  child: TextButton(
+                  //휴일 선택 버튼 내부
+                  child: ElevatedButton(
                     onPressed: () {
                       //on off 기능구현
                     },
-                    style: TextButton.styleFrom(
-                      minimumSize: Size.zero,
+                    style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.zero,
-                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      backgroundColor: const Color(0xffc4c4c4),
                     ),
-                    child: Text(
-                      '월',
-                      style: TextStyle(
-                        color: const Color.fromARGB(255, 61, 61, 61),
-                        fontSize: screenSize.height * 0.02, // 폰트 크기 조절
-                        fontFamily: 'JetBrain',
-                        fontWeight: FontWeight.w500,
+                    child: Transform.translate(
+                      offset: Offset(0, -screenSize.height * 0.001),
+                      child: Text(
+                        '월',
+                        style: TextStyle(
+                          color: const Color(0xff535353),
+                          fontSize: screenSize.height * 0.02, // 폰트 크기 조절
+                          fontFamily: "JetBrain",
+                          fontWeight: FontWeight.w700,
+                        ),
                       ),
                     ),
                   ),
                 ),
                 Container(
-                  height: screenSize.height * 0.032,
-                  width: screenSize.height * 0.032,
+                  height: screenSize.height * 0.03,
+                  width: screenSize.height * 0.03,
                   margin: const EdgeInsets.all(2.5),
                   decoration: BoxDecoration(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.circular(5),
+                    borderRadius: BorderRadius.circular(7),
                   ),
-                  child: TextButton(
+                  //휴일 선택 버튼 내부
+                  child: ElevatedButton(
                     onPressed: () {
                       //on off 기능구현
                     },
-                    style: TextButton.styleFrom(
-                      minimumSize: Size.zero,
+                    style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.zero,
-                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      backgroundColor: const Color(0xffc4c4c4),
                     ),
-                    child: Text(
-                      '화',
-                      style: TextStyle(
-                        color: const Color.fromARGB(255, 61, 61, 61),
-                        fontSize: screenSize.height * 0.02, // 폰트 크기 조절
-                        fontFamily: 'JetBrain',
-                        fontWeight: FontWeight.w500,
+                    child: Transform.translate(
+                      offset: Offset(0, -screenSize.height * 0.001),
+                      child: Text(
+                        '화',
+                        style: TextStyle(
+                          color: const Color(0xff535353),
+                          fontSize: screenSize.height * 0.02, // 폰트 크기 조절
+                          fontFamily: "JetBrain",
+                          fontWeight: FontWeight.w700,
+                        ),
                       ),
                     ),
                   ),
                 ),
                 Container(
-                  height: screenSize.height * 0.032,
-                  width: screenSize.height * 0.032,
+                  height: screenSize.height * 0.03,
+                  width: screenSize.height * 0.03,
                   margin: const EdgeInsets.all(2.5),
                   decoration: BoxDecoration(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.circular(5),
+                    borderRadius: BorderRadius.circular(7),
                   ),
-                  child: TextButton(
+                  //휴일 선택 버튼 내부
+                  child: ElevatedButton(
                     onPressed: () {
                       //on off 기능구현
                     },
-                    style: TextButton.styleFrom(
-                      minimumSize: Size.zero,
+                    style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.zero,
-                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      backgroundColor: const Color(0xffc4c4c4),
                     ),
-                    child: Text(
-                      '수',
-                      style: TextStyle(
-                        color: const Color.fromARGB(255, 61, 61, 61),
-                        fontSize: screenSize.height * 0.02, // 폰트 크기 조절
-                        fontFamily: 'JetBrain',
-                        fontWeight: FontWeight.w500,
+                    child: Transform.translate(
+                      offset: Offset(0, -screenSize.height * 0.001),
+                      child: Text(
+                        '수',
+                        style: TextStyle(
+                          color: const Color(0xff535353),
+                          fontSize: screenSize.height * 0.02, // 폰트 크기 조절
+                          fontFamily: "JetBrain",
+                          fontWeight: FontWeight.w700,
+                        ),
                       ),
                     ),
                   ),
                 ),
                 Container(
-                  height: screenSize.height * 0.032,
-                  width: screenSize.height * 0.032,
+                  height: screenSize.height * 0.03,
+                  width: screenSize.height * 0.03,
                   margin: const EdgeInsets.all(2.5),
                   decoration: BoxDecoration(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.circular(5),
+                    borderRadius: BorderRadius.circular(7),
                   ),
-                  child: TextButton(
+                  //휴일 선택 버튼 내부
+                  child: ElevatedButton(
                     onPressed: () {
                       //on off 기능구현
                     },
-                    style: TextButton.styleFrom(
-                      minimumSize: Size.zero,
+                    style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.zero,
-                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      backgroundColor: const Color(0xffc4c4c4),
                     ),
-                    child: Text(
-                      '목',
-                      style: TextStyle(
-                        color: const Color.fromARGB(255, 61, 61, 61),
-                        fontSize: screenSize.height * 0.02, // 폰트 크기 조절
-                        fontFamily: 'JetBrain',
-                        fontWeight: FontWeight.w500,
+                    child: Transform.translate(
+                      offset: Offset(0, -screenSize.height * 0.001),
+                      child: Text(
+                        '목',
+                        style: TextStyle(
+                          color: const Color(0xff535353),
+                          fontSize: screenSize.height * 0.02, // 폰트 크기 조절
+                          fontFamily: "JetBrain",
+                          fontWeight: FontWeight.w700,
+                        ),
                       ),
                     ),
                   ),
                 ),
                 Container(
-                  height: screenSize.height * 0.032,
-                  width: screenSize.height * 0.032,
+                  height: screenSize.height * 0.03,
+                  width: screenSize.height * 0.03,
                   margin: const EdgeInsets.all(2.5),
                   decoration: BoxDecoration(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.circular(5),
+                    borderRadius: BorderRadius.circular(7),
                   ),
-                  child: TextButton(
+                  //휴일 선택 버튼 내부
+                  child: ElevatedButton(
                     onPressed: () {
                       //on off 기능구현
                     },
-                    style: TextButton.styleFrom(
-                      minimumSize: Size.zero,
+                    style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.zero,
-                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      backgroundColor: const Color(0xffc4c4c4),
                     ),
-                    child: Text(
-                      '금',
-                      style: TextStyle(
-                        color: const Color.fromARGB(255, 61, 61, 61),
-                        fontSize: screenSize.height * 0.02, // 폰트 크기 조절
-                        fontFamily: 'JetBrain',
-                        fontWeight: FontWeight.w500,
+                    child: Transform.translate(
+                      offset: Offset(0, -screenSize.height * 0.001),
+                      child: Text(
+                        '금',
+                        style: TextStyle(
+                          color: const Color(0xff535353),
+                          fontSize: screenSize.height * 0.02, // 폰트 크기 조절
+                          fontFamily: "JetBrain",
+                          fontWeight: FontWeight.w700,
+                        ),
                       ),
                     ),
                   ),
                 ),
                 Container(
-                  height: screenSize.height * 0.032,
-                  width: screenSize.height * 0.032,
+                  height: screenSize.height * 0.03,
+                  width: screenSize.height * 0.03,
                   margin: const EdgeInsets.all(2.5),
                   decoration: BoxDecoration(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.circular(5),
+                    borderRadius: BorderRadius.circular(7),
                   ),
-                  child: TextButton(
+                  //휴일 선택 버튼 내부
+                  child: ElevatedButton(
                     onPressed: () {
                       //on off 기능구현
                     },
-                    style: TextButton.styleFrom(
-                      minimumSize: Size.zero,
+                    style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.zero,
-                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      backgroundColor: const Color(0xffc4c4c4),
                     ),
-                    child: Text(
-                      '토',
-                      style: TextStyle(
-                        color: const Color.fromARGB(255, 61, 61, 61),
-                        fontSize: screenSize.height * 0.02, // 폰트 크기 조절
-                        fontFamily: 'JetBrain',
-                        fontWeight: FontWeight.w500,
+                    child: Transform.translate(
+                      offset: Offset(0, -screenSize.height * 0.001),
+                      child: Text(
+                        '토',
+                        style: TextStyle(
+                          color: const Color(0xff535353),
+                          fontSize: screenSize.height * 0.02, // 폰트 크기 조절
+                          fontFamily: "JetBrain",
+                          fontWeight: FontWeight.w700,
+                        ),
                       ),
                     ),
                   ),
                 ),
                 Container(
-                  height: screenSize.height * 0.032,
-                  width: screenSize.height * 0.032,
+                  height: screenSize.height * 0.03,
+                  width: screenSize.height * 0.03,
                   margin: const EdgeInsets.all(2.5),
                   decoration: BoxDecoration(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.circular(5),
+                    borderRadius: BorderRadius.circular(7),
                   ),
-                  child: TextButton(
+                  //휴일 선택 버튼 내부
+                  child: ElevatedButton(
                     onPressed: () {
                       //on off 기능구현
                     },
-                    style: TextButton.styleFrom(
-                      minimumSize: Size.zero,
+                    style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.zero,
-                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      backgroundColor: const Color(0xffc4c4c4),
                     ),
-                    child: Text(
-                      '일',
-                      style: TextStyle(
-                        color: const Color.fromARGB(255, 61, 61, 61),
-                        fontSize: screenSize.height * 0.02, // 폰트 크기 조절
-                        fontFamily: 'JetBrain',
-                        fontWeight: FontWeight.w500,
+                    child: Transform.translate(
+                      offset: Offset(0, -screenSize.height * 0.001),
+                      child: Text(
+                        '일',
+                        style: TextStyle(
+                          color: const Color(0xff535353),
+                          fontSize: screenSize.height * 0.02, // 폰트 크기 조절
+                          fontFamily: "JetBrain",
+                          fontWeight: FontWeight.w700,
+                        ),
                       ),
                     ),
                   ),
                 ),
-                // 휴일 선택 활성화 on off 부분
-                Switch(
-                  value: isChecked,
-                  onChanged: (value) {
-                    setState(() {
-                      isChecked = value;
-                    });
-                  },
+                // 휴일 선택 활성화 on off 버튼
+                Transform.scale(
+                  scale: 0.87,
+                  child: CupertinoSwitch(
+                    value: isChecked,
+                    activeColor: Colors.grey,
+                    onChanged: (value) {
+                      setState(() {
+                        isChecked = value;
+                      });
+                    },
+                  ),
                 ),
               ],
             ),
-            SizedBox(height: screenSize.height * 0.01),
+            SizedBox(height: screenSize.height * 0.02),
             Row(
               children: [
-                SizedBox(width: screenSize.width * 0.05),
-                const Text(
+                SizedBox(width: screenSize.width * 0.01),
+                Text(
                   '휴일 색상 선택',
                   style: TextStyle(
-                    color: Color.fromARGB(255, 61, 61, 61),
-                    fontSize: 18, // 폰트 크기 조절
-                    fontFamily: 'JetBrain',
-                    fontWeight: FontWeight.w500,
-                    letterSpacing: -3,
+                    color: const Color(0xff535353),
+                    fontSize: screenSize.height * 0.02, // 폰트 크기 조절
+                    fontWeight: FontWeight.w600,
+                    letterSpacing: -1,
                   ),
                 ),
               ],
             ),
-            SizedBox(width: screenSize.width * 0.05),
-            //색상 선택 버튼 부분
+            SizedBox(height: screenSize.height * 0.004),
+            //색상 선택 버튼 바깥 꾸미기
+            Container(
+              width: screenSize.width * 0.7,
+              height: screenSize.height * 0.06,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(15),
+                boxShadow: const [
+                  BoxShadow(
+                    color: Colors.grey,
+                    blurRadius: 2,
+                    offset: Offset(0, 5),
+                  ),
+                ],
+              ),
+              //
+              //휴일 색상 버튼 부분
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    height: screenSize.height * 0.035,
+                    width: screenSize.height * 0.035,
+                    margin: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+                    //버튼 부분
+                    child: TextButton(
+                      onPressed: () {
+                        //on off 기능구현
+                      },
+                      style: TextButton.styleFrom(
+                        shape: const CircleBorder(),
+                        backgroundColor: const Color(0xff7D7D7D),
+                      ),
+                      child: const Text(''),
+                    ),
+                  ),
+                  Container(
+                    height: screenSize.height * 0.035,
+                    width: screenSize.height * 0.035,
+                    margin: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+                    //버튼 부분
+                    child: TextButton(
+                      onPressed: () {
+                        //on off 기능구현
+                      },
+                      style: TextButton.styleFrom(
+                        shape: const CircleBorder(),
+                        backgroundColor: const Color(0xffFD9494),
+                      ),
+                      child: const Text(''),
+                    ),
+                  ),
+                  Container(
+                    height: screenSize.height * 0.035,
+                    width: screenSize.height * 0.035,
+                    margin: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+                    //버튼 부분
+                    child: TextButton(
+                      onPressed: () {
+                        //on off 기능구현
+                      },
+                      style: TextButton.styleFrom(
+                        shape: const CircleBorder(),
+                        backgroundColor: const Color(0xffACACFF),
+                      ),
+                      child: const Text(''),
+                    ),
+                  ),
+                  Container(
+                    height: screenSize.height * 0.035,
+                    width: screenSize.height * 0.035,
+                    margin: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+                    //버튼 부분
+                    child: TextButton(
+                      onPressed: () {
+                        //on off 기능구현
+                      },
+                      style: TextButton.styleFrom(
+                        shape: const CircleBorder(),
+                        backgroundColor: const Color(0xff8DF994),
+                      ),
+                      child: const Text(''),
+                    ),
+                  ),
+                  Container(
+                    height: screenSize.height * 0.035,
+                    width: screenSize.height * 0.035,
+                    margin: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+                    //버튼 부분
+                    child: TextButton(
+                      onPressed: () {
+                        //on off 기능구현
+                      },
+                      style: TextButton.styleFrom(
+                        shape: const CircleBorder(),
+                        backgroundColor: const Color(0xffE1E1E1),
+                      ),
+                      child: const Text(''),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),

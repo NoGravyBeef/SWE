@@ -197,49 +197,43 @@ class _UserSearchScreenState extends State<UserSearchScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               // 사용자 이름 표시
-                              Text(
-                                users[index].name,
-                                style: const TextStyle(
-                                    fontSize: 16,
-                                    fontFamily: 'JetBrain',
-                                    fontWeight: FontWeight.w700),
+                              Container(
+                                padding: const EdgeInsets.all(5),
+                                child: Text(
+                                  users[index].name,
+                                  style: const TextStyle(
+                                      fontSize: 16,
+                                      fontFamily: 'JetBrain',
+                                      fontWeight: FontWeight.w700),
+                                ),
                               ),
                               // 친구 추가 버튼
-                              Container(
-                                padding: EdgeInsets.fromLTRB(
-                                    0,
-                                    screenSize.height * 0.005,
-                                    0,
-                                    screenSize.height * 0.005),
-                                decoration: BoxDecoration(
-                                  color: const Color(0xffd1d1ea),
-                                  borderRadius: BorderRadius.circular(25),
-                                ),
-                                child: TextButton(
+                              SizedBox(
+                                height: screenSize.height * 0.038,
+                                width: screenSize.width * 0.17,
+                                child: ElevatedButton(
                                   onPressed: () {
-                                    showDialog(
-                                        context: context,
-                                        builder: (BuildContext context) {
-                                          return const HolydaySet();
-                                        });
                                     // 친구 추가 로직
                                   },
-                                  style: TextButton.styleFrom(
-                                      padding: const EdgeInsets.all(7),
-                                      minimumSize: Size(
-                                          screenSize.width * 0.4,
-                                          screenSize.height *
-                                              0.01), // 버튼 최소 사이즈 조절 (가로, 세로)
-                                      tapTargetSize: MaterialTapTargetSize
-                                          .shrinkWrap // 버튼 영역 최소화
+                                  style: ButtonStyle(
+                                    padding: MaterialStateProperty.all(
+                                        EdgeInsets.zero),
+                                    backgroundColor: MaterialStateProperty.all(
+                                        const Color(0xffd1d1ea)),
+                                    shape: MaterialStateProperty.all(
+                                      RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(18.0),
                                       ),
+                                    ),
+                                  ),
                                   child: const Text(
                                     '친구추가',
                                     style: TextStyle(
                                       fontSize: 12,
                                       fontFamily: 'JetBrain',
                                       fontWeight: FontWeight.w700,
-                                      letterSpacing: 1.5,
+                                      letterSpacing: 1,
                                       color: Colors.white,
                                     ),
                                   ),

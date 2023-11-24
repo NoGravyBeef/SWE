@@ -98,7 +98,7 @@ class _FriendRequestScreenState extends State<FriendRequestScreen> {
                                 border:
                                     Border.all(color: Colors.black12, width: 3),
                               ),
-                              padding: const EdgeInsets.fromLTRB(8, 16, 8, 16),
+                              padding: const EdgeInsets.fromLTRB(4, 16, 4, 16),
                               child: ShaderMask(
                                 shaderCallback: (Rect bounds) {
                                   return LinearGradient(
@@ -125,7 +125,8 @@ class _FriendRequestScreenState extends State<FriendRequestScreen> {
                                           width: screenSize.width * 0.23,
                                           margin: EdgeInsets.symmetric(
                                             vertical: screenSize.height * 0.014,
-                                            horizontal: screenSize.width * 0.01,
+                                            horizontal:
+                                                screenSize.width * 0.005,
                                           ),
                                           padding: EdgeInsets.symmetric(
                                             horizontal:
@@ -155,49 +156,35 @@ class _FriendRequestScreenState extends State<FriendRequestScreen> {
                                           ),
                                         ),
                                         //취소버튼 부분
-                                        Container(
-                                          width: screenSize.width * 0.13,
-                                          margin: EdgeInsets.symmetric(
-                                            vertical: screenSize.height * 0.014,
-                                          ),
-                                          padding: EdgeInsets.symmetric(
-                                            vertical: screenSize.height * 0.008,
-                                          ),
-                                          decoration: BoxDecoration(
-                                            color: const Color(0xffd1d1ea),
-                                            borderRadius:
-                                                BorderRadius.circular(25),
-                                            boxShadow: [
-                                              BoxShadow(
-                                                color: Colors.grey
-                                                    .withOpacity(0.7),
-                                                spreadRadius: 1,
-                                                blurRadius: 4,
-                                                offset: const Offset(0, 3),
-                                              ),
-                                            ],
-                                          ),
-                                          child: TextButton(
-                                            //버튼 기능
-                                            onPressed: () {},
-                                            style: TextButton.styleFrom(
-                                                padding:
-                                                    const EdgeInsets.all(7),
-                                                minimumSize: Size(
-                                                    screenSize.width * 0.14,
-                                                    screenSize.height *
-                                                        0.02), // 버튼 최소 사이즈 조절 (가로, 세로)
-                                                tapTargetSize:
-                                                    MaterialTapTargetSize
-                                                        .shrinkWrap // 버튼 영역 최소화
+                                        SizedBox(
+                                          width: screenSize.width * 0.12,
+                                          height: screenSize.height * 0.03,
+                                          child: ElevatedButton(
+                                            onPressed: () {
+                                              // 취소 로직
+                                            },
+                                            style: ButtonStyle(
+                                              padding:
+                                                  MaterialStateProperty.all(
+                                                      EdgeInsets.zero),
+                                              backgroundColor:
+                                                  MaterialStateProperty.all(
+                                                      const Color(0xffd1d1ea)),
+                                              shape: MaterialStateProperty.all(
+                                                RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          18.0),
                                                 ),
+                                              ),
+                                            ),
                                             child: const Text(
                                               '취소',
                                               style: TextStyle(
-                                                fontSize: 10,
+                                                fontSize: 12,
                                                 fontFamily: 'JetBrain',
                                                 fontWeight: FontWeight.w700,
-                                                letterSpacing: 3,
+                                                letterSpacing: 1,
                                                 color: Colors.white,
                                               ),
                                             ),
@@ -270,7 +257,7 @@ class _FriendRequestScreenState extends State<FriendRequestScreen> {
                                       children: [
                                         //유저이름 표시부분
                                         Container(
-                                          width: screenSize.width * 0.19,
+                                          width: screenSize.width * 0.23,
                                           margin: EdgeInsets.symmetric(
                                             vertical: screenSize.height * 0.014,
                                             horizontal:
@@ -304,100 +291,68 @@ class _FriendRequestScreenState extends State<FriendRequestScreen> {
                                           ),
                                         ),
                                         //친구신청 수락버튼
-                                        Container(
-                                          width: screenSize.width * 0.085,
-                                          margin: EdgeInsets.symmetric(
-                                            vertical: screenSize.height * 0.014,
-                                            horizontal:
-                                                screenSize.width * 0.005,
-                                          ),
-                                          padding: EdgeInsets.symmetric(
-                                            vertical: screenSize.height * 0.008,
-                                          ),
-                                          decoration: BoxDecoration(
-                                            color: const Color(0xffd1d1ea),
-                                            borderRadius:
-                                                BorderRadius.circular(25),
-                                            boxShadow: [
-                                              BoxShadow(
-                                                color: Colors.grey
-                                                    .withOpacity(0.7),
-                                                spreadRadius: 1,
-                                                blurRadius: 4,
-                                                offset: const Offset(0, 3),
-                                              ),
-                                            ],
-                                          ),
-                                          child: TextButton(
-                                            onPressed: () {},
-                                            style: TextButton.styleFrom(
-                                                padding:
-                                                    const EdgeInsets.all(7),
-                                                minimumSize: Size(
-                                                    screenSize.width * 0.07,
-                                                    screenSize.height *
-                                                        0.01), // 버튼 최소 사이즈 조절 (가로, 세로)
-                                                tapTargetSize:
-                                                    MaterialTapTargetSize
-                                                        .shrinkWrap // 버튼 영역 최소화
+                                        SizedBox(
+                                          width: screenSize.width * 0.08,
+                                          height: screenSize.height * 0.033,
+                                          child: ElevatedButton(
+                                            onPressed: () {
+                                              // 취소 로직
+                                            },
+                                            style: ButtonStyle(
+                                              padding:
+                                                  MaterialStateProperty.all(
+                                                      EdgeInsets.zero),
+                                              backgroundColor:
+                                                  MaterialStateProperty.all(
+                                                      const Color(0xffd1d1ea)),
+                                              shape: MaterialStateProperty.all(
+                                                RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(16),
                                                 ),
+                                              ),
+                                            ),
                                             child: const Text(
                                               '수락',
                                               style: TextStyle(
-                                                fontSize: 10,
+                                                fontSize: 11,
                                                 fontFamily: 'JetBrain',
                                                 fontWeight: FontWeight.w700,
-                                                letterSpacing: 1.5,
+                                                letterSpacing: 1,
                                                 color: Colors.white,
                                               ),
                                             ),
                                           ),
                                         ),
                                         //친구신청 거절버튼
-                                        Container(
-                                          width: screenSize.width * 0.085,
-                                          margin: EdgeInsets.symmetric(
-                                            vertical: screenSize.height * 0.014,
-                                            horizontal:
-                                                screenSize.width * 0.005,
-                                          ),
-                                          padding: EdgeInsets.symmetric(
-                                            vertical: screenSize.height * 0.008,
-                                          ),
-                                          decoration: BoxDecoration(
-                                            color: const Color(0xffd1d1ea),
-                                            borderRadius:
-                                                BorderRadius.circular(25),
-                                            boxShadow: [
-                                              BoxShadow(
-                                                color: Colors.grey
-                                                    .withOpacity(0.7),
-                                                spreadRadius: 1,
-                                                blurRadius: 4,
-                                                offset: const Offset(0, 3),
-                                              ),
-                                            ],
-                                          ),
-                                          child: TextButton(
-                                            onPressed: () {},
-                                            style: TextButton.styleFrom(
-                                                padding:
-                                                    const EdgeInsets.all(7),
-                                                minimumSize: Size(
-                                                    screenSize.width * 0.07,
-                                                    screenSize.height *
-                                                        0.01), // 버튼 최소 사이즈 조절 (가로, 세로)
-                                                tapTargetSize:
-                                                    MaterialTapTargetSize
-                                                        .shrinkWrap // 버튼 영역 최소화
+                                        SizedBox(
+                                          width: screenSize.width * 0.08,
+                                          height: screenSize.height * 0.033,
+                                          child: ElevatedButton(
+                                            onPressed: () {
+                                              // 취소 로직
+                                            },
+                                            style: ButtonStyle(
+                                              padding:
+                                                  MaterialStateProperty.all(
+                                                      EdgeInsets.zero),
+                                              backgroundColor:
+                                                  MaterialStateProperty.all(
+                                                      const Color(0xffd1d1ea)),
+                                              shape: MaterialStateProperty.all(
+                                                RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(16),
                                                 ),
+                                              ),
+                                            ),
                                             child: const Text(
                                               '거절',
                                               style: TextStyle(
-                                                fontSize: 10,
+                                                fontSize: 11,
                                                 fontFamily: 'JetBrain',
                                                 fontWeight: FontWeight.w700,
-                                                letterSpacing: 1.5,
+                                                letterSpacing: 1,
                                                 color: Colors.white,
                                               ),
                                             ),
