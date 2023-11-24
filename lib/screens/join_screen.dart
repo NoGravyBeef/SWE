@@ -187,9 +187,7 @@ class _JoinScreenState extends State<JoinScreen> {
                     width: screenSize.width * 0.8,
                     height: screenSize.height * 0.065,
                     child: ElevatedButton(
-                      onPressed: () {
-                        // 취소 로직
-                      },
+                      onPressed: () {},
                       style: ButtonStyle(
                         padding: MaterialStateProperty.all(EdgeInsets.zero),
                         backgroundColor:
@@ -225,9 +223,7 @@ class _JoinScreenState extends State<JoinScreen> {
                     width: screenSize.width * 0.7,
                     height: screenSize.height * 0.055,
                     child: ElevatedButton(
-                      onPressed: () {
-                        // 취소 로직
-                      },
+                      onPressed: () {},
                       style: ButtonStyle(
                         padding: MaterialStateProperty.all(EdgeInsets.zero),
                         backgroundColor:

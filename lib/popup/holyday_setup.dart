@@ -75,17 +75,20 @@ class _HolydaySetState extends State<HolydaySet> {
                   height: screenSize.height * 0.03,
                   width: screenSize.height * 0.03,
                   margin: const EdgeInsets.all(2.5),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(7),
-                  ),
                   //휴일 선택 버튼 내부
                   child: ElevatedButton(
                     onPressed: () {
                       //on off 기능구현
                     },
-                    style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                      backgroundColor: const Color(0xffc4c4c4),
+                    style: ButtonStyle(
+                      padding: MaterialStateProperty.all(EdgeInsets.zero),
+                      backgroundColor:
+                          MaterialStateProperty.all(const Color(0xffc4c4c4)),
+                      shape: MaterialStateProperty.all(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(6),
+                        ),
+                      ),
                     ),
                     child: Transform.translate(
                       offset: Offset(0, -screenSize.height * 0.001),
@@ -105,17 +108,20 @@ class _HolydaySetState extends State<HolydaySet> {
                   height: screenSize.height * 0.03,
                   width: screenSize.height * 0.03,
                   margin: const EdgeInsets.all(2.5),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(7),
-                  ),
                   //휴일 선택 버튼 내부
                   child: ElevatedButton(
                     onPressed: () {
                       //on off 기능구현
                     },
-                    style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                      backgroundColor: const Color(0xffc4c4c4),
+                    style: ButtonStyle(
+                      padding: MaterialStateProperty.all(EdgeInsets.zero),
+                      backgroundColor:
+                          MaterialStateProperty.all(const Color(0xffc4c4c4)),
+                      shape: MaterialStateProperty.all(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(6),
+                        ),
+                      ),
                     ),
                     child: Transform.translate(
                       offset: Offset(0, -screenSize.height * 0.001),
@@ -135,17 +141,20 @@ class _HolydaySetState extends State<HolydaySet> {
                   height: screenSize.height * 0.03,
                   width: screenSize.height * 0.03,
                   margin: const EdgeInsets.all(2.5),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(7),
-                  ),
                   //휴일 선택 버튼 내부
                   child: ElevatedButton(
                     onPressed: () {
                       //on off 기능구현
                     },
-                    style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                      backgroundColor: const Color(0xffc4c4c4),
+                    style: ButtonStyle(
+                      padding: MaterialStateProperty.all(EdgeInsets.zero),
+                      backgroundColor:
+                          MaterialStateProperty.all(const Color(0xffc4c4c4)),
+                      shape: MaterialStateProperty.all(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(6),
+                        ),
+                      ),
                     ),
                     child: Transform.translate(
                       offset: Offset(0, -screenSize.height * 0.001),
@@ -165,17 +174,20 @@ class _HolydaySetState extends State<HolydaySet> {
                   height: screenSize.height * 0.03,
                   width: screenSize.height * 0.03,
                   margin: const EdgeInsets.all(2.5),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(7),
-                  ),
                   //휴일 선택 버튼 내부
                   child: ElevatedButton(
                     onPressed: () {
                       //on off 기능구현
                     },
-                    style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                      backgroundColor: const Color(0xffc4c4c4),
+                    style: ButtonStyle(
+                      padding: MaterialStateProperty.all(EdgeInsets.zero),
+                      backgroundColor:
+                          MaterialStateProperty.all(const Color(0xffc4c4c4)),
+                      shape: MaterialStateProperty.all(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(6),
+                        ),
+                      ),
                     ),
                     child: Transform.translate(
                       offset: Offset(0, -screenSize.height * 0.001),
@@ -195,17 +207,20 @@ class _HolydaySetState extends State<HolydaySet> {
                   height: screenSize.height * 0.03,
                   width: screenSize.height * 0.03,
                   margin: const EdgeInsets.all(2.5),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(7),
-                  ),
                   //휴일 선택 버튼 내부
                   child: ElevatedButton(
                     onPressed: () {
                       //on off 기능구현
                     },
-                    style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                      backgroundColor: const Color(0xffc4c4c4),
+                    style: ButtonStyle(
+                      padding: MaterialStateProperty.all(EdgeInsets.zero),
+                      backgroundColor:
+                          MaterialStateProperty.all(const Color(0xffc4c4c4)),
+                      shape: MaterialStateProperty.all(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(6),
+                        ),
+                      ),
                     ),
                     child: Transform.translate(
                       offset: Offset(0, -screenSize.height * 0.001),
@@ -225,17 +240,20 @@ class _HolydaySetState extends State<HolydaySet> {
                   height: screenSize.height * 0.03,
                   width: screenSize.height * 0.03,
                   margin: const EdgeInsets.all(2.5),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(7),
-                  ),
                   //휴일 선택 버튼 내부
                   child: ElevatedButton(
                     onPressed: () {
                       //on off 기능구현
                     },
-                    style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                      backgroundColor: const Color(0xffc4c4c4),
+                    style: ButtonStyle(
+                      padding: MaterialStateProperty.all(EdgeInsets.zero),
+                      backgroundColor:
+                          MaterialStateProperty.all(const Color(0xffc4c4c4)),
+                      shape: MaterialStateProperty.all(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(6),
+                        ),
+                      ),
                     ),
                     child: Transform.translate(
                       offset: Offset(0, -screenSize.height * 0.001),
@@ -255,17 +273,20 @@ class _HolydaySetState extends State<HolydaySet> {
                   height: screenSize.height * 0.03,
                   width: screenSize.height * 0.03,
                   margin: const EdgeInsets.all(2.5),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(7),
-                  ),
                   //휴일 선택 버튼 내부
                   child: ElevatedButton(
                     onPressed: () {
                       //on off 기능구현
                     },
-                    style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                      backgroundColor: const Color(0xffc4c4c4),
+                    style: ButtonStyle(
+                      padding: MaterialStateProperty.all(EdgeInsets.zero),
+                      backgroundColor:
+                          MaterialStateProperty.all(const Color(0xffc4c4c4)),
+                      shape: MaterialStateProperty.all(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(6),
+                        ),
+                      ),
                     ),
                     child: Transform.translate(
                       offset: Offset(0, -screenSize.height * 0.001),
@@ -281,6 +302,7 @@ class _HolydaySetState extends State<HolydaySet> {
                     ),
                   ),
                 ),
+
                 // 휴일 선택 활성화 on off 버튼
                 Transform.scale(
                   scale: 0.87,
