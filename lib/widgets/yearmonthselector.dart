@@ -12,6 +12,7 @@ class YearMonthSelector extends StatefulWidget {
 }
 
 class _YearMonthSelectorState extends State<YearMonthSelector> {
+  //년월 선택
   int? selectedYear;
   int? selectedMonth;
   final List<int> years = List.generate(100, (index) => 1950 + index);
