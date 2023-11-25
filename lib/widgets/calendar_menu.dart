@@ -1,4 +1,4 @@
-import 'package:calendor_project/screens/settings.dart';
+import 'package:calendar/screens/settings.dart';
 import 'package:flutter/material.dart';
 
 class calander_menu extends StatefulWidget {

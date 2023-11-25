@@ -1,27 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:memo/widgets/Dday_checkbox.dart';
-import 'package:memo/widgets/Headline.dart';
-import 'package:memo/widgets/Memomain.dart';
-import 'package:memo/screens/Todolist.dart';
+import 'package:calendar/widgets/Dday_checkbox.dart';
+import 'package:calendar/widgets/Headline.dart';
+import 'package:calendar/widgets/Memomain.dart';
+import 'package:calendar/screens/Todolist.dart';
 
 class Memo_Page extends StatefulWidget {
   const Memo_Page({super.key});
 
+  @override
   State<Memo_Page> createState() => MemoPage();
 }
 
 class MemoPage extends State<Memo_Page> {
-  TextEditingController _headlineController = TextEditingController();
+  final TextEditingController _headlineController = TextEditingController();
 
-  TextEditingController _memoController1 = TextEditingController();
-  TextEditingController _memoController2 = TextEditingController();
-  TextEditingController _memoController3 = TextEditingController();
-  TextEditingController _memoController4 = TextEditingController();
-  TextEditingController _memoController5 = TextEditingController();
-  TextEditingController _memoController6 = TextEditingController();
-  TextEditingController _memoController7 = TextEditingController();
-  TextEditingController _memoController8 = TextEditingController();
-  TextEditingController _memoController9 = TextEditingController();
+  final TextEditingController _memoController1 = TextEditingController();
+  final TextEditingController _memoController2 = TextEditingController();
+  final TextEditingController _memoController3 = TextEditingController();
+  final TextEditingController _memoController4 = TextEditingController();
+  final TextEditingController _memoController5 = TextEditingController();
+  final TextEditingController _memoController6 = TextEditingController();
+  final TextEditingController _memoController7 = TextEditingController();
+  final TextEditingController _memoController8 = TextEditingController();
+  final TextEditingController _memoController9 = TextEditingController();
 
   bool _isMemoChecked1 = false;
   bool _isMemoChecked2 = false;
@@ -45,7 +46,7 @@ class MemoPage extends State<Memo_Page> {
   String _memoValue8 = '';
   String _memoValue9 = '';
 
-  bool _showError1 = false;
+  final bool _showError1 = false;
   final int _memoValueMax = 20;
 
   @override
@@ -53,7 +54,7 @@ class MemoPage extends State<Memo_Page> {
     var screenSize = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: Color(0xFFFFF3D9),
+      backgroundColor: const Color(0xFFFFF3D9),
       //메모장 자체 배경색상 변경-값 넘기기
       body: SingleChildScrollView(
         child: Column(
@@ -108,7 +109,7 @@ class MemoPage extends State<Memo_Page> {
             SizedBox(width: MediaQuery.of(context).size.width * 0.01),
             Padding(
               //1
-              padding: EdgeInsets.fromLTRB(20, 0, 15, 0),
+              padding: const EdgeInsets.fromLTRB(20, 0, 15, 0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -132,7 +133,7 @@ class MemoPage extends State<Memo_Page> {
 
             Padding(
               //2
-              padding: EdgeInsets.fromLTRB(20, 0, 15, 0),
+              padding: const EdgeInsets.fromLTRB(20, 0, 15, 0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -157,12 +158,12 @@ class MemoPage extends State<Memo_Page> {
             //3
             Padding(
               //3
-              padding: EdgeInsets.fromLTRB(20, 0, 15, 0),
+              padding: const EdgeInsets.fromLTRB(20, 0, 15, 0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Memomain(memoController: _memoController3),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   DDayCheckbox(
                     initialValue: _isMemoChecked3,
                     onChanged: (value) {
@@ -181,12 +182,12 @@ class MemoPage extends State<Memo_Page> {
             //4
             Padding(
               //2
-              padding: EdgeInsets.fromLTRB(20, 0, 15, 0),
+              padding: const EdgeInsets.fromLTRB(20, 0, 15, 0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Memomain(memoController: _memoController4),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   DDayCheckbox(
                     initialValue: _isMemoChecked4,
                     onChanged: (value) {
@@ -205,12 +206,12 @@ class MemoPage extends State<Memo_Page> {
             //5
             Padding(
               //2
-              padding: EdgeInsets.fromLTRB(20, 0, 15, 0),
+              padding: const EdgeInsets.fromLTRB(20, 0, 15, 0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Memomain(memoController: _memoController5),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   DDayCheckbox(
                     initialValue: _isMemoChecked5,
                     onChanged: (value) {
@@ -229,12 +230,12 @@ class MemoPage extends State<Memo_Page> {
             //6
             Padding(
               //2
-              padding: EdgeInsets.fromLTRB(20, 0, 15, 0),
+              padding: const EdgeInsets.fromLTRB(20, 0, 15, 0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Memomain(memoController: _memoController6),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   DDayCheckbox(
                     initialValue: _isMemoChecked6,
                     onChanged: (value) {
@@ -253,12 +254,12 @@ class MemoPage extends State<Memo_Page> {
             //7
             Padding(
               //2
-              padding: EdgeInsets.fromLTRB(20, 0, 15, 0),
+              padding: const EdgeInsets.fromLTRB(20, 0, 15, 0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Memomain(memoController: _memoController7),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   DDayCheckbox(
                     initialValue: _isMemoChecked7,
                     onChanged: (value) {
@@ -277,12 +278,12 @@ class MemoPage extends State<Memo_Page> {
             //8
             Padding(
               //2
-              padding: EdgeInsets.fromLTRB(20, 0, 15, 0),
+              padding: const EdgeInsets.fromLTRB(20, 0, 15, 0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Memomain(memoController: _memoController8),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   DDayCheckbox(
                     initialValue: _isMemoChecked8,
                     onChanged: (value) {
@@ -300,12 +301,12 @@ class MemoPage extends State<Memo_Page> {
             ),
             //9
             Padding(
-              padding: EdgeInsets.fromLTRB(20, 0, 15, 0),
+              padding: const EdgeInsets.fromLTRB(20, 0, 15, 0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Memomain(memoController: _memoController9),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   DDayCheckbox(
                     initialValue: _isMemoChecked9,
                     onChanged: (value) {
@@ -321,7 +322,7 @@ class MemoPage extends State<Memo_Page> {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 Container(
                   child: IconButton(
                     icon: Icon(Icons.text_fields,
@@ -329,7 +330,7 @@ class MemoPage extends State<Memo_Page> {
                     onPressed: () {},
                   ),
                 ),
-                SizedBox(width: 8.0),
+                const SizedBox(width: 8.0),
                 Container(
                   child: IconButton(
                     icon: Icon(Icons.text_format_outlined,
@@ -337,7 +338,7 @@ class MemoPage extends State<Memo_Page> {
                     onPressed: () {},
                   ),
                 ),
-                SizedBox(width: 8.0),
+                const SizedBox(width: 8.0),
                 Container(
                   child: IconButton(
                     icon: Icon(Icons.color_lens,
@@ -345,7 +346,7 @@ class MemoPage extends State<Memo_Page> {
                     onPressed: () {},
                   ),
                 ),
-                SizedBox(width: 8.0),
+                const SizedBox(width: 8.0),
                 Container(
                   child: IconButton(
                     icon: Icon(Icons.format_color_fill_outlined,

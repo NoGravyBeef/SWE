@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:seproject/widgets/list_elements.dart';
+import 'package:calendar/widgets/list_elements.dart';
 
 class Friends_list extends StatefulWidget {
   const Friends_list({super.key});

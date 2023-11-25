@@ -1,5 +1,5 @@
-import 'package:calendor_project/widgets/calander_start_days.dart';
-import 'package:calendor_project/widgets/fixdays.dart';
+import 'package:calendar/widgets/calander_start_days.dart';
+import 'package:calendar/widgets/fixdays.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

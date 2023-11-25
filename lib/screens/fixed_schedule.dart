@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:seproject/widgets/fixedschedule_row.dart';
+import 'package:calendar/widgets/fixedschedule_row.dart';
 
 class Fixed_Schedules extends StatefulWidget {
   const Fixed_Schedules({super.key});

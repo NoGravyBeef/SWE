@@ -1,5 +1,5 @@
-import 'package:calendor_project/widgets/calendar_menu.dart';
-import 'package:calendor_project/screens/settings.dart';
+import 'package:calendar/widgets/calendar_menu.dart';
+import 'package:calendar/screens/settings.dart';
 import 'package:flutter/material.dart';
 
 class test extends StatefulWidget {

@@ -1,4 +1,4 @@
-import 'package:calendor_project/widgets/fixdays_days.dart';
+import 'package:calendar/widgets/fixdays_days.dart';
 import 'package:flutter/material.dart';
 
 class fixdays extends StatefulWidget {
