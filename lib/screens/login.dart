@@ -23,7 +23,7 @@ class _LoginPageState extends State<LoginPage> {
         children: <Widget>[
           // 배경 이미지
           Image.asset(
-            'assets/image1.jpg', // 배경 이미지 경로
+            'assets/image1.jpg', // 배경 이미지 경로.
             fit: BoxFit.cover, // 배경 꽉 채우기
             width: double.infinity,
             height: double.infinity,
