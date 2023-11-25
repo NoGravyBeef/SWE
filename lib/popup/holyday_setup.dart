@@ -33,21 +33,21 @@ class _HolydaySetState extends State<HolydaySet> {
         borderRadius: BorderRadius.circular(15),
       ),
       child: Container(
-        height: screenSize.height * 0.212,
+        height: screenSize.height * 0.23,
         padding: const EdgeInsets.fromLTRB(17, 7, 17, 7),
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(30)),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const SizedBox(
+            SizedBox(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     '휴일 선택',
                     style: TextStyle(
-                      color: Color(0xff535353),
-                      fontSize: 17, // 폰트 크기 조절
+                      color: const Color(0xff535353),
+                      fontSize: screenSize.height * 0.02, // 폰트 크기 조절
 
                       fontWeight: FontWeight.w600,
                       letterSpacing: -1,
@@ -56,8 +56,8 @@ class _HolydaySetState extends State<HolydaySet> {
                   Text(
                     '휴일 선택 활성화',
                     style: TextStyle(
-                      color: Color(0xff535353),
-                      fontSize: 17, // 폰트 크기 조절
+                      color: const Color(0xff535353),
+                      fontSize: screenSize.height * 0.02, // 폰트 크기 조절
 
                       fontWeight: FontWeight.w600,
                       letterSpacing: -1,
