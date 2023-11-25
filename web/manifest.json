@@ -1,6 +1,6 @@
 {
-    "name": "calendar",
-    "short_name": "calendar",
+    "name": "calendor_project",
+    "short_name": "calendor_project",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
