@@ -429,11 +429,8 @@ class _settingsState extends State<settings> {
                                 return AlertDialog(
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(15)),
-                                  contentPadding: EdgeInsets.symmetric(
-                                      horizontal:
-                                          (screenSize.height * 0.00575) * 2,
-                                      vertical:
-                                          (screenSize.width * 0.0103) * 2),
+                                  contentPadding: const EdgeInsets.symmetric(
+                                      horizontal: 0, vertical: 0),
                                   content: const fixdays(),
                                 );
                               });
