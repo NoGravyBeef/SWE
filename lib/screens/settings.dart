@@ -414,7 +414,7 @@ class _settingsState extends State<settings> {
               child: Padding(
                 padding: const EdgeInsets.only(left: 15, right: 8),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween, //
                   children: [
                     const Text(
                       '일정 고정',

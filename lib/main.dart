@@ -53,12 +53,12 @@ class _AppState extends State<App> {
                 //       size: 45,
                 //     )),
                 //calander_menu(),
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.end,
-                //   children: [
-                //     test(),
-                //   ],
-                // ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    test(),
+                  ],
+                ),
                 // Text('$screenSize.width'),
                 // Text('$screenSize.height'),
                 // change_font_color(),
