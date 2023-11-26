@@ -28,6 +28,7 @@ class _CalendarState extends State<Calendar> {
 
   @override
   Widget build(BuildContext context) {
+    var screenSize = MediaQuery.of(context).size;
     final defaultBoxDeco = BoxDecoration(
       borderRadius: BorderRadius.circular(6.0),
       color: Colors.grey[200],
@@ -56,8 +57,8 @@ class _CalendarState extends State<Calendar> {
                 test(),
               ],
             ),
-            const SizedBox(
-              height: 50,
+            SizedBox(
+              height: screenSize.height * 0.07,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -75,7 +76,8 @@ class _CalendarState extends State<Calendar> {
                 GestureDetector(
                   onTap: _showYearMonthSelector,
                   child: Container(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    padding: EdgeInsets.symmetric(
+                        vertical: (screenSize.width * 0.008298) * 2),
                     child: Center(
                       child: Text(
                         DateFormat.yMMMM('ko_KR').format(focusedDay),
@@ -101,7 +103,7 @@ class _CalendarState extends State<Calendar> {
                 ),
               ],
             ),
-            const SizedBox(height: 52),
+            SizedBox(height: (52 / screenSize.height) * screenSize.height),
             const DottedLine(
               direction: Axis.horizontal,
               lineLength: double.infinity,
@@ -110,7 +112,7 @@ class _CalendarState extends State<Calendar> {
               dashColor: Colors.grey,
               dashRadius: 0.0,
             ),
-            const SizedBox(height: 70),
+            SizedBox(height: (70 / screenSize.height) * screenSize.height),
             TableCalendar(
               eventLoader: (day) {
                 if (dDayEvents.containsKey(day)) {
