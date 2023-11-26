@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:calendar/widgets/list_elements.dart';
+import 'package:calendar/screens/fmanage_list.dart';
 
 class Friends_list extends StatefulWidget {
   const Friends_list({super.key});
@@ -75,7 +76,12 @@ class _Friends_list extends State<Friends_list> {
                             borderRadius: BorderRadius.circular(8),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => const FManage_list()));
+                        },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
