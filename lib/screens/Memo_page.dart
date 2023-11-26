@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:calendar/widgets/Dday_checkbox.dart';
-import 'package:calendar/widgets/Headline.dart';
-import 'package:calendar/widgets/Memomain.dart';
-import 'package:calendar/screens/Todolist.dart';
+import 'package:calendar/widgets/dday_checkbox.dart';
+import 'package:calendar/widgets/memo_headline.dart';
+import 'package:calendar/widgets/memo_text.dart';
+import 'package:calendar/screens/todolist_page.dart';
 
 class Memo_Page extends StatefulWidget {
   const Memo_Page({super.key});
@@ -54,14 +54,14 @@ class MemoPage extends State<Memo_Page> {
     var screenSize = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: const Color(0xFFFFF3D9),
+      backgroundColor: Color(0xFFFFF3D9),
       //메모장 자체 배경색상 변경-값 넘기기
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             SizedBox(
-                width: MediaQuery.of(context).size.width * 0.015), //헤드라인 위 패딩
+                width: MediaQuery.of(context).size.width * 0.015), //헤드라인 위패딩
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
@@ -107,8 +107,8 @@ class MemoPage extends State<Memo_Page> {
               ],
             ),
             SizedBox(width: MediaQuery.of(context).size.width * 0.01),
+            //첫번째 메모 본문 & D-day
             Padding(
-              //1
               padding: const EdgeInsets.fromLTRB(20, 0, 15, 0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -368,6 +368,7 @@ class MemoPage extends State<Memo_Page> {
                     },
                   ),
                 ),
+                const SizedBox(width: 10.0),
               ],
             )
           ],

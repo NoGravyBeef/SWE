@@ -59,7 +59,7 @@ class _DDayCheckboxState extends State<DDayCheckbox> {
               onChanged: (value) {
                 setState(() {
                   _isChecked = value!;
-                  widget.onChanged(value!);
+                  widget.onChanged(value);
                 });
               },
             ),

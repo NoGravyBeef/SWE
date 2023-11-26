@@ -15,7 +15,7 @@ class _MemomainState extends State<Memomain> {
 
   @override
   Widget build(BuildContext context) {
-    return  Flexible(
+    return Flexible(
       fit: FlexFit.tight,
       flex: 5,
       child: IntrinsicHeight(
