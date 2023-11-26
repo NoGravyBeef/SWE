@@ -32,11 +32,15 @@ dependencies:
   flutter_svg: ^1.0.1
   flutter:
     sdk: flutter
-
+  font_awesome_flutter: ^9.2.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  fluttertoast: ^8.0.8
+  dotted_line: ^3.2.2
+  table_calendar: ^3.0.9
+  intl: ^0.18.1
 
 dev_dependencies:
   flutter_test:
@@ -69,6 +73,8 @@ flutter:
       - assets/google.png
       - assets/google_logo.png
       - assets/icons/google_icon.svg
+      - assets/
+      - assets/whitepapertexture.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
@@ -96,6 +102,13 @@ flutter:
             weight: 300
           - asset: assets/fonts/JetBrainsMono-Bold.ttf
             weight: 700
+      - family: NanumGothic
+        fonts:
+          - asset: assets/fonts/NanumGothic.ttf
+      - family: Ubuntu-Italic
+        fonts:
+          - asset: assets/fonts/Ubuntu-Italic.ttf
+            style: italic
 
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
