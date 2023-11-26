@@ -1,3 +1,4 @@
+import 'package:calendar/screens/test_calendar.dart';
 import 'package:calendar/widgets/calendar_menu.dart';
 import 'package:calendar/popup/change_background_color.dart';
 import 'package:calendar/popup/change_ddays_color.dart';
@@ -30,13 +31,15 @@ class _AppState extends State<App> {
     return const MaterialApp(
         home: Scaffold(
             backgroundColor: Color(0xffEFEFEF),
-            body: //settings(),
+            body: 
+            Calendar()
+            //settings(),
                 //AudioApp(),
-                Column(
-              children: [
-                SizedBox(
-                  height: 50,
-                ),
+              //   Column(
+              // children: [
+              //   SizedBox(
+              //     height: 50,
+              //   ),
                 // IconButton(
                 //     onPressed: () {
                 //       showDialog(
@@ -53,12 +56,12 @@ class _AppState extends State<App> {
                 //       size: 45,
                 //     )),
                 //calander_menu(),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    test(),
-                  ],
-                ),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.end,
+                //   children: [
+                //     test(),
+                //   ],
+                // ),
                 // Text('$screenSize.width'),
                 // Text('$screenSize.height'),
                 // change_font_color(),
@@ -77,6 +80,6 @@ class _AppState extends State<App> {
                 //RecordingWidget()
                 //settings()
               ],
-            )));
+            )))
   }
 }

@@ -1,13 +1,15 @@
+import 'package:calendar/widgets/test.dart';
+
 import 'notescreen.dart';
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:table_calendar/table_calendar.dart';
 import '../widgets/yearmonthselector.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 class CalendarScreen extends StatefulWidget {
   const CalendarScreen({super.key});
-
   @override
   State<CalendarScreen> createState() => _CalendarScreenState();
 }
@@ -17,6 +19,12 @@ Map<DateTime, String> dDayEvents = {};
 class _CalendarScreenState extends State<CalendarScreen> {
   DateTime selectedDay = DateTime.now();
   DateTime focusedDay = DateTime.now();
+
+  @override
+  void initState() {
+    super.initState();
+    initializeDateFormatting('ko_KR', null);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,12 +48,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
               Padding(
                 padding: EdgeInsets.only(
                     right: screenWidth * 0.07), // 화면 너비의 5%로 padding 조정
-                child: IconButton(
-                  icon: const Icon(Icons.menu),
-                  onPressed: () {
-                    // 메뉴 클릭시 수행할 작업
-                  },
-                ),
+                child: const test(),
               ),
             ],
           ),
@@ -145,16 +148,13 @@ class _CalendarScreenState extends State<CalendarScreen> {
                     ),
                   ),
                   calendarStyle: const CalendarStyle(
-                    defaultTextStyle: TextStyle(
-                      fontSize: 20,
-                      fontFamily: 'JetBrainsMono-Regular.ttf',
-                    ),
-                    weekendTextStyle: TextStyle(
-                      fontSize: 20,
-                      color: Colors.black,
-                      fontFamily: 'JetBrainsMono-Regular.ttf',
-                    ),
-                  ),
+                      weekendTextStyle: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontFamily: 'JetBrainsMono-Regular.ttf',
+                      ),
+                      defaultTextStyle:
+                          TextStyle(fontSize: 20, color: Colors.amber)),
                   calendarBuilders: CalendarBuilders(
                     defaultBuilder: (context, day, focusedDay) {
                       return Padding(
