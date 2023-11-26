@@ -46,7 +46,7 @@ class _Friends_list extends State<Friends_list> {
               ],
             ),
             SizedBox(
-              height: screenSize.height * 0.05,
+              height: screenSize.height * 0.03,
             ),
             SizedBox(
               width: screenSize.width * 0.93,
@@ -61,7 +61,7 @@ class _Friends_list extends State<Friends_list> {
             Column(
               children: [
                 SizedBox(
-                  height: screenSize.height * 0.06,
+                  height: screenSize.height * 0.03,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
