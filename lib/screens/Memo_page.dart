@@ -67,16 +67,14 @@ class MemoPage extends State<Memo_Page> {
               children: <Widget>[
                 IconButton(
                   icon: Icon(Icons.format_list_bulleted_outlined,
-                      size: MediaQuery.of(context).size.width * 0.03,
-                      color: Colors.grey.shade400), //녹음 등등
+                      size: 22, color: Colors.grey.shade400), //녹음 등등
                   onPressed: () {},
                 ),
                 Expanded(child: Container()),
                 //메모장 나가기(저장)
                 IconButton(
                   icon: Icon(Icons.sensor_door_outlined,
-                      size: MediaQuery.of(context).size.width * 0.03,
-                      color: Colors.grey.shade400),
+                      size: 22, color: Colors.grey.shade400),
                   onPressed: () {
                     setState(() {
                       _headlineValue = _headlineController.text;
@@ -92,6 +90,7 @@ class MemoPage extends State<Memo_Page> {
                     });
                   },
                 ),
+                const SizedBox(width: 10),
               ],
             ),
             //메모장 헤드라인
@@ -100,8 +99,7 @@ class MemoPage extends State<Memo_Page> {
               children: <Widget>[
                 IconButton(
                   icon: Icon(Icons.format_list_bulleted_outlined,
-                      size: MediaQuery.of(context).size.width * 0.03,
-                      color: Colors.grey.shade400), //타이머 등등
+                      size: 22, color: Colors.grey.shade400), //타이머 등등
                   onPressed: () {},
                 ),
               ],
@@ -130,7 +128,6 @@ class MemoPage extends State<Memo_Page> {
               height: MediaQuery.of(context).size.height *
                   0.01, // 간격을 화면 너비의 10%로 설정
             ),
-
             Padding(
               //2
               padding: const EdgeInsets.fromLTRB(20, 0, 15, 0),

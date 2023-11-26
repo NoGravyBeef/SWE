@@ -10,9 +10,6 @@ class Memomain extends StatefulWidget {
 }
 
 class _MemomainState extends State<Memomain> {
-  final TextEditingController _memoController = TextEditingController();
-  bool _isMemoChecked = false;
-
   @override
   Widget build(BuildContext context) {
     return Flexible(
@@ -37,8 +34,8 @@ class _MemomainState extends State<Memomain> {
           child: TextFormField(
             inputFormatters: [LengthLimitingTextInputFormatter(20)],
             style: TextStyle(
-              fontSize: 15,
-              color: Colors.grey,
+              fontSize: 15, //메모 글자 크기 변경
+              color: Colors.grey, //메모 글자 색 변경
             ),
             controller: widget.memoController,
             decoration: InputDecoration(

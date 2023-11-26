@@ -21,7 +21,7 @@ class _TodomainState extends State<Todomain> {
       child: IntrinsicHeight(
         child: Container(
           decoration: ShapeDecoration(
-            color: Colors.white,
+            color: Color(0xFFEDEDED),
             shadows: [
               BoxShadow(
                 color: Colors.black12,
