@@ -67,7 +67,6 @@ class Todolist extends State<Todolist_page> {
                         MaterialPageRoute(
                             builder: (context) => const Memo_Page()),
                       );
-
                       setState(() {
                         _TodoValue1 = TodolistController1.text;
                         _TodoValue2 = TodolistController2.text;

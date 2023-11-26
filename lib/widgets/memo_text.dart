@@ -9,6 +9,7 @@ class Memomain extends StatefulWidget {
   _MemomainState createState() => _MemomainState();
 }
 
+//메모 본문 작성 하기
 class _MemomainState extends State<Memomain> {
   @override
   Widget build(BuildContext context) {
@@ -16,6 +17,7 @@ class _MemomainState extends State<Memomain> {
       fit: FlexFit.tight,
       flex: 5,
       child: IntrinsicHeight(
+        //메모 본문 박스 색상
         child: Container(
           decoration: ShapeDecoration(
             color: Color(0xFFFFF3D9),
@@ -31,6 +33,7 @@ class _MemomainState extends State<Memomain> {
               borderRadius: BorderRadius.circular(80.0),
             ),
           ),
+          //글자 작성
           child: TextFormField(
             inputFormatters: [LengthLimitingTextInputFormatter(20)],
             style: TextStyle(
