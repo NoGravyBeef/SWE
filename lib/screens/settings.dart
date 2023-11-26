@@ -1,3 +1,4 @@
+import 'package:calendar/popup/holyday_setup.dart';
 import 'package:calendar/widgets/calander_start_days.dart';
 import 'package:calendar/widgets/fixdays.dart';
 import 'package:flutter/cupertino.dart';
@@ -65,7 +66,7 @@ class _settingsState extends State<settings> {
                     icon: const Icon(
                       Icons.settings,
                       size: 36,
-                      color: Color(0xff808080),
+                      color: Colors.black87,
                     )),
               ],
             ),
@@ -274,7 +275,21 @@ class _settingsState extends State<settings> {
                       style: TextStyle(color: Color(0xff5D5050), fontSize: 18),
                     ),
                     IconButton(
-                        onPressed: () {}, icon: const Icon(Icons.last_page))
+                        onPressed: () {
+                          showDialog(
+                              barrierDismissible: true,
+                              context: context,
+                              builder: (context) {
+                                return AlertDialog(
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(15)),
+                                  contentPadding: const EdgeInsets.symmetric(
+                                      horizontal: 0, vertical: 0),
+                                  content: const HolydaySet(),
+                                );
+                              });
+                        },
+                        icon: const Icon(Icons.last_page))
                   ],
                 ),
               ),

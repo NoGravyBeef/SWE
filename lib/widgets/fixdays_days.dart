@@ -13,8 +13,8 @@ class _fixdays_daysState extends State<fixdays_days> {
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
     return SizedBox(
-      width: screenSize.width * 0.05,
-      height: screenSize.height * 0.0325,
+      height: screenSize.height * 0.03,
+      width: screenSize.height * 0.03,
       child: ElevatedButton(
           style: ElevatedButton.styleFrom(
               minimumSize: Size.zero,
@@ -25,7 +25,11 @@ class _fixdays_daysState extends State<fixdays_days> {
           onPressed: () {},
           child: Text(
             widget.days,
-            style: const TextStyle(color: Color(0xff535353), fontSize: 18),
+            style: TextStyle(
+                color: const Color(0xff535353),
+                fontSize: screenSize.height * 0.02,
+                fontFamily: 'Jet Brain',
+                fontWeight: FontWeight.w500),
           )),
     );
   }
