@@ -126,14 +126,14 @@ class _CalendarState extends State<Calendar> {
                   this.selectedDay = selectedDay;
                   this.focusedDay = focusedDay;
                 });
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => NoteScreen(date: selectedDay)),
-                );
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(
+                //       builder: (context) => NoteScreen(date: selectedDay)),
+                // );
               },
 
-              locale: 'ko_KR',
+              //locale: 'ko_KR',
               focusedDay: focusedDay,
               firstDay: DateTime(1800),
               lastDay: DateTime(3000),
@@ -180,25 +180,48 @@ class _CalendarState extends State<Calendar> {
                   //weekendTextStyle: defaultTextStyle,
                   selectedTextStyle:
                       defaultTextStyle.copyWith(color: Colors.amber)),
-              // onDaySelected: (DateTime selectedDay, DateTime focusedDay) {
-              //   setState(() {
-              //     this.selectedDay = selectedDay;
-              //     this.focusedDay = selectedDay;
-              //   });
-              // },
+
               selectedDayPredicate: (DateTime date) {
                 return date.year == selectedDay.year &&
                     date.month == selectedDay.month &&
                     date.day == selectedDay.day;
               },
-              // calendarBuilders: CalendarBuilders(
-              //   defaultBuilder: (context, day, focusedDay) {
-              //     return Padding(
-              //       padding: const EdgeInsets.only(top: 18.0, bottom: 18.0),
-              //       child: Center(child: Text('${day.day}')),
-              //     );
-              //   },
-              // ),
+              calendarBuilders: CalendarBuilders(dowBuilder: (context, day) {
+                switch (day.weekday) {
+                  case 1:
+                    return const Center(
+                      child: Text('월'),
+                    );
+                  case 2:
+                    return const Center(
+                      child: Text('화'),
+                    );
+                  case 3:
+                    return const Center(
+                      child: Text('수'),
+                    );
+                  case 4:
+                    return const Center(
+                      child: Text('목'),
+                    );
+                  case 5:
+                    return const Center(
+                      child: Text('금'),
+                    );
+                  case 6:
+                    return const Center(
+                      child: Text('토'),
+                    );
+                  case 7:
+                    return const Center(
+                      child: Text(
+                        '일',
+                        style: TextStyle(color: Colors.red),
+                      ),
+                    );
+                }
+                return null;
+              }),
             ),
           ],
         ),

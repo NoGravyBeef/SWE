@@ -22,476 +22,487 @@ class _settingsState extends State<settings> {
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
-    return Container(
-      decoration: const BoxDecoration(
-          image: DecorationImage(
-        fit: BoxFit.cover,
-        image: AssetImage('assets/first_background.webp'),
-      )),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          SizedBox(
-            height: screenSize.height * 0.025,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(right: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+    return Scaffold(
+      body: Container(
+        decoration: const BoxDecoration(
+            image: DecorationImage(
+          fit: BoxFit.cover,
+          image: AssetImage('assets/first_background.webp'),
+        )),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(
+              height: screenSize.height * 0.025,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(right: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  IconButton(
+                      style: IconButton.styleFrom(
+                        minimumSize: Size.zero,
+                        padding: EdgeInsets.zero,
+                      ),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: const Icon(Icons.arrow_back_rounded)),
+                ],
+              ),
+            ),
+            // SizedBox(
+            //   height: screenSize.height * 0.02,
+            // ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                const DefaultTextStyle(
+                    style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 36,
+                        fontFamily: 'JetBrain',
+                        //letterSpacing:
+                        color: Colors.black),
+                    child: Text('Settings')),
                 IconButton(
-                    style: IconButton.styleFrom(
-                      minimumSize: Size.zero,
-                      padding: EdgeInsets.zero,
-                    ),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    icon: const Icon(Icons.arrow_back_rounded)),
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.settings,
+                      size: 36,
+                      color: Colors.black87,
+                    )),
               ],
             ),
-          ),
-          // SizedBox(
-          //   height: screenSize.height * 0.02,
-          // ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const DefaultTextStyle(
-                  style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 36,
-                      fontFamily: 'JetBrain',
-                      //letterSpacing:
-                      color: Colors.black),
-                  child: Text('Settings')),
-              IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.settings,
-                    size: 36,
-                    color: Colors.black87,
-                  )),
-            ],
-          ),
-          SizedBox(
-            height: screenSize.height * 0.07,
-          ),
-          Container(
-            height: screenSize.height * 0.0535,
-            width: screenSize.width * 0.85,
-            decoration: ShapeDecoration(
-                gradient: const LinearGradient(
-                    colors: [
-                      Color.fromARGB(143, 194, 194, 194),
-                      Color.fromARGB(255, 255, 255, 255)
-                    ],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    stops: [0.0, 0.12],
-                    tileMode: TileMode.clamp),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15))),
-            child: Padding(
-              padding: const EdgeInsets.only(left: 15, right: 15),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const DefaultTextStyle(
-                      style: TextStyle(color: Color(0xff5D5050), fontSize: 18),
-                      child: Text('알림')),
-                  CupertinoSwitch(
-                    value: isChecked,
-                    activeColor: Colors.grey,
-                    onChanged: (value) {
-                      setState(() {
-                        isChecked = value;
-                      });
-                    },
-                  ),
-                ],
-              ),
+            SizedBox(
+              height: screenSize.height * 0.07,
             ),
-          ),
-          SizedBox(
-            height: screenSize.height * 0.02,
-          ),
-          Container(
-            height: screenSize.height * 0.0535,
-            width: screenSize.width * 0.85,
-            decoration: ShapeDecoration(
-                gradient: const LinearGradient(
-                    colors: [
-                      Color.fromARGB(143, 194, 194, 194),
-                      Color.fromARGB(255, 255, 255, 255)
-                    ],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    stops: [0.0, 0.12],
-                    tileMode: TileMode.clamp),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15))),
-            child: Padding(
-              padding: const EdgeInsets.only(left: 15, right: 15),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const DefaultTextStyle(
-                      style: TextStyle(color: Color(0xff5D5050), fontSize: 18),
-                      child: Text('음력')),
-                  CupertinoSwitch(
-                      value: isChecked2,
-                      onChanged: (value) {
-                        setState(() {
-                          isChecked2 = value;
-                        });
-                      })
-                ],
-              ),
-            ),
-          ),
-          SizedBox(
-            height: screenSize.height * 0.02,
-          ),
-          Container(
-            height: screenSize.height * 0.0535,
-            width: screenSize.width * 0.85,
-            decoration: ShapeDecoration(
-                gradient: const LinearGradient(
-                    colors: [
-                      Color.fromARGB(143, 194, 194, 194),
-                      Color.fromARGB(255, 255, 255, 255)
-                    ],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    stops: [0.0, 0.12],
-                    tileMode: TileMode.clamp),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15))),
-            child: Padding(
-              padding: const EdgeInsets.only(left: 15, right: 15),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const DefaultTextStyle(
-                      style: TextStyle(color: Color(0xff5D5050), fontSize: 18),
-                      child: Text('절기')),
-                  CupertinoSwitch(
-                      value: isChecked3,
-                      onChanged: (value) {
-                        setState(() {
-                          isChecked3 = value;
-                        });
-                      })
-                ],
-              ),
-            ),
-          ),
-          SizedBox(
-            height: screenSize.height * 0.02,
-          ),
-          Container(
-            height: screenSize.height * 0.0535,
-            width: screenSize.width * 0.85,
-            decoration: ShapeDecoration(
-                gradient: const LinearGradient(
-                    colors: [
-                      Color.fromARGB(143, 194, 194, 194),
-                      Color.fromARGB(255, 255, 255, 255)
-                    ],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    stops: [0.0, 0.14],
-                    tileMode: TileMode.decal),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15))),
-            child: const Padding(
-              padding: EdgeInsets.only(left: 15, right: 11),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  DefaultTextStyle(
-                      style: TextStyle(color: Color(0xff5D5050), fontSize: 18),
-                      child: Text('시작 요일')),
-                  Row(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(right: 10),
-                        child: calander_start_days(days: '월'),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(right: 10),
-                        child: calander_start_days(days: '화'),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(right: 10),
-                        child: calander_start_days(days: '수'),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(right: 10),
-                        child: calander_start_days(days: '목'),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(right: 10),
-                        child: calander_start_days(days: '금'),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(right: 10),
-                        child: calander_start_days(days: '토'),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(right: 10),
-                        child: calander_start_days(days: '일'),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
-          SizedBox(
-            height: screenSize.height * 0.02,
-          ),
-          Container(
-            height: screenSize.height * 0.0535,
-            width: screenSize.width * 0.85,
-            decoration: ShapeDecoration(
-                gradient: const LinearGradient(
-                    colors: [
-                      Color.fromARGB(143, 194, 194, 194),
-                      Color.fromARGB(255, 255, 255, 255)
-                    ],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    stops: [0.0, 0.14],
-                    tileMode: TileMode.decal),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15))),
-            child: Padding(
-              padding: const EdgeInsets.only(left: 15, right: 8),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const DefaultTextStyle(
-                      style: TextStyle(color: Color(0xff5D5050), fontSize: 18),
-                      child: Text('휴일')),
-                  IconButton(
-                      onPressed: () {
-                        showDialog(
-                            barrierDismissible: true,
-                            context: context,
-                            builder: (context) {
-                              return AlertDialog(
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15)),
-                                contentPadding: const EdgeInsets.symmetric(
-                                    horizontal: 0, vertical: 0),
-                                content: const HolydaySet(),
-                              );
-                            });
-                      },
-                      icon: const Icon(Icons.last_page))
-                ],
-              ),
-            ),
-          ),
-          SizedBox(
-            height: screenSize.height * 0.02,
-          ),
-          Container(
-            height: screenSize.height * 0.0535,
-            width: screenSize.width * 0.85,
-            decoration: ShapeDecoration(
-                gradient: const LinearGradient(
-                    colors: [
-                      Color.fromARGB(143, 194, 194, 194),
-                      Color.fromARGB(255, 255, 255, 255)
-                    ],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    stops: [0.0, 0.12],
-                    tileMode: TileMode.clamp),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15))),
-            child: Padding(
-              padding: const EdgeInsets.only(left: 15, right: 15),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const DefaultTextStyle(
-                      style: TextStyle(color: Color(0xff5D5050), fontSize: 18),
-                      child: Text('일정 공개')),
-                  CupertinoSwitch(
-                      value: isChecked4,
-                      onChanged: (value) {
-                        setState(() {
-                          isChecked4 = value;
-                        });
-                      })
-                ],
-              ),
-            ),
-          ),
-          SizedBox(
-            height: screenSize.height * 0.02,
-          ),
-          Container(
-            height: screenSize.height * 0.0535,
-            width: screenSize.width * 0.85,
-            decoration: ShapeDecoration(
-                gradient: const LinearGradient(
-                    colors: [
-                      Color.fromARGB(143, 194, 194, 194),
-                      Color.fromARGB(255, 255, 255, 255)
-                    ],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    stops: [0.0, 0.12],
-                    tileMode: TileMode.clamp),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15))),
-            child: Padding(
-              padding: const EdgeInsets.only(left: 15, right: 15),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const DefaultTextStyle(
-                      style: TextStyle(color: Color(0xff5D5050), fontSize: 18),
-                      child: Text('친구 신청')),
-                  CupertinoSwitch(
-                      value: isChecked5,
-                      onChanged: (value) {
-                        setState(() {
-                          isChecked5 = value;
-                        });
-                      })
-                ],
-              ),
-            ),
-          ),
-          SizedBox(
-            height: screenSize.height * 0.02,
-          ),
-          Container(
-            height: screenSize.height * 0.0535,
-            width: screenSize.width * 0.85,
-            decoration: ShapeDecoration(
-                gradient: const LinearGradient(
-                    colors: [
-                      Color.fromARGB(143, 194, 194, 194),
-                      Color.fromARGB(255, 255, 255, 255)
-                    ],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    stops: [0.0, 0.12],
-                    tileMode: TileMode.clamp),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15))),
-            child: Padding(
-              padding: const EdgeInsets.only(left: 15, right: 15),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const DefaultTextStyle(
-                      style: TextStyle(color: Color(0xff5D5050), fontSize: 18),
-                      child: Text('상단바')),
-                  CupertinoSwitch(
-                      value: isChecked6,
-                      onChanged: (value) {
-                        setState(() {
-                          isChecked6 = value;
-                        });
-                      })
-                ],
-              ),
-            ),
-          ),
-          SizedBox(
-            height: screenSize.height * 0.02,
-          ),
-          Container(
-            height: screenSize.height * 0.0535,
-            width: screenSize.width * 0.85,
-            decoration: ShapeDecoration(
-                gradient: const LinearGradient(
-                    colors: [
-                      Color.fromARGB(143, 194, 194, 194),
-                      Color.fromARGB(255, 255, 255, 255)
-                    ],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    stops: [0.0, 0.14],
-                    tileMode: TileMode.decal),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15))),
-            child: Padding(
-              padding: const EdgeInsets.only(left: 15, right: 8),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween, //
-                children: [
-                  const DefaultTextStyle(
-                      style: TextStyle(color: Color(0xff5D5050), fontSize: 18),
-                      child: Text('일정 고정')),
-                  IconButton(
-                      onPressed: () {
-                        showDialog(
-                            barrierDismissible: true,
-                            context: context,
-                            builder: (context) {
-                              return AlertDialog(
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15)),
-                                contentPadding: const EdgeInsets.symmetric(
-                                    horizontal: 0, vertical: 0),
-                                content: const fixdays(),
-                              );
-                            });
-                      },
-                      icon: const Icon(Icons.last_page))
-                ],
-              ),
-            ),
-          ),
-          SizedBox(
-            height: screenSize.height * 0.02,
-          ),
-          SizedBox(
-            width: screenSize.width * 0.25,
-            height: screenSize.height * 0.0442,
-            child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
+            Container(
+              height: screenSize.height * 0.0535,
+              width: screenSize.width * 0.85,
+              decoration: ShapeDecoration(
+                  gradient: const LinearGradient(
+                      colors: [
+                        Color.fromARGB(143, 194, 194, 194),
+                        Color.fromARGB(255, 255, 255, 255)
+                      ],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      stops: [0.0, 0.12],
+                      tileMode: TileMode.clamp),
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15)),
-                  backgroundColor: const Color(0xffD1D1EA),
+                      borderRadius: BorderRadius.circular(15))),
+              child: Padding(
+                padding: const EdgeInsets.only(left: 15, right: 15),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const DefaultTextStyle(
+                        style:
+                            TextStyle(color: Color(0xff5D5050), fontSize: 18),
+                        child: Text('알림')),
+                    CupertinoSwitch(
+                      value: isChecked,
+                      activeColor: Colors.grey,
+                      onChanged: (value) {
+                        setState(() {
+                          isChecked = value;
+                        });
+                      },
+                    ),
+                  ],
                 ),
-                onPressed: () {
-                  showDialog(
-                      barrierDismissible: false,
-                      context: context,
-                      builder: (context) {
-                        return AlertDialog(
-                          content: const Text('변경사항을 저장하시겠습니까?'),
-                          actions: [
-                            ElevatedButton(
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                },
-                                child: const Text('예')),
-                            ElevatedButton(
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                },
-                                child: const Text('아니요'))
-                          ],
-                        );
-                      });
-                },
-                child: const Text(
-                  '저장',
-                  style: TextStyle(color: Colors.white54, fontSize: 18),
-                )),
-          )
-        ],
+              ),
+            ),
+            SizedBox(
+              height: screenSize.height * 0.02,
+            ),
+            Container(
+              height: screenSize.height * 0.0535,
+              width: screenSize.width * 0.85,
+              decoration: ShapeDecoration(
+                  gradient: const LinearGradient(
+                      colors: [
+                        Color.fromARGB(143, 194, 194, 194),
+                        Color.fromARGB(255, 255, 255, 255)
+                      ],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      stops: [0.0, 0.12],
+                      tileMode: TileMode.clamp),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15))),
+              child: Padding(
+                padding: const EdgeInsets.only(left: 15, right: 15),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const DefaultTextStyle(
+                        style:
+                            TextStyle(color: Color(0xff5D5050), fontSize: 18),
+                        child: Text('음력')),
+                    CupertinoSwitch(
+                        value: isChecked2,
+                        onChanged: (value) {
+                          setState(() {
+                            isChecked2 = value;
+                          });
+                        })
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              height: screenSize.height * 0.02,
+            ),
+            Container(
+              height: screenSize.height * 0.0535,
+              width: screenSize.width * 0.85,
+              decoration: ShapeDecoration(
+                  gradient: const LinearGradient(
+                      colors: [
+                        Color.fromARGB(143, 194, 194, 194),
+                        Color.fromARGB(255, 255, 255, 255)
+                      ],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      stops: [0.0, 0.12],
+                      tileMode: TileMode.clamp),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15))),
+              child: Padding(
+                padding: const EdgeInsets.only(left: 15, right: 15),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const DefaultTextStyle(
+                        style:
+                            TextStyle(color: Color(0xff5D5050), fontSize: 18),
+                        child: Text('절기')),
+                    CupertinoSwitch(
+                        value: isChecked3,
+                        onChanged: (value) {
+                          setState(() {
+                            isChecked3 = value;
+                          });
+                        })
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              height: screenSize.height * 0.02,
+            ),
+            Container(
+              height: screenSize.height * 0.0535,
+              width: screenSize.width * 0.85,
+              decoration: ShapeDecoration(
+                  gradient: const LinearGradient(
+                      colors: [
+                        Color.fromARGB(143, 194, 194, 194),
+                        Color.fromARGB(255, 255, 255, 255)
+                      ],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      stops: [0.0, 0.14],
+                      tileMode: TileMode.decal),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15))),
+              child: const Padding(
+                padding: EdgeInsets.only(left: 15, right: 11),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    DefaultTextStyle(
+                        style:
+                            TextStyle(color: Color(0xff5D5050), fontSize: 18),
+                        child: Text('시작 요일')),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(right: 10),
+                          child: calander_start_days(days: '월'),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(right: 10),
+                          child: calander_start_days(days: '화'),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(right: 10),
+                          child: calander_start_days(days: '수'),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(right: 10),
+                          child: calander_start_days(days: '목'),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(right: 10),
+                          child: calander_start_days(days: '금'),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(right: 10),
+                          child: calander_start_days(days: '토'),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(right: 10),
+                          child: calander_start_days(days: '일'),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              height: screenSize.height * 0.02,
+            ),
+            Container(
+              height: screenSize.height * 0.0535,
+              width: screenSize.width * 0.85,
+              decoration: ShapeDecoration(
+                  gradient: const LinearGradient(
+                      colors: [
+                        Color.fromARGB(143, 194, 194, 194),
+                        Color.fromARGB(255, 255, 255, 255)
+                      ],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      stops: [0.0, 0.14],
+                      tileMode: TileMode.decal),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15))),
+              child: Padding(
+                padding: const EdgeInsets.only(left: 15, right: 8),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const DefaultTextStyle(
+                        style:
+                            TextStyle(color: Color(0xff5D5050), fontSize: 18),
+                        child: Text('휴일')),
+                    IconButton(
+                        onPressed: () {
+                          showDialog(
+                              barrierDismissible: true,
+                              context: context,
+                              builder: (context) {
+                                return AlertDialog(
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(15)),
+                                  contentPadding: const EdgeInsets.symmetric(
+                                      horizontal: 0, vertical: 0),
+                                  content: const HolydaySet(),
+                                );
+                              });
+                        },
+                        icon: const Icon(Icons.last_page))
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              height: screenSize.height * 0.02,
+            ),
+            Container(
+              height: screenSize.height * 0.0535,
+              width: screenSize.width * 0.85,
+              decoration: ShapeDecoration(
+                  gradient: const LinearGradient(
+                      colors: [
+                        Color.fromARGB(143, 194, 194, 194),
+                        Color.fromARGB(255, 255, 255, 255)
+                      ],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      stops: [0.0, 0.12],
+                      tileMode: TileMode.clamp),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15))),
+              child: Padding(
+                padding: const EdgeInsets.only(left: 15, right: 15),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const DefaultTextStyle(
+                        style:
+                            TextStyle(color: Color(0xff5D5050), fontSize: 18),
+                        child: Text('일정 공개')),
+                    CupertinoSwitch(
+                        value: isChecked4,
+                        onChanged: (value) {
+                          setState(() {
+                            isChecked4 = value;
+                          });
+                        })
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              height: screenSize.height * 0.02,
+            ),
+            Container(
+              height: screenSize.height * 0.0535,
+              width: screenSize.width * 0.85,
+              decoration: ShapeDecoration(
+                  gradient: const LinearGradient(
+                      colors: [
+                        Color.fromARGB(143, 194, 194, 194),
+                        Color.fromARGB(255, 255, 255, 255)
+                      ],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      stops: [0.0, 0.12],
+                      tileMode: TileMode.clamp),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15))),
+              child: Padding(
+                padding: const EdgeInsets.only(left: 15, right: 15),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const DefaultTextStyle(
+                        style:
+                            TextStyle(color: Color(0xff5D5050), fontSize: 18),
+                        child: Text('친구 신청')),
+                    CupertinoSwitch(
+                        value: isChecked5,
+                        onChanged: (value) {
+                          setState(() {
+                            isChecked5 = value;
+                          });
+                        })
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              height: screenSize.height * 0.02,
+            ),
+            Container(
+              height: screenSize.height * 0.0535,
+              width: screenSize.width * 0.85,
+              decoration: ShapeDecoration(
+                  gradient: const LinearGradient(
+                      colors: [
+                        Color.fromARGB(143, 194, 194, 194),
+                        Color.fromARGB(255, 255, 255, 255)
+                      ],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      stops: [0.0, 0.12],
+                      tileMode: TileMode.clamp),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15))),
+              child: Padding(
+                padding: const EdgeInsets.only(left: 15, right: 15),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const DefaultTextStyle(
+                        style:
+                            TextStyle(color: Color(0xff5D5050), fontSize: 18),
+                        child: Text('상단바')),
+                    CupertinoSwitch(
+                        value: isChecked6,
+                        onChanged: (value) {
+                          setState(() {
+                            isChecked6 = value;
+                          });
+                        })
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              height: screenSize.height * 0.02,
+            ),
+            Container(
+              height: screenSize.height * 0.0535,
+              width: screenSize.width * 0.85,
+              decoration: ShapeDecoration(
+                  gradient: const LinearGradient(
+                      colors: [
+                        Color.fromARGB(143, 194, 194, 194),
+                        Color.fromARGB(255, 255, 255, 255)
+                      ],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      stops: [0.0, 0.14],
+                      tileMode: TileMode.decal),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15))),
+              child: Padding(
+                padding: const EdgeInsets.only(left: 15, right: 8),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween, //
+                  children: [
+                    const DefaultTextStyle(
+                        style:
+                            TextStyle(color: Color(0xff5D5050), fontSize: 18),
+                        child: Text('일정 고정')),
+                    IconButton(
+                        onPressed: () {
+                          showDialog(
+                              barrierDismissible: true,
+                              context: context,
+                              builder: (context) {
+                                return AlertDialog(
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(15)),
+                                  contentPadding: const EdgeInsets.symmetric(
+                                      horizontal: 0, vertical: 0),
+                                  content: const fixdays(),
+                                );
+                              });
+                        },
+                        icon: const Icon(Icons.last_page))
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              height: screenSize.height * 0.02,
+            ),
+            SizedBox(
+              width: screenSize.width * 0.25,
+              height: screenSize.height * 0.0442,
+              child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15)),
+                    backgroundColor: const Color(0xffD1D1EA),
+                  ),
+                  onPressed: () {
+                    showDialog(
+                        barrierDismissible: false,
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            content: const Text('변경사항을 저장하시겠습니까?'),
+                            actions: [
+                              ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: const Text('예')),
+                              ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: const Text('아니요'))
+                            ],
+                          );
+                        });
+                  },
+                  child: const Text(
+                    '저장',
+                    style: TextStyle(color: Colors.white54, fontSize: 18),
+                  )),
+            )
+          ],
+        ),
       ),
     ); //,
     //);
