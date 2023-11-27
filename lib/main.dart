@@ -9,8 +9,16 @@ import 'package:calendar/widgets/test.dart';
 import 'package:calendar/widgets/test_change.dart';
 import 'package:calendar/widgets/test_record.dart';
 import 'package:flutter/material.dart';
+//아래는 firebase 필수 코드임
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async {
+  //이것도 firebase 넣기위한 코드임.
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const App());
 }
 
