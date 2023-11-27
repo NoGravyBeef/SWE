@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:table_calendar/table_calendar.dart';
 import '../widgets/yearmonthselector.dart';
+import 'package:calendar/widgets/calendar_menu.dart';
 
 // 캘린더 화면을 위한 StatefulWidget 클래스
 class CalendarScreen extends StatefulWidget {
@@ -47,6 +48,12 @@ class _CalendarScreenState extends State<CalendarScreen> {
                   icon: const Icon(Icons.menu),
                   onPressed: () {
                     // 메뉴 버튼 클릭시 수행할 작업
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              calendar_menu(date: selectedDay)),
+                    );
                   },
                 ),
               ),
