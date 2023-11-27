@@ -1,30 +1,32 @@
 import 'package:flutter/material.dart';
 import 'calendarscreen.dart';
 
+// 로그인 페이지를 위한 StatefulWidget 클래스
 class LoginPage extends StatefulWidget {
-  /*const LoginPage({super.key});*/
   const LoginPage({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
+  // 로그인 페이지의 상태를 생성
   _LoginPageState createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
+  // 사용자 이름과 비밀번호를 위한 텍스트 컨트롤러
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    // 화면 너비를 가져온다
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          // 배경 이미지
+          // 배경 이미지 설정
           Image.asset(
-            'assets/image1.jpg', // 배경 이미지 경로.
-            fit: BoxFit.cover, // 배경 꽉 채우기
+            'assets/image1.jpg', // 배경 이미지 경로
+            fit: BoxFit.cover, // 이미지를 화면에 꽉 차게 표시
             width: double.infinity,
             height: double.infinity,
           ),
@@ -34,6 +36,7 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               const SizedBox(height: 100.0),
 
+              // 상단의 로고 이미지
               const Image(
                 image: AssetImage('assets/event icon.png'),
                 width: 100,
@@ -42,7 +45,7 @@ class _LoginPageState extends State<LoginPage> {
 
               const SizedBox(height: 50.0),
 
-              // 아이디 입력 필드
+              // 사용자 이름 입력 필드
               Flexible(
                 child: Container(
                   width: 300.0,
@@ -123,12 +126,13 @@ class _LoginPageState extends State<LoginPage> {
 
               const SizedBox(height: 20.0),
 
-              // join, login 버튼
+              // 회원가입 및 로그인 버튼
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  // 회원가입 버튼
                   ElevatedButton(
-                    onPressed: _join,
+                    onPressed: _join, // 회원가입 버튼 클릭 시 수행할 동작
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all<Color>(
                           const Color.fromARGB(255, 219, 217, 232)),
@@ -136,10 +140,9 @@ class _LoginPageState extends State<LoginPage> {
                           MaterialStateProperty.all<Size>(const Size(85, 20)),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
-                          borderRadius:
-                              BorderRadius.circular(20.0), // 버튼 모서리 둥글게
+                          borderRadius: BorderRadius.circular(20.0),
                         ),
-                      ), // 버튼 색상
+                      ),
                     ),
                     child: const Text(
                       'join',
@@ -150,9 +153,10 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                   ),
-                  SizedBox(width: screenWidth * 0.05),
+                  SizedBox(width: screenWidth * 0.05), // 버튼 간 간격
+                  // 로그인 버튼
                   ElevatedButton(
-                    onPressed: _login,
+                    onPressed: _login, // 로그인 버튼 클릭 시 수행할 동작
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all<Color>(
                           const Color.fromARGB(255, 219, 217, 232)),
@@ -160,10 +164,9 @@ class _LoginPageState extends State<LoginPage> {
                           MaterialStateProperty.all<Size>(const Size(85, 20)),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
-                          borderRadius:
-                              BorderRadius.circular(20.0), // 버튼의 각 모서리를 둥글게 만듦
+                          borderRadius: BorderRadius.circular(20.0),
                         ),
-                      ), // 버튼 색상
+                      ),
                     ),
                     child: const Text(
                       'login',
@@ -178,12 +181,12 @@ class _LoginPageState extends State<LoginPage> {
               ),
               const SizedBox(height: 50.0),
 
-              // Google 로그인
+              // 구글 로그인 버튼
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   ElevatedButton(
-                    onPressed: _sign,
+                    onPressed: _sign, // 구글 로그인 버튼 클릭 시 수행할 동작
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all<Color>(
                           const Color.fromARGB(255, 255, 255, 255)),
@@ -191,10 +194,9 @@ class _LoginPageState extends State<LoginPage> {
                           MaterialStateProperty.all<Size>(const Size(290, 47)),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
-                          borderRadius:
-                              BorderRadius.circular(20.0), // 버튼 모서리 둥글게
+                          borderRadius: BorderRadius.circular(20.0),
                         ),
-                      ), // 버튼 색상
+                      ),
                     ),
                     child: const Row(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -245,10 +247,12 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void _join() {
+    // 회원가입 로직
     print("회원가입");
   }
 }
 
 void _sign() {
+  // 구글 로그인 로직
   print("google 로그인");
 }
