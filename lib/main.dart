@@ -12,9 +12,12 @@ import 'package:flutter/material.dart';
 //아래는 firebase 필수 코드임
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+//provider와 shared preferences
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
-  //이것도 firebase 넣기위한 코드임.
+  //이것도 firebase 필수 코드임.
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
