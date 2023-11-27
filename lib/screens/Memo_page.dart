@@ -90,15 +90,21 @@ class MemoPage extends State<Memo_Page> {
                     });
                   },
                 ),
-                const SizedBox(width: 10),
               ],
             ),
             //메모장 헤드라인
             HeadlineInputWidget(),
             Row(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 IconButton(
                   icon: Icon(Icons.format_list_bulleted_outlined,
+                      size: 22, color: Colors.grey.shade400), //타이머 등등
+                  onPressed: () {},
+                ),
+                Expanded(child: Container()),
+                IconButton(
+                  icon: Icon(Icons.notifications_none,
                       size: 22, color: Colors.grey.shade400), //타이머 등등
                   onPressed: () {},
                 ),

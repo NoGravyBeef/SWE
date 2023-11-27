@@ -1,5 +1,5 @@
 import 'package:calendar/screens/memo_page.dart';
-import 'package:calendar/widgets/Dday_checkbox.dart';
+import 'package:calendar/widgets/todolist_checkbox.dart';
 import 'package:calendar/widgets/todolist_text.dart';
 import 'package:flutter/material.dart';
 import '../widgets/todolist_title.dart';
@@ -54,6 +54,7 @@ class Todolist extends State<Todolist_page> {
         backgroundColor: Colors.transparent,
         body: SingleChildScrollView(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -91,7 +92,7 @@ class Todolist extends State<Todolist_page> {
                   children: <Widget>[
                     Todomain(memoController: TodolistController1),
                     const SizedBox(width: 10),
-                    DDayCheckbox(
+                    TodoCheckbox(
                       initialValue: _isTodoChecked1,
                       onChanged: (value) {
                         setState(() {
@@ -113,7 +114,7 @@ class Todolist extends State<Todolist_page> {
                   children: <Widget>[
                     Todomain(memoController: TodolistController2),
                     const SizedBox(width: 10),
-                    DDayCheckbox(
+                    TodoCheckbox(
                       initialValue: _isTodoChecked2,
                       onChanged: (value) {
                         setState(() {
@@ -135,7 +136,7 @@ class Todolist extends State<Todolist_page> {
                   children: <Widget>[
                     Todomain(memoController: TodolistController3),
                     const SizedBox(width: 10),
-                    DDayCheckbox(
+                    TodoCheckbox(
                       initialValue: _isTodoChecked3,
                       onChanged: (value) {
                         setState(() {
@@ -157,7 +158,7 @@ class Todolist extends State<Todolist_page> {
                   children: <Widget>[
                     Todomain(memoController: TodolistController4),
                     const SizedBox(width: 10),
-                    DDayCheckbox(
+                    TodoCheckbox(
                       initialValue: _isTodoChecked4,
                       onChanged: (value) {
                         setState(() {
@@ -179,7 +180,7 @@ class Todolist extends State<Todolist_page> {
                   children: <Widget>[
                     Todomain(memoController: TodolistController5),
                     const SizedBox(width: 10),
-                    DDayCheckbox(
+                    TodoCheckbox(
                       initialValue: _isTodoChecked5,
                       onChanged: (value) {
                         setState(() {
@@ -201,7 +202,7 @@ class Todolist extends State<Todolist_page> {
                   children: <Widget>[
                     Todomain(memoController: TodolistController6),
                     const SizedBox(width: 10),
-                    DDayCheckbox(
+                    TodoCheckbox(
                       initialValue: _isTodoChecked6,
                       onChanged: (value) {
                         setState(() {
@@ -223,7 +224,7 @@ class Todolist extends State<Todolist_page> {
                   children: <Widget>[
                     Todomain(memoController: TodolistController7),
                     const SizedBox(width: 10),
-                    DDayCheckbox(
+                    TodoCheckbox(
                       initialValue: _isTodoChecked7,
                       onChanged: (value) {
                         setState(() {
@@ -245,7 +246,7 @@ class Todolist extends State<Todolist_page> {
                   children: <Widget>[
                     Todomain(memoController: TodolistController8),
                     const SizedBox(width: 10),
-                    DDayCheckbox(
+                    TodoCheckbox(
                       initialValue: _isTodoChecked8,
                       onChanged: (value) {
                         setState(() {
@@ -267,7 +268,7 @@ class Todolist extends State<Todolist_page> {
                   children: <Widget>[
                     Todomain(memoController: TodolistController9),
                     const SizedBox(width: 10),
-                    DDayCheckbox(
+                    TodoCheckbox(
                       initialValue: _isTodoChecked9,
                       onChanged: (value) {
                         setState(() {
@@ -278,10 +279,7 @@ class Todolist extends State<Todolist_page> {
                   ], // Container()
                 ),
               ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height *
-                    0.02, // 간격을 화면 너비의 10%로 설정
-              )
+              const SizedBox(height: 22.0),
             ],
           ),
         ),
