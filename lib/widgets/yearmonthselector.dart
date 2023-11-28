@@ -11,6 +11,7 @@ class YearMonthSelector extends StatefulWidget {
 
   @override
   // 위젯의 상태를 생성합니다.
+  // ignore: library_private_types_in_public_api
   _YearMonthSelectorState createState() => _YearMonthSelectorState();
 }
 

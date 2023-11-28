@@ -1,5 +1,7 @@
+import 'package:calendar/screens/join_screen.dart';
 import 'package:flutter/material.dart';
-import 'calendarscreen.dart';
+import 'package:calendar/screens/calendar.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 // 로그인 페이지를 위한 StatefulWidget 클래스
 class LoginPage extends StatefulWidget {
@@ -7,6 +9,7 @@ class LoginPage extends StatefulWidget {
 
   @override
   // 로그인 페이지의 상태를 생성
+  // ignore: library_private_types_in_public_api
   _LoginPageState createState() => _LoginPageState();
 }
 
@@ -14,6 +17,12 @@ class _LoginPageState extends State<LoginPage> {
   // 사용자 이름과 비밀번호를 위한 텍스트 컨트롤러
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
+
+  final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+  final GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey =
+      GlobalKey<ScaffoldMessengerState>();
 
   @override
   Widget build(BuildContext context) {
@@ -186,7 +195,7 @@ class _LoginPageState extends State<LoginPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   ElevatedButton(
-                    onPressed: _sign, // 구글 로그인 버튼 클릭 시 수행할 동작
+                    onPressed: () => _sign(context), // 구글 로그인 버튼 클릭 시 수행할 동작
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all<Color>(
                           const Color.fromARGB(255, 255, 255, 255)),
@@ -234,7 +243,7 @@ class _LoginPageState extends State<LoginPage> {
       // 조건이 충족되면 CalendarScreen으로 이동
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const CalendarScreen()),
+        MaterialPageRoute(builder: (context) => const Calendar()),
       );
     } else {
       // 조건이 충족되지 않으면 알림 메시지 출력
@@ -248,11 +257,25 @@ class _LoginPageState extends State<LoginPage> {
 
   void _join() {
     // 회원가입 로직
-    print("회원가입");
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const JoinScreen()),
+    );
   }
-}
 
-void _sign() {
-  // 구글 로그인 로직
-  print("google 로그인");
+  Future<void> _sign(BuildContext context) async {
+    try {
+      final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
+
+      if (googleUser != null) {
+        navigatorKey.currentState?.push(
+          MaterialPageRoute(builder: (context) => const Calendar()),
+        );
+      }
+    } catch (error) {
+      scaffoldMessengerKey.currentState?.showSnackBar(
+        SnackBar(content: Text('Google Sign In 에러: $error')),
+      );
+    }
+  }
 }
