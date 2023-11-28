@@ -21,7 +21,6 @@ import 'firebase_options.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:provider/provider.dart';
 
-
 void main() async {
   //이것도 firebase 필수 코드임.
   WidgetsFlutterBinding.ensureInitialized();
@@ -43,7 +42,6 @@ class _AppState extends State<App> {
 
   @override
   Widget build(BuildContext context) {
-
     //var screenSize = MediaQuery.of(context).size;
     return const MaterialApp(home: Friends_list()
         /*Scaffold(
@@ -96,27 +94,5 @@ class _AppState extends State<App> {
         //settings()
         //],
         );
-
-  }
-}
-*/
-
-import 'package:calendar/screens/Calendar.dart';
-import 'package:flutter/material.dart';
-import 'package:intl/date_symbol_data_local.dart';
-
-void main() async {
-  await initializeDateFormatting('ko_KR');
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Calendar(),
-    );
   }
 }

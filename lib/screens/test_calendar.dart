@@ -1,7 +1,6 @@
 import 'package:calendar/screens/Memo_page.dart';
 import 'package:calendar/widgets/test.dart';
 import 'package:calendar/widgets/test.dart';
-import 'notescreen.dart';
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
