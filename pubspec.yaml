@@ -41,6 +41,9 @@ dependencies:
   dotted_line: ^3.2.2
   table_calendar: ^3.0.9
   intl: ^0.18.1
+  flutter_sound: ^9.2.13
+  permission_handler: ^11.0.1
+  audio_waveforms: ^1.0.4
 
 dev_dependencies:
   flutter_test:

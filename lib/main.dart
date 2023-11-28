@@ -9,6 +9,7 @@ import 'package:calendar/screens/settings.dart';
 import 'package:calendar/widgets/test.dart';
 import 'package:calendar/widgets/test_change.dart';
 import 'package:calendar/widgets/test_record.dart';
+import 'package:calendar/widgets/test_record2.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -29,54 +30,57 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
     return const MaterialApp(
-        home: Scaffold(backgroundColor: Color(0xffEFEFEF), body: Calendar()
-            //settings(),
-            //AudioApp(),
-            //   Column(
-            // children: [
-            //   SizedBox(
-            //     height: 50,
-            //   ),
-            // IconButton(
-            //     onPressed: () {
-            //       showDialog(
-            //           barrierDismissible: true,
-            //           context: context,
-            //           builder: (context) {
-            //             return const AlertDialog(
-            //               content: calander_menu(),
-            //             );
-            //           });
-            //     },
-            //     icon: const Icon(
-            //       Icons.menu,
-            //       size: 45,
-            //     )),
-            //calander_menu(),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.end,
-            //   children: [
-            //     test(),
-            //   ],
-            // ),
-            // Text('$screenSize.width'),
-            // Text('$screenSize.height'),
-            // change_font_color(),
-            // SizedBox(
-            //   height: 50,
-            // ),
-            // change_background_color(),
-            // SizedBox(
-            //   height: 50,
-            // ),
-            // change_ddays_color(),
-            // SizedBox(
-            //   height: 50,
-            // ),
-            //change_font_size()
-            //RecordingWidget()
-            //settings()
-            //],
-            )); //)
+        home: Scaffold(
+      backgroundColor: Color(0xffEFEFEF),
+      body: //test_record2()
+          //settings(),
+          //AudioApp(),
+          Column(children: [
+        SizedBox(
+          height: 50,
+        ),
+        test_recorde()
+      ]),
+      // IconButton(
+      //     onPressed: () {
+      //       showDialog(
+      //           barrierDismissible: true,
+      //           context: context,
+      //           builder: (context) {
+      //             return const AlertDialog(
+      //               content: calander_menu(),
+      //             );
+      //           });
+      //     },
+      //     icon: const Icon(
+      //       Icons.menu,
+      //       size: 45,
+      //     )),
+      //calander_menu(),
+      // Row(
+      //   mainAxisAlignment: MainAxisAlignment.end,
+      //   children: [
+      //     test(),
+      //   ],
+      // ),
+      // Text('$screenSize.width'),
+      // Text('$screenSize.height'),
+      // change_font_color(),
+      // SizedBox(
+      //   height: 50,
+      // ),
+      // change_background_color(),
+      // SizedBox(
+      //   height: 50,
+      // ),
+      // change_ddays_color(),
+      // SizedBox(
+      //   height: 50,
+      // ),
+      //change_font_size()
+      //RecordingWidget()
+      //settings()
+      //],
+    )); //)
   }
 }
