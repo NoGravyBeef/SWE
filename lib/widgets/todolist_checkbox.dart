@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 
-//a
-class DDayCheckbox extends StatefulWidget {
+class TodoCheckbox extends StatefulWidget {
   final bool initialValue;
   final ValueChanged<bool> onChanged;
 
-  DDayCheckbox({required this.initialValue, required this.onChanged});
+  TodoCheckbox({required this.initialValue, required this.onChanged});
 
   @override
-  _DDayCheckboxState createState() => _DDayCheckboxState();
+  _TodoCheckboxState createState() => _TodoCheckboxState();
 }
 
-class _DDayCheckboxState extends State<DDayCheckbox> {
+class _TodoCheckboxState extends State<TodoCheckbox> {
   late bool _isChecked;
 
   @override

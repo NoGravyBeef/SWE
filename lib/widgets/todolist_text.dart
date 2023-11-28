@@ -1,27 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class Memomain extends StatefulWidget {
+class Todomain extends StatefulWidget {
   late final TextEditingController memoController;
   @override
-  Memomain({required this.memoController});
+  Todomain({required this.memoController});
 
-  _MemomainState createState() => _MemomainState();
+  _TodomainState createState() => _TodomainState();
 }
 
-class _MemomainState extends State<Memomain> {
-  final TextEditingController _memoController = TextEditingController();
-  bool _isMemoChecked = false;
+class _TodomainState extends State<Todomain> {
+  final TextEditingController TodoController = TextEditingController();
+  bool TodoChecked = false;
 
   @override
   Widget build(BuildContext context) {
-    return  Flexible(
+    return Flexible(
       fit: FlexFit.tight,
       flex: 5,
       child: IntrinsicHeight(
         child: Container(
           decoration: ShapeDecoration(
-            color: Color(0xFFFFF3D9),
+            color: Color(0xFFEDEDED),
             shadows: [
               BoxShadow(
                 color: Colors.black12,
@@ -34,7 +34,7 @@ class _MemomainState extends State<Memomain> {
               borderRadius: BorderRadius.circular(80.0),
             ),
           ),
-          child: TextFormField(
+          child: TextField(
             inputFormatters: [LengthLimitingTextInputFormatter(20)],
             style: TextStyle(
               fontSize: 15,
@@ -45,21 +45,8 @@ class _MemomainState extends State<Memomain> {
               contentPadding: EdgeInsets.symmetric(
                 horizontal: MediaQuery.of(context).size.width * 0.04,
               ),
-              errorStyle: TextStyle(
-                color: Colors.red,
-                fontSize: 10,
-                height: 0,
-              ),
-              errorMaxLines: 1,
               border: InputBorder.none,
             ),
-            autovalidateMode: AutovalidateMode.onUserInteraction,
-            onSaved: (val) {},
-            validator: (val) {
-              if (val!.length >= 20) {
-                return 'error';
-              }
-            },
           ),
         ),
       ),
