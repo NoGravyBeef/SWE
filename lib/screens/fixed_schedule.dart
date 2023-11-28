@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:calendar/widgets/fixedschedule_row.dart';
 
+//d
 class Fixed_Schedules extends StatefulWidget {
   const Fixed_Schedules({super.key});
 
@@ -46,15 +47,20 @@ class _Fixed_SchedulesState extends State<Fixed_Schedules> {
               ),
               Row(
                 children: [
-                  const Icon(Icons.format_underline),
+                  ElevatedButton(
+                      onPressed: () {},
+                      child: const Icon(Icons.format_underline)),
                   SizedBox(
                     width: screenSize.width * 0.021,
                   ),
-                  const Icon(Icons.format_size),
+                  ElevatedButton(
+                      onPressed: () {}, child: const Icon(Icons.format_size)),
                   SizedBox(
                     width: screenSize.width * 0.021,
                   ),
-                  const Icon(Icons.format_color_fill)
+                  ElevatedButton(
+                      onPressed: () {},
+                      child: const Icon(Icons.format_color_fill)),
                 ],
               ),
               SizedBox(

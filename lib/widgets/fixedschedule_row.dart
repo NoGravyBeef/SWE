@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 
-class FixedSchedule_row extends StatelessWidget {
-  final String text;
+class FixedSchedule_row extends StatefulWidget {
   final Color bgColor;
   final Color textColor;
 
   const FixedSchedule_row(
       {super.key,
-      this.text = 'dd ',
       this.bgColor = Colors.white70,
       this.textColor = Colors.black});
+
+  @override
+  State<FixedSchedule_row> createState() => _FixedSchedule_rowState();
+}
+
+class _FixedSchedule_rowState extends State<FixedSchedule_row> {
+  String fixedScheduleValue = '';
 
   @override
   Widget build(BuildContext context) {
@@ -20,30 +25,39 @@ class FixedSchedule_row extends StatelessWidget {
         SizedBox(
           height: screenSize.height * 0.023,
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                color: bgColor,
-                borderRadius: BorderRadius.circular(45),
-              ),
-              child: Padding(
-                padding: EdgeInsets.symmetric(
-                  vertical: screenSize.height * 0.008,
-                  horizontal: screenSize.width * 0.41,
+        Container(
+            height: 30,
+            decoration: BoxDecoration(
+              color: widget.bgColor,
+              borderRadius: BorderRadius.circular(45),
+              boxShadow: const [
+                BoxShadow(
+                  color: Colors.grey,
+                  spreadRadius: 0,
+                  blurRadius: 7,
+                  offset: Offset(0, 5),
                 ),
-                child: Text(
-                  text,
-                  style: TextStyle(
-                    color: textColor,
-                    fontSize: 20,
-                  ),
-                ),
-              ),
+              ],
             ),
-          ],
-        ),
+            child: TextFormField(
+                maxLength: 20,
+                onChanged: (value) {
+                  setState(() {
+                    fixedScheduleValue = value;
+                  });
+                },
+                decoration: const InputDecoration(
+                  /*contentPadding: EdgeInsets.symmetric(
+              horizontal: screenSize.width * 0.04,
+            ),*/
+                  border: InputBorder.none,
+                  counterText: "",
+                ),
+                style: TextStyle(
+                  color: widget.textColor,
+                  fontSize: 15,
+                ),
+                textAlign: TextAlign.center)),
       ],
     );
   }

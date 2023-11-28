@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:calendar/widgets/list_elements.dart';
+import 'package:calendar/screens/fmanage_list.dart';
+import 'package:calendar/screens/friend_request_screen.dart';
 
 class Friends_list extends StatefulWidget {
   const Friends_list({super.key});
@@ -46,7 +48,7 @@ class _Friends_list extends State<Friends_list> {
               ],
             ),
             SizedBox(
-              height: screenSize.height * 0.05,
+              height: screenSize.height * 0.03,
             ),
             SizedBox(
               width: screenSize.width * 0.93,
@@ -61,7 +63,7 @@ class _Friends_list extends State<Friends_list> {
             Column(
               children: [
                 SizedBox(
-                  height: screenSize.height * 0.06,
+                  height: screenSize.height * 0.03,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -75,7 +77,12 @@ class _Friends_list extends State<Friends_list> {
                             borderRadius: BorderRadius.circular(8),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => const FManage_list()));
+                        },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
@@ -122,7 +129,12 @@ class _Friends_list extends State<Friends_list> {
                             borderRadius: BorderRadius.circular(8),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => const FriendRequestScreen()));
+                        },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
