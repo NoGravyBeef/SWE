@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:calendar/widgets/join_text_field.dart';
 
-// 회원가입 화면 위젯
+// 회원가입 화면 위젯a
 class JoinScreen extends StatefulWidget {
   const JoinScreen({super.key});
 
