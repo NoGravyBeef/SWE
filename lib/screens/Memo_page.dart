@@ -5,7 +5,7 @@ import 'package:calendar/widgets/Memomain.dart';
 import 'package:calendar/screens/Todolist.dart';
 
 class Memo_Page extends StatefulWidget {
-  const Memo_Page({super.key});
+  const Memo_Page({super.key, required DateTime date});
 
   @override
   State<Memo_Page> createState() => MemoPage();
