@@ -3,8 +3,13 @@ import 'package:flutter/services.dart';
 
 class Memomain extends StatefulWidget {
   late final TextEditingController memoController;
+  bool isUnderlined = false;
+
   @override
-  Memomain({required this.memoController});
+  Memomain({
+    required this.memoController,
+    required bool isUnderlined,
+  });
 
   _MemomainState createState() => _MemomainState();
 }
@@ -13,6 +18,7 @@ class Memomain extends StatefulWidget {
 class _MemomainState extends State<Memomain> {
   @override
   Widget build(BuildContext context) {
+    bool isUnderlined = false;
     return Flexible(
       fit: FlexFit.tight,
       flex: 5,
@@ -38,7 +44,10 @@ class _MemomainState extends State<Memomain> {
               inputFormatters: [LengthLimitingTextInputFormatter(20)],
               style: TextStyle(
                 fontSize: 15, //메모 글자 크기 변경
-                color: Colors.grey, //메모 글자 색 변경
+                color: Colors.grey, //글자 색 변경
+                decoration: isUnderlined
+                    ? TextDecoration.underline
+                    : TextDecoration.none, //메모 밑줄
               ),
               controller: widget.memoController,
               decoration: InputDecoration(
