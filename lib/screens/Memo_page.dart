@@ -5,7 +5,7 @@ import 'package:calendar/widgets/memo_text.dart';
 import 'package:calendar/screens/todolist_page.dart';
 
 class Memo_Page extends StatefulWidget {
-  const Memo_Page({super.key, required DateTime date});
+  const Memo_Page({super.key, DateTime? date});
 
   @override
   State<Memo_Page> createState() => MemoPage();
@@ -55,7 +55,7 @@ class MemoPage extends State<Memo_Page> {
     var screenSize = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: Color(0xFFFFF3D9),
+      backgroundColor: const Color(0xFFFFF3D9),
       //메모장 자체 배경색상 변경-값 넘기기
       body: SingleChildScrollView(
         child: Column(
