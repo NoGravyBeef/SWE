@@ -1,5 +1,7 @@
 import 'package:calendar/screens/Memo_page.dart';
 import 'package:calendar/widgets/test.dart';
+import 'package:calendar/widgets/test.dart';
+import 'notescreen.dart';
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -15,11 +17,9 @@ class Calendar extends StatefulWidget {
   State<Calendar> createState() => _CalendarState();
 }
 
-// 날짜와 이벤트를 매핑하는 맵
 Map<DateTime, String> dDayEvents = {};
 
 class _CalendarState extends State<Calendar> {
-  // 선택된 날짜와 포커스된 날짜를 저장하는 변수
   DateTime selectedDay = DateTime.now();
   DateTime focusedDay = DateTime.now();
 
@@ -175,8 +175,6 @@ class _CalendarState extends State<Calendar> {
 
               // 달력 스타일 설정
               calendarStyle: CalendarStyle(
-                  isTodayHighlighted: true,
-                  defaultDecoration: defaultBoxDeco,
                   weekendDecoration: defaultBoxDeco,
                   weekendTextStyle: const TextStyle(
                     fontSize: 20,
@@ -202,6 +200,42 @@ class _CalendarState extends State<Calendar> {
                     date.month == selectedDay.month &&
                     date.day == selectedDay.day;
               },
+              calendarBuilders: CalendarBuilders(dowBuilder: (context, day) {
+                switch (day.weekday) {
+                  case 1:
+                    return const Center(
+                      child: Text('월'),
+                    );
+                  case 2:
+                    return const Center(
+                      child: Text('화'),
+                    );
+                  case 3:
+                    return const Center(
+                      child: Text('수'),
+                    );
+                  case 4:
+                    return const Center(
+                      child: Text('목'),
+                    );
+                  case 5:
+                    return const Center(
+                      child: Text('금'),
+                    );
+                  case 6:
+                    return const Center(
+                      child: Text('토'),
+                    );
+                  case 7:
+                    return const Center(
+                      child: Text(
+                        '일',
+                        style: TextStyle(color: Colors.red),
+                      ),
+                    );
+                }
+                return null;
+              }),
             ),
           ],
         ),

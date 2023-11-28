@@ -28,13 +28,12 @@ class _HolydaySetState extends State<HolydaySet> {
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
 
-    return Dialog(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(15),
-      ),
+    return Container(
+      height: screenSize.height * 0.232,
+      padding: const EdgeInsets.fromLTRB(17, 10, 17, 7),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15), color: Colors.white),
       child: Container(
-        height: screenSize.height * 0.212,
-        padding: const EdgeInsets.fromLTRB(17, 7, 17, 7),
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(30)),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,

@@ -1,3 +1,5 @@
+import 'package:calendar/screens/friends_list.dart';
+import 'package:calendar/screens/user_search_screen.dart';
 import 'package:calendar/widgets/calendar_menu.dart';
 import 'package:calendar/screens/settings.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +18,7 @@ class _testState extends State<test> {
     var screenSize = MediaQuery.of(context).size;
     return PopupMenuButton(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+      color: Colors.white,
       icon: const Icon(
         Icons.menu,
         size: 30,
@@ -59,9 +62,13 @@ class _testState extends State<test> {
                 )
               ],
             ),
-            onTap: () {},
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (_) => const Friends_list()));
+            },
           ),
           PopupMenuItem(
+            //
             child: Row(
               children: [
                 const Icon(
@@ -76,7 +83,10 @@ class _testState extends State<test> {
                 )
               ],
             ),
-            onTap: () {},
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (_) => const UserSearchScreen()));
+            },
           ),
         ];
       },

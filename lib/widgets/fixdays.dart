@@ -15,23 +15,21 @@ class _fixdaysState extends State<fixdays> {
 
     return Container(
       width: screenSize.width * 0.5722,
-      height: screenSize.height * 0.1,
+      height: screenSize.height * 0.13,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15), color: Colors.white),
-      child: Column(
+      child: const Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Padding(
-            padding: EdgeInsets.only(
-                left: screenSize.width * 0.045,
-                top: screenSize.height * 0.00575,
-                bottom: 8),
-            child: const Text(
+            padding: EdgeInsets.only(left: 17),
+            child: Text(
               '요일 선택',
               style: TextStyle(fontSize: 17, color: Color(0xff535353)),
             ),
           ),
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               fixdays_days(days: '월'),

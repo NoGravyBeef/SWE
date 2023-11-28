@@ -1,3 +1,4 @@
+import 'package:calendar/popup/holyday_setup.dart';
 import 'package:calendar/widgets/calander_start_days.dart';
 import 'package:calendar/widgets/fixdays.dart';
 import 'package:flutter/cupertino.dart';
@@ -11,10 +12,16 @@ class settings extends StatefulWidget {
 }
 
 class _settingsState extends State<settings> {
+  bool isChecked = false;
+  bool isChecked2 = false;
+  bool isChecked3 = false;
+  bool isChecked4 = false;
+  bool isChecked5 = false;
+  bool isChecked6 = false;
+
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
-    bool ischecked = false;
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
@@ -51,21 +58,20 @@ class _settingsState extends State<settings> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text(
-                  'Settings',
-                  style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 36,
-                      fontFamily: 'JetBrain',
-                      //letterSpacing:
-                      color: Colors.black),
-                ),
+                const DefaultTextStyle(
+                    style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 36,
+                        fontFamily: 'JetBrain',
+                        //letterSpacing:
+                        color: Colors.black),
+                    child: Text('Settings')),
                 IconButton(
                     onPressed: () {},
                     icon: const Icon(
                       Icons.settings,
                       size: 36,
-                      color: Color(0xff808080),
+                      color: Colors.black87,
                     )),
               ],
             ),
@@ -92,15 +98,55 @@ class _settingsState extends State<settings> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
-                      '알림',
-                      style: TextStyle(color: Color(0xff5D5050), fontSize: 18),
-                    ),
+                    const DefaultTextStyle(
+                        style:
+                            TextStyle(color: Color(0xff5D5050), fontSize: 18),
+                        child: Text('알림')),
                     CupertinoSwitch(
-                        value: ischecked,
+                      value: isChecked,
+                      activeColor: Colors.grey,
+                      onChanged: (value) {
+                        setState(() {
+                          isChecked = value;
+                        });
+                      },
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              height: screenSize.height * 0.02,
+            ),
+            Container(
+              height: screenSize.height * 0.0535,
+              width: screenSize.width * 0.85,
+              decoration: ShapeDecoration(
+                  gradient: const LinearGradient(
+                      colors: [
+                        Color.fromARGB(143, 194, 194, 194),
+                        Color.fromARGB(255, 255, 255, 255)
+                      ],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      stops: [0.0, 0.12],
+                      tileMode: TileMode.clamp),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15))),
+              child: Padding(
+                padding: const EdgeInsets.only(left: 15, right: 15),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const DefaultTextStyle(
+                        style:
+                            TextStyle(color: Color(0xff5D5050), fontSize: 18),
+                        child: Text('음력')),
+                    CupertinoSwitch(
+                        value: isChecked2,
                         onChanged: (value) {
                           setState(() {
-                            ischecked = false;
+                            isChecked2 = value;
                           });
                         })
                   ],
@@ -130,53 +176,15 @@ class _settingsState extends State<settings> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
-                      '음력',
-                      style: TextStyle(color: Color(0xff5D5050), fontSize: 18),
-                    ),
+                    const DefaultTextStyle(
+                        style:
+                            TextStyle(color: Color(0xff5D5050), fontSize: 18),
+                        child: Text('절기')),
                     CupertinoSwitch(
-                        value: ischecked,
+                        value: isChecked3,
                         onChanged: (value) {
                           setState(() {
-                            ischecked = false;
-                          });
-                        })
-                  ],
-                ),
-              ),
-            ),
-            SizedBox(
-              height: screenSize.height * 0.02,
-            ),
-            Container(
-              height: screenSize.height * 0.0535,
-              width: screenSize.width * 0.85,
-              decoration: ShapeDecoration(
-                  gradient: const LinearGradient(
-                      colors: [
-                        Color.fromARGB(143, 194, 194, 194),
-                        Color.fromARGB(255, 255, 255, 255)
-                      ],
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      stops: [0.0, 0.12],
-                      tileMode: TileMode.clamp),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15))),
-              child: Padding(
-                padding: const EdgeInsets.only(left: 15, right: 15),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text(
-                      '절기',
-                      style: TextStyle(color: Color(0xff5D5050), fontSize: 18),
-                    ),
-                    CupertinoSwitch(
-                        value: ischecked,
-                        onChanged: (value) {
-                          setState(() {
-                            ischecked = false;
+                            isChecked3 = value;
                           });
                         })
                   ],
@@ -202,14 +210,14 @@ class _settingsState extends State<settings> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15))),
               child: const Padding(
-                padding: EdgeInsets.only(left: 11, right: 11),
+                padding: EdgeInsets.only(left: 15, right: 11),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      '시작 요일',
-                      style: TextStyle(color: Color(0xff5D5050), fontSize: 18),
-                    ),
+                    DefaultTextStyle(
+                        style:
+                            TextStyle(color: Color(0xff5D5050), fontSize: 18),
+                        child: Text('시작 요일')),
                     Row(
                       children: [
                         Padding(
@@ -269,12 +277,26 @@ class _settingsState extends State<settings> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
-                      '휴일',
-                      style: TextStyle(color: Color(0xff5D5050), fontSize: 18),
-                    ),
+                    const DefaultTextStyle(
+                        style:
+                            TextStyle(color: Color(0xff5D5050), fontSize: 18),
+                        child: Text('휴일')),
                     IconButton(
-                        onPressed: () {}, icon: const Icon(Icons.last_page))
+                        onPressed: () {
+                          showDialog(
+                              barrierDismissible: true,
+                              context: context,
+                              builder: (context) {
+                                return AlertDialog(
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(15)),
+                                  contentPadding: const EdgeInsets.symmetric(
+                                      horizontal: 0, vertical: 0),
+                                  content: const HolydaySet(),
+                                );
+                              });
+                        },
+                        icon: const Icon(Icons.last_page))
                   ],
                 ),
               ),
@@ -302,15 +324,15 @@ class _settingsState extends State<settings> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
-                      '일정 공개',
-                      style: TextStyle(color: Color(0xff5D5050), fontSize: 18),
-                    ),
+                    const DefaultTextStyle(
+                        style:
+                            TextStyle(color: Color(0xff5D5050), fontSize: 18),
+                        child: Text('일정 공개')),
                     CupertinoSwitch(
-                        value: ischecked,
+                        value: isChecked4,
                         onChanged: (value) {
                           setState(() {
-                            ischecked = false;
+                            isChecked4 = value;
                           });
                         })
                   ],
@@ -340,15 +362,15 @@ class _settingsState extends State<settings> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
-                      '친구 신청',
-                      style: TextStyle(color: Color(0xff5D5050), fontSize: 18),
-                    ),
+                    const DefaultTextStyle(
+                        style:
+                            TextStyle(color: Color(0xff5D5050), fontSize: 18),
+                        child: Text('친구 신청')),
                     CupertinoSwitch(
-                        value: ischecked,
+                        value: isChecked5,
                         onChanged: (value) {
                           setState(() {
-                            ischecked = false;
+                            isChecked5 = value;
                           });
                         })
                   ],
@@ -378,15 +400,15 @@ class _settingsState extends State<settings> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
-                      '상단바',
-                      style: TextStyle(color: Color(0xff5D5050), fontSize: 18),
-                    ),
+                    const DefaultTextStyle(
+                        style:
+                            TextStyle(color: Color(0xff5D5050), fontSize: 18),
+                        child: Text('상단바')),
                     CupertinoSwitch(
-                        value: ischecked,
+                        value: isChecked6,
                         onChanged: (value) {
                           setState(() {
-                            ischecked = false;
+                            isChecked6 = value;
                           });
                         })
                   ],
@@ -414,12 +436,12 @@ class _settingsState extends State<settings> {
               child: Padding(
                 padding: const EdgeInsets.only(left: 15, right: 8),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween, //
                   children: [
-                    const Text(
-                      '일정 고정',
-                      style: TextStyle(color: Color(0xff5D5050), fontSize: 18),
-                    ),
+                    const DefaultTextStyle(
+                        style:
+                            TextStyle(color: Color(0xff5D5050), fontSize: 18),
+                        child: Text('일정 고정')),
                     IconButton(
                         onPressed: () {
                           showDialog(
@@ -429,11 +451,8 @@ class _settingsState extends State<settings> {
                                 return AlertDialog(
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(15)),
-                                  contentPadding: EdgeInsets.symmetric(
-                                      horizontal:
-                                          (screenSize.height * 0.00575) * 2,
-                                      vertical:
-                                          (screenSize.width * 0.0103) * 2),
+                                  contentPadding: const EdgeInsets.symmetric(
+                                      horizontal: 0, vertical: 0),
                                   content: const fixdays(),
                                 );
                               });
@@ -455,15 +474,37 @@ class _settingsState extends State<settings> {
                         borderRadius: BorderRadius.circular(15)),
                     backgroundColor: const Color(0xffD1D1EA),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    showDialog(
+                        barrierDismissible: false,
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            content: const Text('변경사항을 저장하시겠습니까?'),
+                            actions: [
+                              ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: const Text('예')),
+                              ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: const Text('아니요'))
+                            ],
+                          );
+                        });
+                  },
                   child: const Text(
                     '저장',
-                    style: TextStyle(color: Colors.white, fontSize: 18),
+                    style: TextStyle(color: Colors.white54, fontSize: 18),
                   )),
             )
           ],
         ),
       ),
-    );
+    ); //,
+    //);
   }
 }
