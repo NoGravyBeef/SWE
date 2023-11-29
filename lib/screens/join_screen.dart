@@ -1,9 +1,7 @@
-import 'dart:html';
-
+import 'package:calendar/screens/login.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 
 final auth = FirebaseAuth.instance;
 
@@ -23,7 +21,7 @@ class _JoinScreenState extends State<JoinScreen> {
   final TextEditingController firstname = TextEditingController();
   final TextEditingController lastname = TextEditingController();
   var ispasswordcorrect = true;
-
+  var user;
   @override
   void setState(fn) {
     // TODO: implement setState
@@ -362,19 +360,42 @@ class _JoinScreenState extends State<JoinScreen> {
                       height: screenSize.height * 0.065,
                       child: ElevatedButton(
                         onPressed: () async {
-                          if (ispasswordcorrect == true) {
-                            if (_formKey.currentState!.validate()) {
-                              _formKey.currentState!.save();
-                            }
-
-                            final result =
+                          try {
+                            UserCredential credential =
                                 await auth.createUserWithEmailAndPassword(
-                              email: emailController.text.toLowerCase().trim(),
-                              password: passwordController.text.trim(),
-                            );
-                            result.user?.updateDisplayName(
+                                    email: emailController.text,
+                                    password: passwordController.text);
+                            credential.user?.updateDisplayName(
                                 lastname.text + firstname.text);
-                          } else {}
+                            if (credential.user != null) {
+                              user = credential.user;
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                      content: Text('server error')));
+                            }
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const LoginPage()));
+                          } on FirebaseAuthException catch (error) {
+                            String? errorCode;
+                            switch (error.code) {
+                              case "email-already-in-use":
+                                errorCode = error.code;
+                                break;
+                              case "invalid-email":
+                                errorCode = error.code;
+                                break;
+                              case "weak-password":
+                                errorCode = error.code;
+                                break;
+                              case "operation-not-allowed":
+                                errorCode = error.code;
+                                break;
+                              default:
+                                errorCode = null;
+                            }
+                            if (errorCode != null) {}
+                          }
                         },
                         style: ButtonStyle(
                           padding: MaterialStateProperty.all(EdgeInsets.zero),

@@ -1,8 +1,10 @@
+import 'package:calendar/screens/login.dart';
 import 'package:flutter/material.dart';
 import 'package:calendar/screens/join_screen.dart';
 //아래는 firebase 필수 코드임
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 //provider와 shared preferences
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:provider/provider.dart';
@@ -16,6 +18,8 @@ void main() async {
   runApp(const App());
 }
 
+final auth = FirebaseAuth.instance;
+
 class App extends StatefulWidget {
   const App({super.key});
 
@@ -24,11 +28,8 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-  var test_change_color = Colors.white;
-
   @override
   Widget build(BuildContext context) {
-    var screenSize = MediaQuery.of(context).size;
     return const MaterialApp(
       home: Scaffold(
         backgroundColor: Color(0xffEFEFEF),
