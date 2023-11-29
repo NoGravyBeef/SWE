@@ -9,6 +9,7 @@ import 'package:calendar/widgets/test.dart';
 import 'package:calendar/widgets/test_change.dart';
 import 'package:calendar/widgets/test_record.dart';
 import 'package:flutter/material.dart';
+import 'package:calendar/screens/join_screen.dart';
 //아래는 firebase 필수 코드임
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -41,54 +42,7 @@ class _AppState extends State<App> {
     return const MaterialApp(
       home: Scaffold(
         backgroundColor: Color(0xffEFEFEF),
-        body: //settings(),
-            //AudioApp(),
-            Column(
-          children: [
-            SizedBox(
-              height: 50,
-            ),
-            // IconButton(
-            //     onPressed: () {
-            //       showDialog(
-            //           barrierDismissible: true,
-            //           context: context,
-            //           builder: (context) {
-            //             return const AlertDialog(
-            //               content: calander_menu(),
-            //             );
-            //           });
-            //     },
-            //     icon: const Icon(
-            //       Icons.menu,
-            //       size: 45,
-            //     )),
-            //calander_menu(),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.end,
-            //   children: [
-            //     test(),
-            //   ],
-            // ),
-            // Text('$screenSize.width'),
-            // Text('$screenSize.height'),
-            // change_font_color(),
-            // SizedBox(
-            //   height: 50,
-            // ),
-            // change_background_color(),
-            // SizedBox(
-            //   height: 50,
-            // ),
-            // change_ddays_color(),
-            // SizedBox(
-            //   height: 50,
-            // ),
-            //change_font_size()
-            //RecordingWidget()
-            //settings()
-          ],
-        ),
+        body: JoinScreen(),
       ),
     );
   }
