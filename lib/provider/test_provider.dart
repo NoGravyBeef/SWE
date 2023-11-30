@@ -11,6 +11,8 @@ class testProvider extends ChangeNotifier {
   int _changeStartDay = 0;
   int get changeStartDay => _changeStartDay;
 
+  List<bool> selectHoliday = [false, false, false, false, false, false, false];
+
   void change_background_color(changeColor) {
     _backGroundColor = changeColor;
     notifyListeners();

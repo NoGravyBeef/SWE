@@ -82,6 +82,13 @@ class _HolydaySetState extends State<HolydaySet> {
                   child: ElevatedButton(
                     onPressed: () {
                       //on off 기능구현
+                      for (int i = 0; i < 7; i++) {
+                        if (i == 0) {
+                          _provider.selectHoliday[0] = true;
+                        } else {
+                          _provider.selectHoliday[i] = false;
+                        }
+                      }
                     },
                     style: ButtonStyle(
                       padding: MaterialStateProperty.all(EdgeInsets.zero),
@@ -115,6 +122,13 @@ class _HolydaySetState extends State<HolydaySet> {
                   child: ElevatedButton(
                     onPressed: () {
                       //on off 기능구현
+                      for (int i = 0; i < 7; i++) {
+                        if (i == 1) {
+                          _provider.selectHoliday[1] = true;
+                        } else {
+                          _provider.selectHoliday[i] = false;
+                        }
+                      }
                     },
                     style: ButtonStyle(
                       padding: MaterialStateProperty.all(EdgeInsets.zero),
@@ -148,6 +162,13 @@ class _HolydaySetState extends State<HolydaySet> {
                   child: ElevatedButton(
                     onPressed: () {
                       //on off 기능구현
+                      for (int i = 0; i < 7; i++) {
+                        if (i == 2) {
+                          _provider.selectHoliday[2] = true;
+                        } else {
+                          _provider.selectHoliday[i] = false;
+                        }
+                      }
                     },
                     style: ButtonStyle(
                       padding: MaterialStateProperty.all(EdgeInsets.zero),
@@ -181,6 +202,13 @@ class _HolydaySetState extends State<HolydaySet> {
                   child: ElevatedButton(
                     onPressed: () {
                       //on off 기능구현
+                      for (int i = 0; i < 7; i++) {
+                        if (i == 3) {
+                          _provider.selectHoliday[3] = true;
+                        } else {
+                          _provider.selectHoliday[i] = false;
+                        }
+                      }
                     },
                     style: ButtonStyle(
                       padding: MaterialStateProperty.all(EdgeInsets.zero),
@@ -214,6 +242,13 @@ class _HolydaySetState extends State<HolydaySet> {
                   child: ElevatedButton(
                     onPressed: () {
                       //on off 기능구현
+                      for (int i = 0; i < 7; i++) {
+                        if (i == 4) {
+                          _provider.selectHoliday[4] = true;
+                        } else {
+                          _provider.selectHoliday[i] = false;
+                        }
+                      }
                     },
                     style: ButtonStyle(
                       padding: MaterialStateProperty.all(EdgeInsets.zero),
@@ -247,6 +282,13 @@ class _HolydaySetState extends State<HolydaySet> {
                   child: ElevatedButton(
                     onPressed: () {
                       //on off 기능구현
+                      for (int i = 0; i < 7; i++) {
+                        if (i == 5) {
+                          _provider.selectHoliday[5] = true;
+                        } else {
+                          _provider.selectHoliday[i] = false;
+                        }
+                      }
                     },
                     style: ButtonStyle(
                       padding: MaterialStateProperty.all(EdgeInsets.zero),
@@ -280,6 +322,14 @@ class _HolydaySetState extends State<HolydaySet> {
                   child: ElevatedButton(
                     onPressed: () {
                       //on off 기능구현
+                      for (int i = 0; i < 7; i++) {
+                        if (i == 6) {
+                          _provider.selectHoliday[6] = true;
+                        } else {
+                          _provider.selectHoliday[i] = false;
+                        }
+                      }
+                      print(_provider.selectHoliday[6]);
                     },
                     style: ButtonStyle(
                       padding: MaterialStateProperty.all(EdgeInsets.zero),

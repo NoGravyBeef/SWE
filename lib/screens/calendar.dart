@@ -230,8 +230,11 @@ class _CalendarState extends State<Calendar> {
                           '월',
                           style: TextStyle(
                             fontSize: screenSize.height * 0.025,
-                            color:
-                                Provider.of<testProvider>(context).holidayColor,
+                            color: (Provider.of<testProvider>(context)
+                                    .selectHoliday[0])
+                                ? Provider.of<testProvider>(context)
+                                    .holidayColor
+                                : Colors.black,
                             decoration: TextDecoration.none,
                           ),
                         ),
@@ -242,7 +245,11 @@ class _CalendarState extends State<Calendar> {
                           '화',
                           style: TextStyle(
                             fontSize: screenSize.height * 0.025,
-                            color: Colors.black,
+                            color: (Provider.of<testProvider>(context)
+                                    .selectHoliday[1])
+                                ? Provider.of<testProvider>(context)
+                                    .holidayColor
+                                : Colors.black,
                             decoration: TextDecoration.none,
                           ),
                         ),
@@ -253,7 +260,11 @@ class _CalendarState extends State<Calendar> {
                           '수',
                           style: TextStyle(
                             fontSize: screenSize.height * 0.025,
-                            color: Colors.black,
+                            color: (Provider.of<testProvider>(context)
+                                    .selectHoliday[2])
+                                ? Provider.of<testProvider>(context)
+                                    .holidayColor
+                                : Colors.black,
                             decoration: TextDecoration.none,
                           ),
                         ),
@@ -264,7 +275,11 @@ class _CalendarState extends State<Calendar> {
                           '목',
                           style: TextStyle(
                             fontSize: screenSize.height * 0.025,
-                            color: Colors.black,
+                            color: (Provider.of<testProvider>(context)
+                                    .selectHoliday[3])
+                                ? Provider.of<testProvider>(context)
+                                    .holidayColor
+                                : Colors.black,
                             decoration: TextDecoration.none,
                           ),
                         ),
@@ -275,7 +290,11 @@ class _CalendarState extends State<Calendar> {
                           '금',
                           style: TextStyle(
                             fontSize: screenSize.height * 0.025,
-                            color: Colors.black,
+                            color: (Provider.of<testProvider>(context)
+                                    .selectHoliday[4])
+                                ? Provider.of<testProvider>(context)
+                                    .holidayColor
+                                : Colors.black,
                             decoration: TextDecoration.none,
                           ),
                         ),
@@ -286,7 +305,11 @@ class _CalendarState extends State<Calendar> {
                           '토',
                           style: TextStyle(
                             fontSize: screenSize.height * 0.025,
-                            color: Colors.black,
+                            color: (Provider.of<testProvider>(context)
+                                    .selectHoliday[5])
+                                ? Provider.of<testProvider>(context)
+                                    .holidayColor
+                                : Colors.black,
                             decoration: TextDecoration.none,
                           ),
                         ),
@@ -297,7 +320,11 @@ class _CalendarState extends State<Calendar> {
                           '일',
                           style: TextStyle(
                             fontSize: screenSize.height * 0.025,
-                            color: Colors.black,
+                            color: (Provider.of<testProvider>(context)
+                                    .selectHoliday[6])
+                                ? Provider.of<testProvider>(context)
+                                    .holidayColor
+                                : Colors.black,
                             decoration: TextDecoration.none,
                           ),
                         ),
