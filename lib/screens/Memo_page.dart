@@ -54,7 +54,6 @@ class MemoPage extends State<Memo_Page> {
   final bool _showError1 = false;
   final int _memoValueMax = 20;
 
-
   bool _isUnderlined1 = false; //글자 밑줄
   bool _isUnderlined2 = false;
   bool _isUnderlined3 = false;
@@ -76,9 +75,9 @@ class MemoPage extends State<Memo_Page> {
       //메모장 자체 배경색상 변경-값 넘기기
       body: SingleChildScrollView(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            SizedBox(width: screenSize.width * 0.015), //헤드라인 위패딩
+            SizedBox(height: screenSize.height * 0.04), //헤드라인 위패딩
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
@@ -594,7 +593,6 @@ class MemoPage extends State<Memo_Page> {
                     }, //ddddddd
                   ),
                 ),
-                const SizedBox(width: 10.0),
               ],
             )
           ],
