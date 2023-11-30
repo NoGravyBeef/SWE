@@ -366,7 +366,8 @@ class _HolydaySetState extends State<HolydaySet> {
                       onPressed: () {
                         //on off 기능구현
                         setState(() {
-                          _provider.change_holiday_color(Colors.red);
+                          _provider
+                              .change_holiday_color(const Color(0xff7d7d7d));
                         });
                       },
                       style: TextButton.styleFrom(
@@ -384,6 +385,7 @@ class _HolydaySetState extends State<HolydaySet> {
                     child: TextButton(
                       onPressed: () {
                         //on off 기능구현
+                        _provider.change_holiday_color(const Color(0xffFD9494));
                       },
                       style: TextButton.styleFrom(
                         shape: const CircleBorder(),
@@ -400,6 +402,7 @@ class _HolydaySetState extends State<HolydaySet> {
                     child: TextButton(
                       onPressed: () {
                         //on off 기능구현
+                        _provider.change_holiday_color(const Color(0xffACACFF));
                       },
                       style: TextButton.styleFrom(
                         shape: const CircleBorder(),
@@ -416,6 +419,7 @@ class _HolydaySetState extends State<HolydaySet> {
                     child: TextButton(
                       onPressed: () {
                         //on off 기능구현
+                        _provider.change_holiday_color(const Color(0xff8DF994));
                       },
                       style: TextButton.styleFrom(
                         shape: const CircleBorder(),
@@ -432,6 +436,7 @@ class _HolydaySetState extends State<HolydaySet> {
                     child: TextButton(
                       onPressed: () {
                         //on off 기능구현
+                        _provider.change_holiday_color(const Color(0xffE1E1E1));
                       },
                       style: TextButton.styleFrom(
                         shape: const CircleBorder(),
