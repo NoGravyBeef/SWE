@@ -1,6 +1,8 @@
 import 'package:calendar/screens/calendar.dart';
+import 'package:calendar/screens/fmanage_list.dart';
 import 'package:calendar/screens/login.dart';
 import 'package:flutter/material.dart';
+import 'package:calendar/screens/friends_list.dart';
 import 'package:calendar/screens/join_screen.dart';
 //아래는 firebase 필수 코드임
 import 'package:firebase_core/firebase_core.dart';

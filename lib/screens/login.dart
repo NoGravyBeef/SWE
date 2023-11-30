@@ -41,10 +41,9 @@ class _LoginPageState extends State<LoginPage> {
           Form(
             key: _formKey,
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const SizedBox(height: 100.0),
-
                 // 상단의 로고 이미지
                 const Image(
                   image: AssetImage('assets/event icon.png'),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:calendar/widgets/list_elements.dart';
 import 'package:calendar/screens/fmanage_list.dart';
 import 'package:calendar/screens/friend_request_screen.dart';
 
@@ -127,14 +126,12 @@ class _Friends_list extends State<Friends_list> {
                                     fontWeight: FontWeight.w700),
                               ),
                             ),
-                            // 친구 추가 버튼
+
                             SizedBox(
                               height: screenSize.height * 0.038,
                               width: screenSize.width * 0.17,
                               child: ElevatedButton(
-                                onPressed: () {
-                                  // 친구 추가 로직
-                                },
+                                onPressed: () {},
                                 style: ButtonStyle(
                                   padding: MaterialStateProperty.all(
                                       EdgeInsets.zero),
@@ -147,7 +144,7 @@ class _Friends_list extends State<Friends_list> {
                                   ),
                                 ),
                                 child: const Text(
-                                  '친구추가',
+                                  '일정확인',
                                   style: TextStyle(
                                     fontSize: 12,
                                     fontFamily: 'JetBrain',
@@ -173,7 +170,7 @@ class _Friends_list extends State<Friends_list> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 SizedBox(
-                  width: screenSize.width * 0.27,
+                  width: screenSize.width * 0.35,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.fromLTRB(
@@ -202,7 +199,7 @@ class _Friends_list extends State<Friends_list> {
                           size: 17,
                         ),
                         SizedBox(
-                          width: screenSize.width * 0.045,
+                          width: screenSize.width * 0.07,
                         ),
                         Text(
                           '친구 관리',
@@ -227,7 +224,7 @@ class _Friends_list extends State<Friends_list> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 SizedBox(
-                  width: screenSize.width * 0.27,
+                  width: screenSize.width * 0.35,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.fromLTRB(
@@ -248,7 +245,7 @@ class _Friends_list extends State<Friends_list> {
                               builder: (_) => const FriendRequestScreen()));
                     },
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         const Padding(
                           padding: EdgeInsets.zero,
@@ -259,7 +256,7 @@ class _Friends_list extends State<Friends_list> {
                           ),
                         ),
                         SizedBox(
-                          width: screenSize.width * 0.02,
+                          width: screenSize.width * 0.05,
                         ),
                         Text(
                           '친구 신청 목록',
