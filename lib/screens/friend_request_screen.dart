@@ -47,7 +47,25 @@ class _FriendRequestScreenState extends State<FriendRequestScreen> {
         body: Column(
           children: [
             // 화면 상단 여백
-            SizedBox(height: screenSize.height * 0.05),
+            SizedBox(
+              height: screenSize.height * 0.03,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                SizedBox(width: screenSize.width * 0.06),
+                IconButton(
+                  //나가기
+                  icon: Icon(Icons.sensor_door_outlined,
+                      size: screenSize.height * 0.03,
+                      color: Colors.grey.shade400),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                SizedBox(width: screenSize.width * 0.02),
+              ],
+            ),
             // 타이틀 행
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

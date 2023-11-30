@@ -99,7 +99,8 @@ class MemoPage extends State<Memo_Page> {
                 IconButton(
                   //메모장 나가기(저장)
                   icon: Icon(Icons.sensor_door_outlined,
-                      size: 22, color: Colors.grey.shade400),
+                      size: screenSize.height * 0.03,
+                      color: Colors.grey.shade400),
                   onPressed: () {
                     Navigator.pop(context);
                   },
