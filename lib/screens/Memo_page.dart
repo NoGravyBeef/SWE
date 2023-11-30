@@ -2,6 +2,7 @@ import 'package:calendar/popup/change_background_color.dart';
 import 'package:calendar/popup/change_ddays_color.dart';
 import 'package:calendar/popup/change_font_color.dart';
 import 'package:calendar/popup/change_font_size.dart';
+import 'package:calendar/widgets/test_record2.dart';
 import 'package:flutter/material.dart';
 import 'package:calendar/widgets/dday_checkbox.dart';
 import 'package:calendar/widgets/memo_headline.dart';
@@ -81,16 +82,9 @@ class MemoPage extends State<Memo_Page> {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                IconButton(
-                  icon: Icon(Icons.format_list_bulleted_outlined,
-                      size: 22, color: Colors.grey.shade400), //녹음
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const Todolist_page()),
-                    );
-                  },
+                const Padding(
+                  padding: EdgeInsets.only(left: 5),
+                  child: test_record2(),
                 ),
                 IconButton(
                   icon: Icon(Icons.format_list_bulleted_outlined,

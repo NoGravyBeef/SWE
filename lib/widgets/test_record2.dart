@@ -56,18 +56,20 @@ class _test_record2State extends State<test_record2> {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.58,
-      height: 50,
+      height: 36,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
           color: Colors.white,
-          boxShadow: const [BoxShadow(blurRadius: 5, offset: Offset(0, 3))]),
+          boxShadow: const [
+            BoxShadow(blurRadius: 1, offset: Offset(0, 2), color: Colors.grey)
+          ]),
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
         AudioWaveforms(
           enableGesture: true,
-          size: Size(MediaQuery.of(context).size.width / 3.7, 50),
+          size: Size(MediaQuery.of(context).size.width / 3.7, 30),
           recorderController: recorderController,
           waveStyle: const WaveStyle(
-            waveColor: Color(0xff808080),
+            waveColor: Colors.redAccent,
             extendWaveform: true,
             showMiddleLine: false,
             waveCap: StrokeCap.butt,
