@@ -72,6 +72,7 @@ class MemoPage extends State<Memo_Page> {
 
     return Scaffold(
       backgroundColor: const Color(0xFFFFF3D9),
+      backgroundColor: const Color(0xFFFFF3D9),
       //메모장 자체 배경색상 변경-값 넘기기
       body: SingleChildScrollView(
         child: Column(
