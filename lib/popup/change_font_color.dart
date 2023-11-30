@@ -82,9 +82,6 @@ class _change_font_colorState extends State<change_font_color> {
                       screenSize.width * 0.0726, screenSize.height * 0.0402)),
               onPressed: () {},
               child: const Text('')),
-          test_change(
-            change_color: test_color,
-          )
         ],
       ),
     );
