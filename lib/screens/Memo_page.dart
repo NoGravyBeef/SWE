@@ -1,3 +1,9 @@
+import 'dart:html';
+
+import 'package:calendar/popup/change_background_color.dart';
+import 'package:calendar/popup/change_ddays_color.dart';
+import 'package:calendar/popup/change_font_color.dart';
+import 'package:calendar/popup/change_font_size.dart';
 import 'package:flutter/material.dart';
 import 'package:calendar/widgets/dday_checkbox.dart';
 import 'package:calendar/widgets/memo_headline.dart';
@@ -5,7 +11,8 @@ import 'package:calendar/widgets/memo_text.dart';
 import 'package:calendar/screens/todolist_page.dart';
 
 class Memo_Page extends StatefulWidget {
-  const Memo_Page({super.key, DateTime? date});
+  Memo_Page({super.key, DateTime? date});
+  List<bool> _isUnderlinedList = List.generate(9, (index) => false);
 
   @override
   State<Memo_Page> createState() => MemoPage();
@@ -48,13 +55,23 @@ class MemoPage extends State<Memo_Page> {
 
   final bool _showError1 = false;
   final int _memoValueMax = 20;
-  bool _isUnderlined = false; //글자밑줄 체크
+
+  bool _isUnderlined1 = false; //글자밑줄 체크
+  bool _isUnderlined2 = false; //글자밑줄 체크
+  bool _isUnderlined3 = false; //글자밑줄 체크
+  bool _isUnderlined4 = false; //글자밑줄 체크
+  bool _isUnderlined5 = false; //글자밑줄 체크
+  bool _isUnderlined6 = false; //글자밑줄 체크
+  bool _isUnderlined7 = false; //글자밑줄 체크
+  bool _isUnderlined8 = false; //글자밑줄 체크
+  bool _isUnderlined9 = false; //글자밑줄 체크
 
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
 
     return Scaffold(
+      backgroundColor: const Color(0xFFFFF3D9),
       backgroundColor: const Color(0xFFFFF3D9),
       //메모장 자체 배경색상 변경-값 넘기기
       body: SingleChildScrollView(
@@ -68,12 +85,24 @@ class MemoPage extends State<Memo_Page> {
                 IconButton(
                   icon: Icon(Icons.format_list_bulleted_outlined,
                       size: 22, color: Colors.grey.shade400), //녹음
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Todolist_page()),
+                    );
+                  },
                 ),
                 IconButton(
                   icon: Icon(Icons.format_list_bulleted_outlined,
                       size: 22, color: Colors.grey.shade400), //녹음 옆
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Todolist_page()),
+                    );
+                  },
                 ),
                 Expanded(child: Container()),
                 IconButton(
@@ -123,14 +152,18 @@ class MemoPage extends State<Memo_Page> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Memomain(
-                    memoController: _memoController1,
-                    isUnderlined: _isUnderlined,
-                  ), //메모 본문
+                      memoController: _memoController1,
+                      isUnderlined: _isUnderlined1), //메모 본문
                   const SizedBox(width: 10),
                   DDayCheckbox(
                     //D-day
                     initialValue: _isMemoChecked1,
                     onChanged: (value) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const change_ddays_color()),
+                      );
                       setState(() {
                         _isMemoChecked1 = value;
                       });
@@ -150,12 +183,17 @@ class MemoPage extends State<Memo_Page> {
                 children: <Widget>[
                   Memomain(
                       memoController: _memoController2,
-                      isUnderlined: _isUnderlined), //메모 본문
+                      isUnderlined: _isUnderlined2), //메모 본문
                   const SizedBox(width: 10),
                   DDayCheckbox(
                     //D-day
                     initialValue: _isMemoChecked2,
                     onChanged: (value) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const change_ddays_color()),
+                      );
                       setState(() {
                         _isMemoChecked2 = value;
                       });
@@ -176,12 +214,17 @@ class MemoPage extends State<Memo_Page> {
                 children: <Widget>[
                   Memomain(
                       memoController: _memoController3,
-                      isUnderlined: _isUnderlined), //메모 본문
+                      isUnderlined: _isUnderlined3), //메모 본문
                   const SizedBox(width: 10),
                   DDayCheckbox(
                     //D-day
                     initialValue: _isMemoChecked3,
                     onChanged: (value) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const change_ddays_color()),
+                      );
                       setState(() {
                         _isMemoChecked3 = value;
                       });
@@ -202,12 +245,17 @@ class MemoPage extends State<Memo_Page> {
                 children: <Widget>[
                   Memomain(
                       memoController: _memoController4,
-                      isUnderlined: _isUnderlined), //메모 본문
+                      isUnderlined: _isUnderlined4), //메모 본문
                   const SizedBox(width: 10),
                   DDayCheckbox(
                     //D-day
                     initialValue: _isMemoChecked4,
                     onChanged: (value) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const change_ddays_color()),
+                      );
                       setState(() {
                         _isMemoChecked4 = value;
                       });
@@ -227,12 +275,17 @@ class MemoPage extends State<Memo_Page> {
                 children: <Widget>[
                   Memomain(
                       memoController: _memoController5,
-                      isUnderlined: _isUnderlined), //메모 본문
+                      isUnderlined: _isUnderlined5), //메모 본문
                   const SizedBox(width: 10),
                   DDayCheckbox(
                     //D-day
                     initialValue: _isMemoChecked5,
                     onChanged: (value) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const change_ddays_color()),
+                      );
                       setState(() {
                         _isMemoChecked5 = value;
                       });
@@ -252,12 +305,17 @@ class MemoPage extends State<Memo_Page> {
                 children: <Widget>[
                   Memomain(
                       memoController: _memoController6,
-                      isUnderlined: _isUnderlined), //메모 본문
+                      isUnderlined: _isUnderlined6), //메모 본문
                   const SizedBox(width: 10),
                   DDayCheckbox(
                     //D-day
                     initialValue: _isMemoChecked6,
                     onChanged: (value) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const change_ddays_color()),
+                      );
                       setState(() {
                         _isMemoChecked6 = value;
                       });
@@ -277,12 +335,17 @@ class MemoPage extends State<Memo_Page> {
                 children: <Widget>[
                   Memomain(
                       memoController: _memoController7,
-                      isUnderlined: _isUnderlined), //메모 본문
+                      isUnderlined: _isUnderlined7), //메모 본문
                   const SizedBox(width: 10),
                   DDayCheckbox(
                     //D-day
                     initialValue: _isMemoChecked7,
                     onChanged: (value) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const change_ddays_color()),
+                      );
                       setState(() {
                         _isMemoChecked7 = value;
                       });
@@ -302,12 +365,17 @@ class MemoPage extends State<Memo_Page> {
                 children: <Widget>[
                   Memomain(
                       memoController: _memoController8,
-                      isUnderlined: _isUnderlined), //메모 본문
+                      isUnderlined: _isUnderlined8), //메모 본문
                   const SizedBox(width: 10),
                   DDayCheckbox(
                     //D-day
                     initialValue: _isMemoChecked8,
                     onChanged: (value) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const change_ddays_color()),
+                      );
                       setState(() {
                         _isMemoChecked8 = value;
                       });
@@ -327,12 +395,17 @@ class MemoPage extends State<Memo_Page> {
                 children: <Widget>[
                   Memomain(
                       memoController: _memoController9,
-                      isUnderlined: _isUnderlined), //메모 본문
+                      isUnderlined: _isUnderlined9), //메모 본문
                   const SizedBox(width: 10),
                   DDayCheckbox(
                     //D-day
                     initialValue: _isMemoChecked9,
                     onChanged: (value) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const change_ddays_color()),
+                      );
                       setState(() {
                         _isMemoChecked9 = value;
                       });
@@ -357,13 +430,14 @@ class MemoPage extends State<Memo_Page> {
                 const SizedBox(width: 8.0),
                 Container(
                   child: IconButton(
-                    //텍스트 밑줄
                     icon: Icon(Icons.text_format_outlined,
                         size: 24.0, color: Colors.grey.shade400),
                     onPressed: () {
-                      setState(() {
-                        _isUnderlined = !_isUnderlined;
-                      });
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const change_font_size()),
+                      );
                     },
                   ),
                 ),
@@ -373,7 +447,13 @@ class MemoPage extends State<Memo_Page> {
                     //글자색
                     icon: Icon(Icons.color_lens,
                         size: 24.0, color: Colors.grey.shade400),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const change_font_color()),
+                      );
+                    },
                   ),
                 ),
                 const SizedBox(width: 8.0),
@@ -382,7 +462,14 @@ class MemoPage extends State<Memo_Page> {
                     //배경색
                     icon: Icon(Icons.format_color_fill_outlined,
                         size: 24.0, color: Colors.grey.shade400),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                const change_background_color()),
+                      );
+                    },
                   ),
                 ),
                 Expanded(child: Container()),
