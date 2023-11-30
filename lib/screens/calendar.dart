@@ -29,6 +29,7 @@ class _CalendarState extends State<Calendar> {
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
+
     const defaultTextStyle = TextStyle(
       color: Colors.black,
       fontSize: 21,
@@ -60,6 +61,23 @@ class _CalendarState extends State<Calendar> {
         break;
     }
 
+    var selectHoliday = DateTime.sunday;
+
+    if (Provider.of<testProvider>(context).selectHoliday[0] == true) {
+      selectHoliday = DateTime.monday;
+    } else if (Provider.of<testProvider>(context).selectHoliday[1] == true) {
+      selectHoliday = DateTime.tuesday;
+    } else if (Provider.of<testProvider>(context).selectHoliday[2] == true) {
+      selectHoliday = DateTime.wednesday;
+    } else if (Provider.of<testProvider>(context).selectHoliday[3] == true) {
+      selectHoliday = DateTime.thursday;
+    } else if (Provider.of<testProvider>(context).selectHoliday[4] == true) {
+      selectHoliday = DateTime.friday;
+    } else if (Provider.of<testProvider>(context).selectHoliday[5] == true) {
+      selectHoliday = DateTime.saturday;
+    } else if (Provider.of<testProvider>(context).selectHoliday[6] == true) {
+      selectHoliday = DateTime.sunday;
+    }
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
@@ -153,6 +171,9 @@ class _CalendarState extends State<Calendar> {
                         builder: (context) => Memo_Page(date: selectedDay)),
                   );
                 },
+
+                // 휴일 날짜 지정
+                weekendDays: [selectHoliday],
                 // 시작요일 변경 부분
                 startingDayOfWeek: startingDayOfWeek,
                 //locale: 'ko_KR',
@@ -183,11 +204,12 @@ class _CalendarState extends State<Calendar> {
                     isTodayHighlighted: false,
                     defaultDecoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
-                      color: Colors.grey.withOpacity(0.5),
+                      color: Colors.indigo[50],
                     ),
                     weekendDecoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
-                      color: Colors.purple.withOpacity(0.5),
+                      color: Provider.of<testProvider>(context)
+                          .holidayBackgroundColor,
                     ),
                     weekendTextStyle: TextStyle(
                       fontSize: screenSize.height * 0.025,

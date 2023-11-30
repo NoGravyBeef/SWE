@@ -13,6 +13,11 @@ class testProvider extends ChangeNotifier {
 
   List<bool> selectHoliday = [false, false, false, false, false, false, false];
 
+  Color _holidayBackgroundColor = Colors.purple.withOpacity(0.5);
+  Color get holidayBackgroundColor => _holidayBackgroundColor;
+
+  bool changeStatus = true;
+
   void change_background_color(changeColor) {
     _backGroundColor = changeColor;
     notifyListeners();
@@ -20,6 +25,11 @@ class testProvider extends ChangeNotifier {
 
   void change_holiday_color(changeHolidayColor) {
     _holidayColor = changeHolidayColor;
+    notifyListeners();
+  }
+
+  void change_holiday_background_color(changeHolidayColor) {
+    _holidayBackgroundColor = changeHolidayColor;
     notifyListeners();
   }
 

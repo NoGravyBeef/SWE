@@ -525,11 +525,14 @@ class _settingsState extends State<settings> {
                             actions: [
                               ElevatedButton(
                                   onPressed: () {
+                                    _provider.changeStatus = true;
                                     Navigator.of(context).pop();
                                   },
                                   child: const Text('예')),
                               ElevatedButton(
                                   onPressed: () {
+                                    _provider.changeStatus = false;
+                                    print(_provider.changeStatus);
                                     Navigator.of(context).pop();
                                   },
                                   child: const Text('아니요'))
