@@ -43,56 +43,58 @@ class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     //var screenSize = MediaQuery.of(context).size;
-    return const MaterialApp(home: Friends_list()
-        /*Scaffold(
+    return const MaterialApp(
+        //home: Friends_list()
+        home: Scaffold(
             backgroundColor: Color(0xffEFEFEF),
-            body: //settings(),
-                //AudioApp(),
-                Column(
-              children: [
-                SizedBox(
-                  height: 50,
-                ),*/
-        // IconButton(
-        //     onPressed: () {
-        //       showDialog(
-        //           barrierDismissible: true,
-        //           context: context,
-        //           builder: (context) {
-        //             return const AlertDialog(
-        //               content: calander_menu(),
-        //             );
-        //           });
-        //     },
-        //     icon: const Icon(
-        //       Icons.menu,
-        //       size: 45,
-        //     )),
-        //calander_menu(),
-        // Row(
-        //   mainAxisAlignment: MainAxisAlignment.end,
-        //   children: [
-        //     test(),
-        //   ],
-        // ),
-        // Text('$screenSize.width'),
-        // Text('$screenSize.height'),
-        // change_font_color(),
-        // SizedBox(
-        //   height: 50,
-        // ),
-        // change_background_color(),
-        // SizedBox(
-        //   height: 50,
-        // ),
-        // change_ddays_color(),
-        // SizedBox(
-        //   height: 50,
-        // ),
-        //change_font_size()
-        //RecordingWidget()
-        //settings()
-        //],
-        );
+            body: //test_record2()
+                //settings(),
+                Column(children: [
+              SizedBox(
+                height: 50,
+              ),
+              test_record2()
+            ])
+            // IconButton(
+            //     onPressed: () {
+            //       showDialog(
+            //           barrierDismissible: true,
+            //           context: context,
+            //           builder: (context) {
+            //             return const AlertDialog(
+            //               content: calander_menu(),
+            //             );
+            //           });
+            //     },
+            //     icon: const Icon(
+            //       Icons.menu,
+            //       size: 45,
+            //     )),
+            //calander_menu(),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.end,
+            //   children: [
+            //     test(),
+            //   ],
+            // ),
+            // Text('$screenSize.width'),
+            // Text('$screenSize.height'),
+            // change_font_color(),
+            // SizedBox(
+            //   height: 50,
+            // ),
+            // change_background_color(),
+            // SizedBox(
+            //   height: 50,
+            // ),
+            // change_ddays_color(),
+            // SizedBox(
+            //   height: 50,
+            // ),
+            //change_font_size()
+            //RecordingWidget()
+            //settings()
+            //],
+            ));
   }
 }
