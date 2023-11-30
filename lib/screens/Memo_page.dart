@@ -12,7 +12,7 @@ import 'package:calendar/screens/todolist_page.dart';
 
 class Memo_Page extends StatefulWidget {
   Memo_Page({super.key, DateTime? date});
-  List<bool> _isUnderlinedList = List.generate(9, (index) => false);
+  final List<bool> _isUnderlinedList = List.generate(9, (index) => false);
 
   @override
   State<Memo_Page> createState() => MemoPage();
@@ -56,22 +56,21 @@ class MemoPage extends State<Memo_Page> {
   final bool _showError1 = false;
   final int _memoValueMax = 20;
 
-  bool _isUnderlined1 = false; //글자밑줄 체크
-  bool _isUnderlined2 = false; //글자밑줄 체크
-  bool _isUnderlined3 = false; //글자밑줄 체크
-  bool _isUnderlined4 = false; //글자밑줄 체크
-  bool _isUnderlined5 = false; //글자밑줄 체크
-  bool _isUnderlined6 = false; //글자밑줄 체크
-  bool _isUnderlined7 = false; //글자밑줄 체크
-  bool _isUnderlined8 = false; //글자밑줄 체크
-  bool _isUnderlined9 = false; //글자밑줄 체크
+  final bool _isUnderlined1 = false; //글자밑줄 체크
+  final bool _isUnderlined2 = false; //글자밑줄 체크
+  final bool _isUnderlined3 = false; //글자밑줄 체크
+  final bool _isUnderlined4 = false; //글자밑줄 체크
+  final bool _isUnderlined5 = false; //글자밑줄 체크
+  final bool _isUnderlined6 = false; //글자밑줄 체크
+  final bool _isUnderlined7 = false; //글자밑줄 체크
+  final bool _isUnderlined8 = false; //글자밑줄 체크
+  final bool _isUnderlined9 = false; //글자밑줄 체크
 
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: const Color(0xFFFFF3D9),
       backgroundColor: const Color(0xFFFFF3D9),
       //메모장 자체 배경색상 변경-값 넘기기
       body: SingleChildScrollView(
