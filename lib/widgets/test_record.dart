@@ -1,4 +1,4 @@
-/*import 'dart:io';
+import 'dart:io';
 
 import 'package:audio_waveforms/audio_waveforms.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +26,7 @@ class _test_recordeState extends State<test_recorde> {
   }
 
   final recorder = FlutterSoundRecorder();
+  String filePath = '';
 
   Future initRecoder() async {
     final status = await Permission.microphone.request();
@@ -140,4 +141,4 @@ class _test_recordeState extends State<test_recorde> {
           ],
         ));
   }
-}*/
+}
