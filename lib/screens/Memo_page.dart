@@ -1,3 +1,7 @@
+import 'package:calendar/popup/change_background_color.dart';
+import 'package:calendar/popup/change_ddays_color.dart';
+import 'package:calendar/popup/change_font_color.dart';
+import 'package:calendar/popup/change_font_size.dart';
 import 'package:flutter/material.dart';
 import 'package:calendar/widgets/dday_checkbox.dart';
 import 'package:calendar/widgets/memo_headline.dart';
@@ -5,7 +9,8 @@ import 'package:calendar/widgets/memo_text.dart';
 import 'package:calendar/screens/todolist_page.dart';
 
 class Memo_Page extends StatefulWidget {
-  const Memo_Page({super.key, DateTime? date});
+  Memo_Page({super.key, DateTime? date});
+  final List<bool> _isUnderlinedList = List.generate(9, (index) => false);
 
   @override
   State<Memo_Page> createState() => MemoPage();
@@ -48,7 +53,18 @@ class MemoPage extends State<Memo_Page> {
 
   final bool _showError1 = false;
   final int _memoValueMax = 20;
-  bool _isUnderlined = false; //글자밑줄 체크
+
+  bool _isUnderlined1 = false; //글자 밑줄
+  bool _isUnderlined2 = false;
+  bool _isUnderlined3 = false;
+  bool _isUnderlined4 = false;
+  bool _isUnderlined5 = false;
+  bool _isUnderlined6 = false;
+  bool _isUnderlined7 = false;
+  bool _isUnderlined8 = false;
+  bool _isUnderlined9 = false;
+
+  late String _selectTime;
 
   @override
   Widget build(BuildContext context) {
@@ -59,21 +75,33 @@ class MemoPage extends State<Memo_Page> {
       //메모장 자체 배경색상 변경-값 넘기기
       body: SingleChildScrollView(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            SizedBox(width: screenSize.width * 0.015), //헤드라인 위패딩
+            SizedBox(height: screenSize.height * 0.04), //헤드라인 위패딩
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 IconButton(
                   icon: Icon(Icons.format_list_bulleted_outlined,
                       size: 22, color: Colors.grey.shade400), //녹음
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Todolist_page()),
+                    );
+                  },
                 ),
                 IconButton(
                   icon: Icon(Icons.format_list_bulleted_outlined,
                       size: 22, color: Colors.grey.shade400), //녹음 옆
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const Todolist_page()),
+                    );
+                  },
                 ),
                 Expanded(child: Container()),
                 IconButton(
@@ -111,7 +139,18 @@ class MemoPage extends State<Memo_Page> {
                 IconButton(
                   icon: Icon(Icons.notifications_none,
                       size: 22, color: Colors.grey.shade400), //알람메모
-                  onPressed: () {},
+                  onPressed: () {
+                    Future<TimeOfDay?> selectedTime = showTimePicker(
+                      context: context,
+                      initialTime: TimeOfDay.now(),
+                    );
+
+                    selectedTime.then((timeOfDay) {
+                      setState(() {
+                        _selectTime = '${timeOfDay!.hour}:${timeOfDay.minute}';
+                      });
+                    });
+                  },
                 ),
               ],
             ),
@@ -123,14 +162,25 @@ class MemoPage extends State<Memo_Page> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Memomain(
-                    memoController: _memoController1,
-                    isUnderlined: _isUnderlined,
-                  ), //메모 본문
+                      memoController: _memoController1,
+                      isUnderlined: _isUnderlined1), //메모 본문
                   const SizedBox(width: 10),
                   DDayCheckbox(
                     //D-day
                     initialValue: _isMemoChecked1,
                     onChanged: (value) {
+                      showDialog(
+                          barrierDismissible: true,
+                          context: context,
+                          builder: (context) {
+                            return AlertDialog(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15)),
+                              contentPadding: const EdgeInsets.symmetric(
+                                  horizontal: 0, vertical: 0),
+                              content: const change_ddays_color(),
+                            );
+                          });
                       setState(() {
                         _isMemoChecked1 = value;
                       });
@@ -150,12 +200,24 @@ class MemoPage extends State<Memo_Page> {
                 children: <Widget>[
                   Memomain(
                       memoController: _memoController2,
-                      isUnderlined: _isUnderlined), //메모 본문
+                      isUnderlined: _isUnderlined2), //메모 본문
                   const SizedBox(width: 10),
                   DDayCheckbox(
                     //D-day
                     initialValue: _isMemoChecked2,
                     onChanged: (value) {
+                      showDialog(
+                          barrierDismissible: true,
+                          context: context,
+                          builder: (context) {
+                            return AlertDialog(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15)),
+                              contentPadding: const EdgeInsets.symmetric(
+                                  horizontal: 0, vertical: 0),
+                              content: const change_ddays_color(),
+                            );
+                          });
                       setState(() {
                         _isMemoChecked2 = value;
                       });
@@ -176,12 +238,24 @@ class MemoPage extends State<Memo_Page> {
                 children: <Widget>[
                   Memomain(
                       memoController: _memoController3,
-                      isUnderlined: _isUnderlined), //메모 본문
+                      isUnderlined: _isUnderlined3), //메모 본문
                   const SizedBox(width: 10),
                   DDayCheckbox(
                     //D-day
                     initialValue: _isMemoChecked3,
                     onChanged: (value) {
+                      showDialog(
+                          barrierDismissible: true,
+                          context: context,
+                          builder: (context) {
+                            return AlertDialog(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15)),
+                              contentPadding: const EdgeInsets.symmetric(
+                                  horizontal: 0, vertical: 0),
+                              content: const change_ddays_color(),
+                            );
+                          });
                       setState(() {
                         _isMemoChecked3 = value;
                       });
@@ -202,12 +276,24 @@ class MemoPage extends State<Memo_Page> {
                 children: <Widget>[
                   Memomain(
                       memoController: _memoController4,
-                      isUnderlined: _isUnderlined), //메모 본문
+                      isUnderlined: _isUnderlined4), //메모 본문
                   const SizedBox(width: 10),
                   DDayCheckbox(
                     //D-day
                     initialValue: _isMemoChecked4,
                     onChanged: (value) {
+                      showDialog(
+                          barrierDismissible: true,
+                          context: context,
+                          builder: (context) {
+                            return AlertDialog(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15)),
+                              contentPadding: const EdgeInsets.symmetric(
+                                  horizontal: 0, vertical: 0),
+                              content: const change_ddays_color(),
+                            );
+                          });
                       setState(() {
                         _isMemoChecked4 = value;
                       });
@@ -227,12 +313,24 @@ class MemoPage extends State<Memo_Page> {
                 children: <Widget>[
                   Memomain(
                       memoController: _memoController5,
-                      isUnderlined: _isUnderlined), //메모 본문
+                      isUnderlined: _isUnderlined5), //메모 본문
                   const SizedBox(width: 10),
                   DDayCheckbox(
                     //D-day
                     initialValue: _isMemoChecked5,
                     onChanged: (value) {
+                      showDialog(
+                          barrierDismissible: true,
+                          context: context,
+                          builder: (context) {
+                            return AlertDialog(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15)),
+                              contentPadding: const EdgeInsets.symmetric(
+                                  horizontal: 0, vertical: 0),
+                              content: const change_ddays_color(),
+                            );
+                          });
                       setState(() {
                         _isMemoChecked5 = value;
                       });
@@ -252,12 +350,24 @@ class MemoPage extends State<Memo_Page> {
                 children: <Widget>[
                   Memomain(
                       memoController: _memoController6,
-                      isUnderlined: _isUnderlined), //메모 본문
+                      isUnderlined: _isUnderlined6), //메모 본문
                   const SizedBox(width: 10),
                   DDayCheckbox(
                     //D-day
                     initialValue: _isMemoChecked6,
                     onChanged: (value) {
+                      showDialog(
+                          barrierDismissible: true,
+                          context: context,
+                          builder: (context) {
+                            return AlertDialog(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15)),
+                              contentPadding: const EdgeInsets.symmetric(
+                                  horizontal: 0, vertical: 0),
+                              content: const change_ddays_color(),
+                            );
+                          });
                       setState(() {
                         _isMemoChecked6 = value;
                       });
@@ -277,12 +387,24 @@ class MemoPage extends State<Memo_Page> {
                 children: <Widget>[
                   Memomain(
                       memoController: _memoController7,
-                      isUnderlined: _isUnderlined), //메모 본문
+                      isUnderlined: _isUnderlined7), //메모 본문
                   const SizedBox(width: 10),
                   DDayCheckbox(
                     //D-day
                     initialValue: _isMemoChecked7,
                     onChanged: (value) {
+                      showDialog(
+                          barrierDismissible: true,
+                          context: context,
+                          builder: (context) {
+                            return AlertDialog(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15)),
+                              contentPadding: const EdgeInsets.symmetric(
+                                  horizontal: 0, vertical: 0),
+                              content: const change_ddays_color(),
+                            );
+                          });
                       setState(() {
                         _isMemoChecked7 = value;
                       });
@@ -302,12 +424,24 @@ class MemoPage extends State<Memo_Page> {
                 children: <Widget>[
                   Memomain(
                       memoController: _memoController8,
-                      isUnderlined: _isUnderlined), //메모 본문
+                      isUnderlined: _isUnderlined8), //메모 본문
                   const SizedBox(width: 10),
                   DDayCheckbox(
                     //D-day
                     initialValue: _isMemoChecked8,
                     onChanged: (value) {
+                      showDialog(
+                          barrierDismissible: true,
+                          context: context,
+                          builder: (context) {
+                            return AlertDialog(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15)),
+                              contentPadding: const EdgeInsets.symmetric(
+                                  horizontal: 0, vertical: 0),
+                              content: const change_ddays_color(),
+                            );
+                          });
                       setState(() {
                         _isMemoChecked8 = value;
                       });
@@ -327,12 +461,24 @@ class MemoPage extends State<Memo_Page> {
                 children: <Widget>[
                   Memomain(
                       memoController: _memoController9,
-                      isUnderlined: _isUnderlined), //메모 본문
+                      isUnderlined: _isUnderlined9), //메모 본문
                   const SizedBox(width: 10),
                   DDayCheckbox(
-                    //D-day
+                    //D-day change_ddays_color
                     initialValue: _isMemoChecked9,
                     onChanged: (value) {
+                      showDialog(
+                          barrierDismissible: true,
+                          context: context,
+                          builder: (context) {
+                            return AlertDialog(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15)),
+                              contentPadding: const EdgeInsets.symmetric(
+                                  horizontal: 0, vertical: 0),
+                              content: const change_ddays_color(),
+                            );
+                          });
                       setState(() {
                         _isMemoChecked9 = value;
                       });
@@ -348,21 +494,41 @@ class MemoPage extends State<Memo_Page> {
                 const SizedBox(width: 10),
                 Container(
                   child: IconButton(
-                    //글자크기
+                    //글자크기 change_font_size
                     icon: Icon(Icons.text_fields,
                         size: 24.0, color: Colors.grey.shade400),
-                    onPressed: () {},
+                    onPressed: () {
+                      showDialog(
+                          barrierDismissible: true,
+                          context: context,
+                          builder: (context) {
+                            return AlertDialog(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15)),
+                              contentPadding: const EdgeInsets.symmetric(
+                                  horizontal: 0, vertical: 0),
+                              content: const change_font_size(),
+                            );
+                          });
+                    },
                   ),
                 ),
                 const SizedBox(width: 8.0),
                 Container(
                   child: IconButton(
-                    //텍스트 밑줄
                     icon: Icon(Icons.text_format_outlined,
                         size: 24.0, color: Colors.grey.shade400),
                     onPressed: () {
                       setState(() {
-                        _isUnderlined = !_isUnderlined;
+                        _isUnderlined1 = !_isUnderlined1;
+                        _isUnderlined2 = !_isUnderlined2;
+                        _isUnderlined3 = !_isUnderlined3;
+                        _isUnderlined4 = !_isUnderlined4;
+                        _isUnderlined5 = !_isUnderlined5;
+                        _isUnderlined6 = !_isUnderlined6;
+                        _isUnderlined7 = !_isUnderlined7;
+                        _isUnderlined8 = !_isUnderlined8;
+                        _isUnderlined9 = !_isUnderlined9;
                       });
                     },
                   ),
@@ -370,10 +536,24 @@ class MemoPage extends State<Memo_Page> {
                 const SizedBox(width: 8.0),
                 Container(
                   child: IconButton(
+                    //change_font_color
                     //글자색
                     icon: Icon(Icons.color_lens,
                         size: 24.0, color: Colors.grey.shade400),
-                    onPressed: () {},
+                    onPressed: () {
+                      showDialog(
+                          barrierDismissible: true,
+                          context: context,
+                          builder: (context) {
+                            return AlertDialog(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15)),
+                              contentPadding: const EdgeInsets.symmetric(
+                                  horizontal: 0, vertical: 0),
+                              content: const change_font_color(),
+                            );
+                          });
+                    },
                   ),
                 ),
                 const SizedBox(width: 8.0),
@@ -382,7 +562,20 @@ class MemoPage extends State<Memo_Page> {
                     //배경색
                     icon: Icon(Icons.format_color_fill_outlined,
                         size: 24.0, color: Colors.grey.shade400),
-                    onPressed: () {},
+                    onPressed: () {
+                      showDialog(
+                          barrierDismissible: true,
+                          context: context,
+                          builder: (context) {
+                            return AlertDialog(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15)),
+                              contentPadding: const EdgeInsets.symmetric(
+                                  horizontal: 0, vertical: 0),
+                              content: const change_background_color(),
+                            );
+                          });
+                    },
                   ),
                 ),
                 Expanded(child: Container()),
@@ -397,10 +590,9 @@ class MemoPage extends State<Memo_Page> {
                         MaterialPageRoute(
                             builder: (context) => const Todolist_page()),
                       );
-                    },
+                    }, //ddddddd
                   ),
                 ),
-                const SizedBox(width: 10.0),
               ],
             )
           ],

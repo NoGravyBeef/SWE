@@ -2,52 +2,46 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class Memomain extends StatefulWidget {
-  late final TextEditingController memoController;
-  bool isUnderlined = false;
+  final TextEditingController memoController;
+  bool isUnderlined;
+
+  Memomain({required this.memoController, required this.isUnderlined});
 
   @override
-  Memomain({
-    required this.memoController,
-    required bool isUnderlined,
-  });
-
   _MemomainState createState() => _MemomainState();
 }
 
-//메모 본문 작성 하기
 class _MemomainState extends State<Memomain> {
   @override
   Widget build(BuildContext context) {
-    bool isUnderlined = false;
-    return Flexible(
-      fit: FlexFit.tight,
-      flex: 5,
-      child: IntrinsicHeight(
-        //메모 본문 박스 색상
-        child: Container(
-          decoration: ShapeDecoration(
-            color: Color(0xFFFFF3D9),
-            shadows: [
-              BoxShadow(
-                color: Colors.black12,
-                offset: Offset(0, 3),
-                blurRadius: 1.0,
-                spreadRadius: 2.0,
+    return Container(
+      child: Flexible(
+        fit: FlexFit.tight,
+        flex: 5,
+        child: IntrinsicHeight(
+          child: Container(
+            decoration: ShapeDecoration(
+              color: Color(0xFFFFF3D9),
+              shadows: [
+                BoxShadow(
+                  color: Colors.black12,
+                  offset: Offset(0, 3),
+                  blurRadius: 1.0,
+                  spreadRadius: 2.0,
+                ),
+              ],
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(80.0),
               ),
-            ],
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(80.0),
             ),
-          ),
-          //글자 작성
-          child: TextFormField(
+            child: TextFormField(
               inputFormatters: [LengthLimitingTextInputFormatter(20)],
               style: TextStyle(
-                fontSize: 15, //메모 글자 크기 변경
-                color: Colors.grey, //글자 색 변경
-                decoration: isUnderlined
+                fontSize: 15,
+                color: Colors.grey,
+                decoration: widget.isUnderlined
                     ? TextDecoration.underline
-                    : TextDecoration.none, //메모 밑줄
+                    : TextDecoration.none,
               ),
               controller: widget.memoController,
               decoration: InputDecoration(
@@ -59,9 +53,7 @@ class _MemomainState extends State<Memomain> {
               autovalidateMode: AutovalidateMode.onUserInteraction,
               onSaved: (val) {},
               onChanged: (val) {
-                // 이 함수는 텍스트가 변경될 때 호출됩니다.
                 if (val.length >= 20) {
-                  // 텍스트 길이가 20자를 초과하면 다이얼로그를 표시합니다.
                   showDialog(
                     context: context,
                     builder: (BuildContext context) {
@@ -74,7 +66,7 @@ class _MemomainState extends State<Memomain> {
                             style:
                                 TextButton.styleFrom(primary: Colors.redAccent),
                             onPressed: () {
-                              Navigator.pop(context); // 다이얼로그를 닫습니다.
+                              Navigator.pop(context);
                             },
                             child: const Text('OK'),
                           ),
@@ -83,7 +75,9 @@ class _MemomainState extends State<Memomain> {
                     },
                   );
                 }
-              }),
+              },
+            ),
+          ),
         ),
       ),
     );

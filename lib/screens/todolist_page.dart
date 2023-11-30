@@ -66,8 +66,7 @@ class Todolist extends State<Todolist_page> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                            builder: (context) => const Memo_Page()),
+                        MaterialPageRoute(builder: (context) => Memo_Page()),
                       );
                       setState(() {
                         _TodoValue1 = TodolistController1.text;
