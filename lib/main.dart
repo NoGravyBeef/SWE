@@ -99,14 +99,18 @@ class _AppState extends State<App> {
 }
 */
 
-import 'package:calendar/screens/login.dart';
-
 import 'package:flutter/material.dart';
-import 'package:intl/date_symbol_data_local.dart';
+import 'package:provider/provider.dart';
+import 'user_authentication.dart'; // 모델 import
+import 'package:calendar/screens/login.dart'; // 로그인 페이지 import
 
-void main() async {
-  await initializeDateFormatting('ko_KR');
-  runApp(const MyApp());
+void main() {
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => UserAuthentication(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -115,6 +119,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
+      title: 'Flutter Login with Provider',
       home: LoginPage(),
     );
   }
