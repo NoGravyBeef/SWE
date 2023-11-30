@@ -59,7 +59,7 @@ class _JoinScreenState extends State<JoinScreen> {
                     style: TextStyle(
                       fontSize: 36,
                       fontFamily: 'JetBrain',
-                      fontWeight: FontWeight.w700,
+                      fontWeight: FontWeight.w900,
                       color: Colors.white,
                     ),
                   ),
@@ -96,7 +96,7 @@ class _JoinScreenState extends State<JoinScreen> {
                           color: Colors.grey,
                           fontSize: 12, // 폰트 크기 조절
                           fontFamily: 'JetBrain',
-                          fontWeight: FontWeight.w300,
+                          fontWeight: FontWeight.w900,
                           letterSpacing: 2,
                         ),
                         enabledBorder: OutlineInputBorder(
@@ -150,7 +150,7 @@ class _JoinScreenState extends State<JoinScreen> {
                           color: Colors.grey,
                           fontSize: 12, // 폰트 크기 조절
                           fontFamily: 'JetBrain',
-                          fontWeight: FontWeight.w300,
+                          fontWeight: FontWeight.w900,
                           letterSpacing: 2,
                         ),
                         enabledBorder: OutlineInputBorder(
@@ -203,7 +203,7 @@ class _JoinScreenState extends State<JoinScreen> {
                           color: Colors.grey,
                           fontSize: 12, // 폰트 크기 조절
                           fontFamily: 'JetBrain',
-                          fontWeight: FontWeight.w300,
+                          fontWeight: FontWeight.w900,
                           letterSpacing: 2,
                         ),
                         enabledBorder: OutlineInputBorder(
@@ -271,7 +271,7 @@ class _JoinScreenState extends State<JoinScreen> {
                             color: Colors.grey,
                             fontSize: 12, // 폰트 크기 조절
                             fontFamily: 'JetBrain',
-                            fontWeight: FontWeight.w300,
+                            fontWeight: FontWeight.w900,
                             letterSpacing: 2,
                           ),
                           enabledBorder: OutlineInputBorder(
@@ -326,7 +326,7 @@ class _JoinScreenState extends State<JoinScreen> {
                             color: Colors.grey,
                             fontSize: 12, // 폰트 크기 조절
                             fontFamily: 'JetBrain',
-                            fontWeight: FontWeight.w300,
+                            fontWeight: FontWeight.w900,
                             letterSpacing: 2,
                           ),
                           enabledBorder: OutlineInputBorder(
@@ -394,7 +394,10 @@ class _JoinScreenState extends State<JoinScreen> {
                               default:
                                 errorCode = null;
                             }
-                            if (errorCode != null) {}
+                            if (errorCode != null) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(content: Text('올바른 양식 입력하셈')));
+                            }
                           }
                         },
                         style: ButtonStyle(
@@ -459,7 +462,7 @@ class _JoinScreenState extends State<JoinScreen> {
                               style: TextStyle(
                                 fontSize: 16,
                                 fontFamily: 'JetBrain',
-                                fontWeight: FontWeight.w600,
+                                fontWeight: FontWeight.w900,
                                 color: Color.fromARGB(255, 116, 115, 115),
                                 letterSpacing: 1,
                               ),
