@@ -35,7 +35,7 @@ class _change_font_sizeState extends State<change_font_size> {
                 'T',
                 style: TextStyle(
                     fontSize: screenSize.height * 0.0506,
-                    fontWeight: FontWeight.w400,
+                    fontWeight: FontWeight.w900,
                     color: Colors.black),
               )),
           ElevatedButton(
@@ -52,7 +52,7 @@ class _change_font_sizeState extends State<change_font_size> {
                 'T',
                 style: TextStyle(
                     fontSize: screenSize.height * 0.0368,
-                    fontWeight: FontWeight.w400,
+                    fontWeight: FontWeight.w900,
                     color: Colors.black),
               )),
           ElevatedButton(
@@ -69,7 +69,7 @@ class _change_font_sizeState extends State<change_font_size> {
                 'T',
                 style: TextStyle(
                     fontSize: screenSize.height * 0.02761,
-                    fontWeight: FontWeight.w400,
+                    fontWeight: FontWeight.w900,
                     color: Colors.black),
               )),
           ElevatedButton(
@@ -85,8 +85,8 @@ class _change_font_sizeState extends State<change_font_size> {
               child: Text(
                 'T',
                 style: TextStyle(
-                    fontSize: screenSize.height * 0.020713,
-                    fontWeight: FontWeight.w400,
+                    fontSize: screenSize.height * 0.014713,
+                    fontWeight: FontWeight.w900,
                     color: Colors.black),
               )),
         ],

@@ -2,6 +2,7 @@ import 'package:calendar/popup/change_background_color.dart';
 import 'package:calendar/popup/change_ddays_color.dart';
 import 'package:calendar/popup/change_font_color.dart';
 import 'package:calendar/popup/change_font_size.dart';
+import 'package:calendar/widgets/test_record2.dart';
 import 'package:flutter/material.dart';
 import 'package:calendar/widgets/dday_checkbox.dart';
 import 'package:calendar/widgets/memo_headline.dart';
@@ -39,17 +40,17 @@ class MemoPage extends State<Memo_Page> {
   bool _isMemoChecked8 = false;
   bool _isMemoChecked9 = false;
 
-  String _headlineValue = '';
+  final String _headlineValue = '';
 
-  String _memoValue1 = '';
-  String _memoValue2 = '';
-  String _memoValue3 = '';
-  String _memoValue4 = '';
-  String _memoValue5 = '';
-  String _memoValue6 = '';
-  String _memoValue7 = '';
-  String _memoValue8 = '';
-  String _memoValue9 = '';
+  final String _memoValue1 = '';
+  final String _memoValue2 = '';
+  final String _memoValue3 = '';
+  final String _memoValue4 = '';
+  final String _memoValue5 = '';
+  final String _memoValue6 = '';
+  final String _memoValue7 = '';
+  final String _memoValue8 = '';
+  final String _memoValue9 = '';
 
   final bool _showError1 = false;
   final int _memoValueMax = 20;
@@ -66,6 +67,7 @@ class MemoPage extends State<Memo_Page> {
 
   late String _selectTime;
 
+  bool isUnderlineOn = false;
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -81,17 +83,7 @@ class MemoPage extends State<Memo_Page> {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                IconButton(
-                  icon: Icon(Icons.format_list_bulleted_outlined,
-                      size: 22, color: Colors.grey.shade400), //녹음
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const Todolist_page()),
-                    );
-                  },
-                ),
+                const test_record2(),
                 IconButton(
                   icon: Icon(Icons.format_list_bulleted_outlined,
                       size: 22, color: Colors.grey.shade400), //녹음 옆
@@ -109,18 +101,7 @@ class MemoPage extends State<Memo_Page> {
                   icon: Icon(Icons.sensor_door_outlined,
                       size: 22, color: Colors.grey.shade400),
                   onPressed: () {
-                    setState(() {
-                      _headlineValue = _headlineController.text;
-                      _memoValue1 = _memoController1.text;
-                      _memoValue2 = _memoController2.text;
-                      _memoValue3 = _memoController3.text;
-                      _memoValue4 = _memoController4.text;
-                      _memoValue5 = _memoController5.text;
-                      _memoValue6 = _memoController6.text;
-                      _memoValue7 = _memoController7.text;
-                      _memoValue8 = _memoController8.text;
-                      _memoValue9 = _memoController9.text;
-                    });
+                    Navigator.pop(context);
                   },
                 ),
               ],
@@ -529,7 +510,13 @@ class MemoPage extends State<Memo_Page> {
                         _isUnderlined7 = !_isUnderlined7;
                         _isUnderlined8 = !_isUnderlined8;
                         _isUnderlined9 = !_isUnderlined9;
+                        isUnderlineOn = !isUnderlineOn;
                       });
+                      isUnderlineOn
+                          ? ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(content: Text('밑줄 켰음.')))
+                          : ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(content: Text('밑줄 껐음.')));
                     },
                   ),
                 ),

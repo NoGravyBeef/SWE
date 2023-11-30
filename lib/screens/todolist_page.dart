@@ -32,18 +32,19 @@ class Todolist extends State<Todolist_page> {
   bool _isTodoChecked8 = false;
   bool _isTodoChecked9 = false;
 
-  String _TodoValue1 = '';
-  String _TodoValue2 = '';
-  String _TodoValue3 = '';
-  String _TodoValue4 = '';
-  String _TodoValue5 = '';
-  String _TodoValue6 = '';
-  String _TodoValue7 = '';
-  String _TodoValue8 = '';
-  String _TodoValue9 = '';
+  final String _TodoValue1 = '';
+  final String _TodoValue2 = '';
+  final String _TodoValue3 = '';
+  final String _TodoValue4 = '';
+  final String _TodoValue5 = '';
+  final String _TodoValue6 = '';
+  final String _TodoValue7 = '';
+  final String _TodoValue8 = '';
+  final String _TodoValue9 = '';
 
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
@@ -55,8 +56,9 @@ class Todolist extends State<Todolist_page> {
         backgroundColor: Colors.transparent,
         body: SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              SizedBox(height: screenSize.height * 0.05),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -64,21 +66,7 @@ class Todolist extends State<Todolist_page> {
                     icon: Icon(Icons.sensor_door_outlined,
                         size: 22, color: Colors.grey.shade400),
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Memo_Page()),
-                      );
-                      setState(() {
-                        _TodoValue1 = TodolistController1.text;
-                        _TodoValue2 = TodolistController2.text;
-                        _TodoValue3 = TodolistController3.text;
-                        _TodoValue4 = TodolistController4.text;
-                        _TodoValue5 = TodolistController5.text;
-                        _TodoValue6 = TodolistController6.text;
-                        _TodoValue7 = TodolistController7.text;
-                        _TodoValue8 = TodolistController8.text;
-                        _TodoValue9 = TodolistController9.text;
-                      });
+                      Navigator.pop(context);
                     },
                   ),
                 ],
@@ -279,7 +267,6 @@ class Todolist extends State<Todolist_page> {
                   ], // Container()
                 ),
               ),
-              const SizedBox(height: 22.0),
             ],
           ),
         ),
