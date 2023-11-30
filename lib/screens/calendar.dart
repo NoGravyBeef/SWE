@@ -42,7 +42,12 @@ class _CalendarState extends State<Calendar> {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(32),
+        padding: EdgeInsets.fromLTRB(
+          screenSize.width * 0.1,
+          screenSize.height * 0.06,
+          screenSize.width * 0.1,
+          screenSize.height * 0.1,
+        ),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -76,11 +81,12 @@ class _CalendarState extends State<Calendar> {
                       child: Center(
                         child: Text(
                           DateFormat.yMMMM('ko_KR').format(focusedDay),
-                          style: const TextStyle(
-                            fontSize: 25.0,
+                          style: TextStyle(
+                            fontSize: screenSize.height * 0.04,
                             fontFamily: "JetBrainsMono-Regular",
-                            fontWeight: FontWeight.w500,
+                            fontWeight: FontWeight.w900,
                             color: Colors.black,
+                            decoration: TextDecoration.none,
                           ),
                         ),
                       ),
@@ -107,7 +113,7 @@ class _CalendarState extends State<Calendar> {
                 dashColor: Colors.grey,
                 dashRadius: 0.0,
               ),
-              SizedBox(height: (70 / screenSize.height) * screenSize.height),
+              SizedBox(height: screenSize.height * 0.02),
               TableCalendar(
                 onDaySelected: (selectedDay, focusedDay) {
                   setState(() {
@@ -128,53 +134,61 @@ class _CalendarState extends State<Calendar> {
                 lastDay: DateTime(3000),
                 // firstDay: DateTime.utc(1950, 1, 1),
                 // lastDay: DateTime.utc(2050, 12, 31),
-                daysOfWeekHeight: 40,
+                daysOfWeekHeight: screenSize.height * 0.1,
 
                 headerVisible: false,
 
-                daysOfWeekStyle: const DaysOfWeekStyle(
+                daysOfWeekStyle: DaysOfWeekStyle(
                   weekdayStyle: TextStyle(
                     fontWeight: FontWeight.w900,
-                    fontSize: 15,
+                    fontSize: screenSize.height * 0.025,
                     fontFamily: 'JetBrainsMono-Regular.ttf',
                   ),
                   weekendStyle: TextStyle(
                     fontWeight: FontWeight.w900,
-                    fontSize: 15,
+                    fontSize: screenSize.height * 0.025,
                     color: Colors.black,
                     fontFamily: 'JetBrainsMono-Regular.ttf',
                   ),
                 ),
 
                 calendarStyle: CalendarStyle(
-                    isTodayHighlighted: true,
-                    defaultDecoration:
-                        BoxDecoration(borderRadius: BorderRadius.circular(15)),
-                    weekendDecoration:
-                        BoxDecoration(borderRadius: BorderRadius.circular(15)),
-                    weekendTextStyle: const TextStyle(
-                      fontSize: 20,
+                    isTodayHighlighted: false,
+                    defaultDecoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: Colors.grey.withOpacity(0.5),
+                    ),
+                    weekendDecoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: Colors.purple.withOpacity(0.5),
+                    ),
+                    weekendTextStyle: TextStyle(
+                      fontSize: screenSize.height * 0.025,
                       color: Colors.black,
-                      fontFamily: 'JetBrainsMono-Regular.ttf',
+                      decoration: TextDecoration.none,
                     ),
                     selectedDecoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 214, 178, 250),
-                      borderRadius: BorderRadius.circular(6.0),
-                      border: Border.all(
-                        color: const Color.fromARGB(255, 214, 178, 250),
-                        width: 1.0,
-                      ),
+                      color: Colors.green.withOpacity(0.5),
+                      borderRadius: BorderRadius.circular(15),
                     ),
                     outsideDecoration:
                         const BoxDecoration(shape: BoxShape.rectangle),
-                    defaultTextStyle: const TextStyle(
+                    outsideTextStyle: TextStyle(
+                      fontSize: screenSize.height * 0.025,
+                      color: Colors.grey,
+                      decoration: TextDecoration.none,
+                    ),
+                    defaultTextStyle: TextStyle(
+                      fontSize: screenSize.height * 0.025,
                       color: Colors.black,
-                      fontSize: 21,
-                      fontWeight: FontWeight.w900,
+                      decoration: TextDecoration.none,
                     ),
                     //weekendTextStyle: defaultTextStyle,
-                    selectedTextStyle:
-                        defaultTextStyle.copyWith(color: Colors.black)),
+                    selectedTextStyle: defaultTextStyle.copyWith(
+                      fontSize: screenSize.height * 0.025,
+                      color: Colors.black,
+                      decoration: TextDecoration.none,
+                    )),
 
                 selectedDayPredicate: (DateTime date) {
                   return date.year == selectedDay.year &&
@@ -184,33 +198,80 @@ class _CalendarState extends State<Calendar> {
                 calendarBuilders: CalendarBuilders(dowBuilder: (context, day) {
                   switch (day.weekday) {
                     case 1:
-                      return const Center(
-                        child: Text('월'),
+                      return Center(
+                        child: Text(
+                          '월',
+                          style: TextStyle(
+                            fontSize: screenSize.height * 0.025,
+                            color: Colors.black,
+                            decoration: TextDecoration.none,
+                          ),
+                        ),
                       );
                     case 2:
-                      return const Center(
-                        child: Text('화'),
+                      return Center(
+                        child: Text(
+                          '화',
+                          style: TextStyle(
+                            fontSize: screenSize.height * 0.025,
+                            color: Colors.black,
+                            decoration: TextDecoration.none,
+                          ),
+                        ),
                       );
                     case 3:
-                      return const Center(
-                        child: Text('수'),
+                      return Center(
+                        child: Text(
+                          '수',
+                          style: TextStyle(
+                            fontSize: screenSize.height * 0.025,
+                            color: Colors.black,
+                            decoration: TextDecoration.none,
+                          ),
+                        ),
                       );
                     case 4:
-                      return const Center(
-                        child: Text('목'),
+                      return Center(
+                        child: Text(
+                          '목',
+                          style: TextStyle(
+                            fontSize: screenSize.height * 0.025,
+                            color: Colors.black,
+                            decoration: TextDecoration.none,
+                          ),
+                        ),
                       );
                     case 5:
-                      return const Center(
-                        child: Text('금'),
+                      return Center(
+                        child: Text(
+                          '금',
+                          style: TextStyle(
+                            fontSize: screenSize.height * 0.025,
+                            color: Colors.black,
+                            decoration: TextDecoration.none,
+                          ),
+                        ),
                       );
                     case 6:
-                      return const Center(
-                        child: Text('토'),
+                      return Center(
+                        child: Text(
+                          '토',
+                          style: TextStyle(
+                            fontSize: screenSize.height * 0.025,
+                            color: Colors.black,
+                            decoration: TextDecoration.none,
+                          ),
+                        ),
                       );
                     case 7:
-                      return const Center(
+                      return Center(
                         child: Text(
                           '일',
+                          style: TextStyle(
+                            fontSize: screenSize.height * 0.025,
+                            color: Colors.black,
+                            decoration: TextDecoration.none,
+                          ),
                         ),
                       );
                   }
