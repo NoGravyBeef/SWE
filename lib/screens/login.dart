@@ -1,7 +1,9 @@
 import 'package:calendar/screens/join_screen.dart';
+import 'package:calendar/user_authentication.dart';
 import 'package:flutter/material.dart';
 import 'package:calendar/screens/calendar.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:provider/provider.dart';
 
 // 로그인 페이지를 위한 StatefulWidget 클래스
 class LoginPage extends StatefulWidget {
@@ -34,7 +36,7 @@ class _LoginPageState extends State<LoginPage> {
         children: <Widget>[
           // 배경 이미지 설정
           Image.asset(
-            'assets/image1.jpg', // 배경 이미지 경로
+            'assets/first_background.webp', // 배경 이미지 경로
             fit: BoxFit.cover, // 이미지를 화면에 꽉 차게 표시
             width: double.infinity,
             height: double.infinity,
@@ -60,7 +62,16 @@ class _LoginPageState extends State<LoginPage> {
                   width: 300.0,
                   height: 50.0,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    gradient: const LinearGradient(
+                      colors: [
+                        Color.fromARGB(255, 196, 196, 196),
+                        Color.fromARGB(255, 255, 255, 255)
+                      ],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      stops: [0.0, 0.12],
+                      tileMode: TileMode.clamp,
+                    ),
                     borderRadius: BorderRadius.circular(15.0),
                   ),
                   child: Row(
@@ -100,7 +111,16 @@ class _LoginPageState extends State<LoginPage> {
                   width: 300.0,
                   height: 50.0,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    gradient: const LinearGradient(
+                      colors: [
+                        Color.fromARGB(255, 196, 196, 196),
+                        Color.fromARGB(255, 255, 255, 255)
+                      ],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      stops: [0.0, 0.12],
+                      tileMode: TileMode.clamp,
+                    ),
                     borderRadius: BorderRadius.circular(15.0),
                   ),
                   child: Row(
@@ -211,7 +231,7 @@ class _LoginPageState extends State<LoginPage> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Image(
-                          image: AssetImage('assets/google logo.png'),
+                          image: AssetImage('assets/google_logo.png'),
                           width: 20,
                           height: 20,
                         ),
@@ -237,22 +257,30 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void _login() {
-    // 로그인 조건을 확인하는 로직
+    final userAuth = Provider.of<UserAuthentication>(context, listen: false);
     if (_usernameController.text == "올바른아이디" &&
         _passwordController.text == "올바른비밀번호") {
-      // 조건이 충족되면 CalendarScreen으로 이동
+      userAuth.login(_usernameController.text, _passwordController.text);
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => const Calendar()),
       );
     } else {
-      // 조건이 충족되지 않으면 알림 메시지 출력
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('ID와 Password를 다시 확인해주세요.'),
         ),
       );
     }
+    Consumer<UserAuthentication>(
+      builder: (context, userAuth, child) {
+        if (userAuth.isLoggedIn) {
+          return const Calendar(); // 로그인 시 보여줄 화면
+        } else {
+          return const LoginPage(); // 로그아웃 시 보여줄 화면
+        }
+      },
+    );
   }
 
   void _join() {
