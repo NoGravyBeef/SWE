@@ -34,7 +34,7 @@ class _LoginPageState extends State<LoginPage> {
         children: <Widget>[
           // 배경 이미지 설정
           Image.asset(
-            'assets/image1.jpg', // 배경 이미지 경로
+            'assets/first_background.webp', // 배경 이미지 경로
             fit: BoxFit.cover, // 이미지를 화면에 꽉 차게 표시
             width: double.infinity,
             height: double.infinity,
@@ -60,7 +60,16 @@ class _LoginPageState extends State<LoginPage> {
                   width: 300.0,
                   height: 50.0,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    gradient: const LinearGradient(
+                      colors: [
+                        Color.fromARGB(255, 196, 196, 196),
+                        Color.fromARGB(255, 255, 255, 255)
+                      ],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      stops: [0.0, 0.12],
+                      tileMode: TileMode.clamp,
+                    ),
                     borderRadius: BorderRadius.circular(15.0),
                   ),
                   child: Row(
@@ -100,7 +109,16 @@ class _LoginPageState extends State<LoginPage> {
                   width: 300.0,
                   height: 50.0,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    gradient: const LinearGradient(
+                      colors: [
+                        Color.fromARGB(255, 196, 196, 196),
+                        Color.fromARGB(255, 255, 255, 255)
+                      ],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      stops: [0.0, 0.12],
+                      tileMode: TileMode.clamp,
+                    ),
                     borderRadius: BorderRadius.circular(15.0),
                   ),
                   child: Row(
@@ -211,7 +229,7 @@ class _LoginPageState extends State<LoginPage> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Image(
-                          image: AssetImage('assets/google logo.png'),
+                          image: AssetImage('assets/google_logo.png'),
                           width: 20,
                           height: 20,
                         ),

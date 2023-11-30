@@ -1,3 +1,4 @@
+/*
 import 'package:calendar/screens/test_calendar.dart';
 import 'package:calendar/widgets/calendar_menu.dart';
 import 'package:calendar/popup/change_background_color.dart';
@@ -43,7 +44,7 @@ class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     //var screenSize = MediaQuery.of(context).size;
-    return const MaterialApp(home: Friends_list()
+    return const MaterialApp(home: Calendar()
         /*Scaffold(
             backgroundColor: Color(0xffEFEFEF),
             body: //settings(),
@@ -94,5 +95,27 @@ class _AppState extends State<App> {
         //settings()
         //],
         );
+  }
+}
+*/
+
+import 'package:calendar/screens/login.dart';
+
+import 'package:flutter/material.dart';
+import 'package:intl/date_symbol_data_local.dart';
+
+void main() async {
+  await initializeDateFormatting('ko_KR');
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      home: LoginPage(),
+    );
   }
 }
