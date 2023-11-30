@@ -31,12 +31,12 @@ class _CalendarState extends State<Calendar> {
     var screenSize = MediaQuery.of(context).size;
     final defaultBoxDeco = BoxDecoration(
       borderRadius: BorderRadius.circular(6.0),
-      color: Colors.grey[200],
+      color: Colors.grey[300],
     );
 
     const defaultTextStyle = TextStyle(
-      color: Colors.amber,
-      fontSize: 15,
+      color: Colors.black,
+      fontSize: 21,
       fontWeight: FontWeight.w700,
     );
 
@@ -168,10 +168,10 @@ class _CalendarState extends State<Calendar> {
                     fontFamily: 'JetBrainsMono-Regular.ttf',
                   ),
                   selectedDecoration: BoxDecoration(
-                    color: Colors.white,
+                    color: const Color.fromARGB(255, 214, 178, 250),
                     borderRadius: BorderRadius.circular(6.0),
                     border: Border.all(
-                      color: Colors.amber,
+                      color: const Color.fromARGB(255, 214, 178, 250),
                       width: 1.0,
                     ),
                   ),
@@ -180,7 +180,7 @@ class _CalendarState extends State<Calendar> {
                   defaultTextStyle: defaultTextStyle,
                   //weekendTextStyle: defaultTextStyle,
                   selectedTextStyle:
-                      defaultTextStyle.copyWith(color: Colors.amber)),
+                      defaultTextStyle.copyWith(color: Colors.black)),
 
               selectedDayPredicate: (DateTime date) {
                 return date.year == selectedDay.year &&
@@ -217,7 +217,6 @@ class _CalendarState extends State<Calendar> {
                     return const Center(
                       child: Text(
                         '일',
-                        style: TextStyle(color: Colors.red),
                       ),
                     );
                 }
