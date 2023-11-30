@@ -56,15 +56,15 @@ class MemoPage extends State<Memo_Page> {
   final bool _showError1 = false;
   final int _memoValueMax = 20;
 
-  bool _isUnderlined1 = false; //글자밑줄 체크
-  bool _isUnderlined2 = false; //글자밑줄 체크
-  bool _isUnderlined3 = false; //글자밑줄 체크
-  bool _isUnderlined4 = false; //글자밑줄 체크
-  bool _isUnderlined5 = false; //글자밑줄 체크
-  bool _isUnderlined6 = false; //글자밑줄 체크
-  bool _isUnderlined7 = false; //글자밑줄 체크
-  bool _isUnderlined8 = false; //글자밑줄 체크
-  bool _isUnderlined9 = false; //글자밑줄 체크
+  bool _isUnderlined1 = false; //글자 밑줄
+  bool _isUnderlined2 = false;
+  bool _isUnderlined3 = false;
+  bool _isUnderlined4 = false;
+  bool _isUnderlined5 = false;
+  bool _isUnderlined6 = false;
+  bool _isUnderlined7 = false;
+  bool _isUnderlined8 = false;
+  bool _isUnderlined9 = false;
 
   late String _selectTime;
 
@@ -520,7 +520,19 @@ class MemoPage extends State<Memo_Page> {
                   child: IconButton(
                     icon: Icon(Icons.text_format_outlined,
                         size: 24.0, color: Colors.grey.shade400),
-                    onPressed: () {},
+                    onPressed: () {
+                      setState(() {
+                        _isUnderlined1 = !_isUnderlined1;
+                        _isUnderlined2 = !_isUnderlined2;
+                        _isUnderlined3 = !_isUnderlined3;
+                        _isUnderlined4 = !_isUnderlined4;
+                        _isUnderlined5 = !_isUnderlined5;
+                        _isUnderlined6 = !_isUnderlined6;
+                        _isUnderlined7 = !_isUnderlined7;
+                        _isUnderlined8 = !_isUnderlined8;
+                        _isUnderlined9 = !_isUnderlined9;
+                      });
+                    },
                   ),
                 ),
                 const SizedBox(width: 8.0),
