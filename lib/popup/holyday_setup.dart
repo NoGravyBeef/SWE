@@ -1,5 +1,7 @@
+import 'package:calendar/provider/test_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:provider/provider.dart';
 
 /* 값 전달할땐
 void showCustomDialog() async {
@@ -24,9 +26,11 @@ class HolydaySet extends StatefulWidget {
 
 class _HolydaySetState extends State<HolydaySet> {
   bool isChecked = true;
+  late testProvider _provider;
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
+    _provider = Provider.of<testProvider>(context, listen: false);
 
     return Container(
       height: screenSize.height * 0.232,
@@ -361,6 +365,9 @@ class _HolydaySetState extends State<HolydaySet> {
                     child: TextButton(
                       onPressed: () {
                         //on off 기능구현
+                        setState(() {
+                          _provider.change_holiday_color(Colors.red);
+                        });
                       },
                       style: TextButton.styleFrom(
                         shape: const CircleBorder(),

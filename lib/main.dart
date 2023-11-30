@@ -37,14 +37,14 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => testProvider(),
-      child: MaterialApp(
-          home: ChangeNotifierProvider(
-        create: (_) => testProvider(),
-        child: const Scaffold(
-            backgroundColor: Color(0xffEFEFEF), body: Calendar()),
-      )),
-    );
+    return ChangeNotifierProvider.value(
+        value: testProvider(),
+        child: const MaterialApp(
+          home: Scaffold(
+              backgroundColor: Color(0xffEFEFEF),
+              body: Column(
+                children: [Calendar()],
+              )),
+        ));
   }
 }

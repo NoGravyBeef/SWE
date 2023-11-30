@@ -1,8 +1,10 @@
+import 'package:calendar/provider/test_provider.dart';
 import 'package:calendar/widgets/test.dart';
 import 'package:calendar/screens/Memo_page.dart';
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 import 'package:table_calendar/table_calendar.dart';
 import '../widgets/yearmonthselector.dart';
 import 'package:intl/date_symbol_data_local.dart';
@@ -27,12 +29,36 @@ class _CalendarState extends State<Calendar> {
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
-
     const defaultTextStyle = TextStyle(
       color: Colors.black,
       fontSize: 21,
       fontWeight: FontWeight.w700,
     );
+
+    StartingDayOfWeek startingDayOfWeek = StartingDayOfWeek.sunday;
+    switch (Provider.of<testProvider>(context).changeStartDay) {
+      case 1:
+        startingDayOfWeek = StartingDayOfWeek.monday;
+        break;
+      case 2:
+        startingDayOfWeek = StartingDayOfWeek.tuesday;
+        break;
+      case 3:
+        startingDayOfWeek = StartingDayOfWeek.wednesday;
+        break;
+      case 4:
+        startingDayOfWeek = StartingDayOfWeek.thursday;
+        break;
+      case 5:
+        startingDayOfWeek = StartingDayOfWeek.friday;
+        break;
+      case 6:
+        startingDayOfWeek = StartingDayOfWeek.saturday;
+        break;
+      case 7:
+        startingDayOfWeek = StartingDayOfWeek.sunday;
+        break;
+    }
 
     return Container(
       decoration: const BoxDecoration(
@@ -127,7 +153,8 @@ class _CalendarState extends State<Calendar> {
                         builder: (context) => Memo_Page(date: selectedDay)),
                   );
                 },
-
+                // 시작요일 변경 부분
+                startingDayOfWeek: startingDayOfWeek,
                 //locale: 'ko_KR',
                 focusedDay: focusedDay,
                 firstDay: DateTime(1800),
@@ -203,7 +230,8 @@ class _CalendarState extends State<Calendar> {
                           '월',
                           style: TextStyle(
                             fontSize: screenSize.height * 0.025,
-                            color: Colors.black,
+                            color:
+                                Provider.of<testProvider>(context).holidayColor,
                             decoration: TextDecoration.none,
                           ),
                         ),
