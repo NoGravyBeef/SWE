@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:calendar/popup/change_background_color.dart';
 import 'package:calendar/popup/change_ddays_color.dart';
 import 'package:calendar/popup/change_font_color.dart';
@@ -12,7 +10,7 @@ import 'package:calendar/screens/todolist_page.dart';
 
 class Memo_Page extends StatefulWidget {
   Memo_Page({super.key, DateTime? date});
-  List<bool> _isUnderlinedList = List.generate(9, (index) => false);
+  final List<bool> _isUnderlinedList = List.generate(9, (index) => false);
 
   @override
   State<Memo_Page> createState() => MemoPage();
@@ -55,6 +53,7 @@ class MemoPage extends State<Memo_Page> {
 
   final bool _showError1 = false;
   final int _memoValueMax = 20;
+
 
   bool _isUnderlined1 = false; //글자 밑줄
   bool _isUnderlined2 = false;

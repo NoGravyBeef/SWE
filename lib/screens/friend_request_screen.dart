@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 // 사용자 데이터 구조
 class User {
-  final String name;
-  User(this.name);
+  String name;
+  bool isChecked = false;
+  User(this.name, {this.isChecked = false});
 }
 
 // 친구 신청 화면 위젯
