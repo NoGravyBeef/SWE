@@ -195,7 +195,7 @@ class _CalendarState extends State<Calendar> {
                       decoration: TextDecoration.none,
                     ),
                     selectedDecoration: BoxDecoration(
-                      color: Colors.green.withOpacity(0.5),
+                      color: Provider.of<testProvider>(context).backGroundColor,
                       borderRadius: BorderRadius.circular(15),
                     ),
                     outsideDecoration:
