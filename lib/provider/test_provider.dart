@@ -18,6 +18,9 @@ class testProvider extends ChangeNotifier {
 
   bool changeStatus = true;
 
+  double _size_font = 15;
+  double get size_font => _size_font;
+
   void change_background_color(changeColor) {
     _backGroundColor = changeColor;
     notifyListeners();
@@ -35,6 +38,11 @@ class testProvider extends ChangeNotifier {
 
   void change_start(dayIndex) {
     _changeStartDay = dayIndex;
+    notifyListeners();
+  }
+
+  void change_font_size(size) {
+    _size_font = size;
     notifyListeners();
   }
 }

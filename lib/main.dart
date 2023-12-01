@@ -5,6 +5,7 @@ import 'package:calendar/screens/calendar.dart';
 import 'package:calendar/screens/fmanage_list.dart';
 import 'package:calendar/screens/login.dart';
 import 'package:calendar/widgets/test_change.dart';
+import 'package:calendar/widgets/test_record2.dart';
 import 'package:flutter/material.dart';
 import 'package:calendar/screens/friends_list.dart';
 import 'package:calendar/screens/join_screen.dart';
@@ -43,7 +44,9 @@ class _AppState extends State<App> {
           home: Scaffold(
               backgroundColor: Color(0xffEFEFEF),
               body: Column(
-                children: [Calendar()],
+                children: [
+                  Calendar(),
+                ],
               )),
         ));
   }

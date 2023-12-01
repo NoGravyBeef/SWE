@@ -1,11 +1,14 @@
+import 'package:calendar/provider/test_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 
 class Memomain extends StatefulWidget {
   final TextEditingController memoController;
   bool isUnderlined;
 
-  Memomain({required this.memoController, required this.isUnderlined});
+  Memomain(
+      {super.key, required this.memoController, required this.isUnderlined});
 
   @override
   _MemomainState createState() => _MemomainState();
@@ -21,8 +24,8 @@ class _MemomainState extends State<Memomain> {
         child: IntrinsicHeight(
           child: Container(
             decoration: ShapeDecoration(
-              color: Color(0xFFFFF3D9),
-              shadows: [
+              color: const Color(0xFFFFF3D9),
+              shadows: const [
                 BoxShadow(
                   color: Colors.black12,
                   offset: Offset(0, 3),
@@ -37,7 +40,7 @@ class _MemomainState extends State<Memomain> {
             child: TextFormField(
               inputFormatters: [LengthLimitingTextInputFormatter(20)],
               style: TextStyle(
-                fontSize: 15,
+                fontSize: Provider.of<testProvider>(context).size_font,
                 color: Colors.grey,
                 decoration: widget.isUnderlined
                     ? TextDecoration.underline
@@ -63,8 +66,8 @@ class _MemomainState extends State<Memomain> {
                         content: const Text('텍스트 길이는 20자를 초과할 수 없습니다.'),
                         actions: [
                           TextButton(
-                            style:
-                                TextButton.styleFrom(primary: Colors.redAccent),
+                            style: TextButton.styleFrom(
+                                foregroundColor: Colors.redAccent),
                             onPressed: () {
                               Navigator.pop(context);
                             },

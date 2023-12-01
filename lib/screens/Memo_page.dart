@@ -2,12 +2,14 @@ import 'package:calendar/popup/change_background_color.dart';
 import 'package:calendar/popup/change_ddays_color.dart';
 import 'package:calendar/popup/change_font_color.dart';
 import 'package:calendar/popup/change_font_size.dart';
+import 'package:calendar/widgets/test_record2.dart';
 import 'package:flutter/material.dart';
 import 'package:calendar/widgets/dday_checkbox.dart';
 import 'package:calendar/widgets/memo_headline.dart';
 import 'package:calendar/widgets/memo_text.dart';
 import 'package:calendar/screens/todolist_page.dart';
 import 'package:provider/provider.dart';
+import 'package:calendar/provider/test_provider.dart';
 
 class Memo_Page extends StatefulWidget {
   Memo_Page({super.key, DateTime? date});
