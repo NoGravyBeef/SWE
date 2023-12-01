@@ -1,9 +1,6 @@
 import 'dart:io';
-
 import 'package:audio_waveforms/audio_waveforms.dart';
 import 'package:flutter/material.dart';
-import 'package:permission_handler/permission_handler.dart';
-import 'package:audioplayers/audioplayers.dart';
 
 class test_record2 extends StatefulWidget {
   const test_record2({super.key});
@@ -12,8 +9,7 @@ class test_record2 extends StatefulWidget {
 }
 
 class _test_record2State extends State<test_record2> {
-  late final RecorderController recorderController;
-  late final PlayerController playerController;
+  late RecorderController recorderController;
   late Directory directory;
 
   String? path;
@@ -39,8 +35,6 @@ class _test_record2State extends State<test_record2> {
       ..androidOutputFormat = AndroidOutputFormat.mpeg4
       ..iosEncoder = IosEncoder.kAudioFormatMPEG4AAC
       ..sampleRate = 16000;
-
-    playerController = PlayerController();
   }
 
   Future<void> _startRecording() async {

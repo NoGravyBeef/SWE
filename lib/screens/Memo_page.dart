@@ -12,16 +12,13 @@ import 'package:provider/provider.dart';
 import 'package:calendar/provider/test_provider.dart';
 
 class Memo_Page extends StatefulWidget {
-  Memo_Page({super.key, DateTime? date});
-  final List<bool> _isUnderlinedList = List.generate(9, (index) => false);
+  const Memo_Page({super.key, DateTime? date});
 
   @override
   State<Memo_Page> createState() => MemoPage();
 }
 
 class MemoPage extends State<Memo_Page> {
-  final TextEditingController _headlineController = TextEditingController();
-
   final TextEditingController _memoController1 = TextEditingController();
   final TextEditingController _memoController2 = TextEditingController();
   final TextEditingController _memoController3 = TextEditingController();
@@ -41,21 +38,6 @@ class MemoPage extends State<Memo_Page> {
   bool _isMemoChecked7 = false;
   bool _isMemoChecked8 = false;
   bool _isMemoChecked9 = false;
-
-  final String _headlineValue = '';
-
-  final String _memoValue1 = '';
-  final String _memoValue2 = '';
-  final String _memoValue3 = '';
-  final String _memoValue4 = '';
-  final String _memoValue5 = '';
-  final String _memoValue6 = '';
-  final String _memoValue7 = '';
-  final String _memoValue8 = '';
-  final String _memoValue9 = '';
-
-  final bool _showError1 = false;
-  final int _memoValueMax = 20;
 
   bool _isUnderlined1 = false; //글자 밑줄
   bool _isUnderlined2 = false;

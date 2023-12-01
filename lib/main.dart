@@ -42,12 +42,9 @@ class _AppState extends State<App> {
         value: testProvider(),
         child: const MaterialApp(
           home: Scaffold(
-              backgroundColor: Color(0xffEFEFEF),
-              body: Column(
-                children: [
-                  Calendar(),
-                ],
-              )),
+            backgroundColor: Color(0xffEFEFEF),
+            body: LoginPage(),
+          ),
         ));
   }
 }
