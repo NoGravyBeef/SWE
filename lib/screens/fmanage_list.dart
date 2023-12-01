@@ -31,33 +31,49 @@ class _Friends_list extends State<FManage_list> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             SizedBox(
-              height: screenSize.height * 0.023,
+              height: screenSize.height * 0.03,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                SizedBox(width: screenSize.width * 0.06),
+                IconButton(
+                  //나가기
+                  icon: Icon(Icons.sensor_door_outlined,
+                      size: screenSize.height * 0.03,
+                      color: Colors.grey.shade400),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                SizedBox(width: screenSize.width * 0.02),
+              ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(
-                  height: screenSize.height * 0.1,
-                ),
-                Text(
+                const Text(
                   '친구 관리',
                   style: TextStyle(
-                    color: Colors.black,
+                    fontSize: 28,
                     fontFamily: 'JetBrain',
-                    fontWeight: FontWeight.w900,
-                    fontSize: screenSize.height * 0.035,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.black,
                   ),
                 ),
                 SizedBox(width: screenSize.width * 0.02),
-                Icon(
+                const Icon(
                   Icons.person_4_outlined,
                   color: Colors.grey,
-                  size: screenSize.height * 0.07,
+                  size: 50,
                 ),
               ],
+            ),
+            SizedBox(
+              height: screenSize.height * 0.02,
             ),
             Padding(
               padding: EdgeInsets.fromLTRB(

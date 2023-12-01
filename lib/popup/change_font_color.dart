@@ -22,8 +22,8 @@ class _change_font_colorState extends State<change_font_color> {
     _provider = Provider.of<testProvider>(context, listen: false);
 
     return Container(
-      width: screenSize.width * 0.686,
-      height: screenSize.height * 0.062,
+      width: screenSize.width * 0.6,
+      height: screenSize.height * 0.06,
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(15),
@@ -39,8 +39,8 @@ class _change_font_colorState extends State<change_font_color> {
                   minimumSize: Size.zero,
                   padding: EdgeInsets.zero,
                   shape: const CircleBorder(),
-                  fixedSize: Size(
-                      screenSize.width * 0.0726, screenSize.height * 0.0402)),
+                  fixedSize:
+                      Size(screenSize.width * 0.07, screenSize.height * 0.04)),
               onPressed: () {
                 setState(() {
                   _provider.change_font_color(const Color(0xff767676));
