@@ -1,6 +1,11 @@
+import 'package:calendar/popup/change_background_color.dart';
+import 'package:calendar/provider/test_provider.dart';
+import 'package:calendar/screens/Memo_page.dart';
 import 'package:calendar/screens/calendar.dart';
 import 'package:calendar/screens/fmanage_list.dart';
 import 'package:calendar/screens/login.dart';
+import 'package:calendar/widgets/test_change.dart';
+import 'package:calendar/widgets/test_record2.dart';
 import 'package:flutter/material.dart';
 import 'package:calendar/screens/friends_list.dart';
 import 'package:calendar/screens/join_screen.dart';
@@ -33,12 +38,16 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
-
-    return const MaterialApp(
-      home: Scaffold(
-        backgroundColor: Color(0xffEFEFEF),
-        body: LoginPage(),
-      ),
-    );
+    return ChangeNotifierProvider.value(
+        value: testProvider(),
+        child: const MaterialApp(
+          home: Scaffold(
+              backgroundColor: Color(0xffEFEFEF),
+              body: Column(
+                children: [
+                  Calendar(),
+                ],
+              )),
+        ));
   }
 }

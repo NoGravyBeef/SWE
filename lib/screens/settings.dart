@@ -1,8 +1,11 @@
 import 'package:calendar/popup/holyday_setup.dart';
+import 'package:calendar/provider/test_provider.dart';
 import 'package:calendar/widgets/calander_start_days.dart';
 import 'package:calendar/widgets/fixdays.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:table_calendar/table_calendar.dart';
 
 class settings extends StatefulWidget {
   const settings({super.key});
@@ -19,8 +22,11 @@ class _settingsState extends State<settings> {
   bool isChecked5 = false;
   bool isChecked6 = false;
 
+  late testProvider _provider;
+
   @override
   Widget build(BuildContext context) {
+    _provider = Provider.of<testProvider>(context, listen: false);
     var screenSize = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(
@@ -209,44 +215,79 @@ class _settingsState extends State<settings> {
                       tileMode: TileMode.decal),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15))),
-              child: const Padding(
-                padding: EdgeInsets.only(left: 15, right: 11),
+              child: Padding(
+                padding: const EdgeInsets.only(left: 15, right: 11),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    DefaultTextStyle(
+                    const DefaultTextStyle(
                         style:
                             TextStyle(color: Color(0xff5D5050), fontSize: 18),
                         child: Text('시작 요일')),
                     Row(
                       children: [
                         Padding(
-                          padding: EdgeInsets.only(right: 10),
-                          child: calander_start_days(days: '월'),
+                          padding: const EdgeInsets.only(right: 10),
+                          child: calander_start_days(
+                            days: '월',
+                            onPressed: () {
+                              _provider.change_start(1);
+                            },
+                          ),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(right: 10),
-                          child: calander_start_days(days: '화'),
+                          padding: const EdgeInsets.only(right: 10),
+                          child: calander_start_days(
+                            days: '화',
+                            onPressed: () {
+                              _provider.change_start(2);
+                            },
+                          ),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(right: 10),
-                          child: calander_start_days(days: '수'),
+                          padding: const EdgeInsets.only(right: 10),
+                          child: calander_start_days(
+                            days: '수',
+                            onPressed: () {
+                              _provider.change_start(3);
+                            },
+                          ),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(right: 10),
-                          child: calander_start_days(days: '목'),
+                          padding: const EdgeInsets.only(right: 10),
+                          child: calander_start_days(
+                            days: '목',
+                            onPressed: () {
+                              _provider.change_start(4);
+                            },
+                          ),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(right: 10),
-                          child: calander_start_days(days: '금'),
+                          padding: const EdgeInsets.only(right: 10),
+                          child: calander_start_days(
+                            days: '금',
+                            onPressed: () {
+                              _provider.change_start(5);
+                            },
+                          ),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(right: 10),
-                          child: calander_start_days(days: '토'),
+                          padding: const EdgeInsets.only(right: 10),
+                          child: calander_start_days(
+                            days: '토',
+                            onPressed: () {
+                              _provider.change_start(6);
+                            },
+                          ),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(right: 10),
-                          child: calander_start_days(days: '일'),
+                          padding: const EdgeInsets.only(right: 10),
+                          child: calander_start_days(
+                            days: '일',
+                            onPressed: () {
+                              _provider.change_start(7);
+                            },
+                          ),
                         ),
                       ],
                     ),
@@ -484,11 +525,14 @@ class _settingsState extends State<settings> {
                             actions: [
                               ElevatedButton(
                                   onPressed: () {
+                                    _provider.changeStatus = true;
                                     Navigator.of(context).pop();
                                   },
                                   child: const Text('예')),
                               ElevatedButton(
                                   onPressed: () {
+                                    _provider.changeStatus = false;
+                                    print(_provider.changeStatus);
                                     Navigator.of(context).pop();
                                   },
                                   child: const Text('아니요'))

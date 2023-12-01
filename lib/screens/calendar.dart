@@ -1,8 +1,10 @@
+import 'package:calendar/provider/test_provider.dart';
 import 'package:calendar/widgets/test.dart';
 import 'package:calendar/screens/Memo_page.dart';
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 import 'package:table_calendar/table_calendar.dart';
 import '../widgets/yearmonthselector.dart';
 import 'package:intl/date_symbol_data_local.dart';
@@ -34,6 +36,48 @@ class _CalendarState extends State<Calendar> {
       fontWeight: FontWeight.w700,
     );
 
+    StartingDayOfWeek startingDayOfWeek = StartingDayOfWeek.sunday;
+    switch (Provider.of<testProvider>(context).changeStartDay) {
+      case 1:
+        startingDayOfWeek = StartingDayOfWeek.monday;
+        break;
+      case 2:
+        startingDayOfWeek = StartingDayOfWeek.tuesday;
+        break;
+      case 3:
+        startingDayOfWeek = StartingDayOfWeek.wednesday;
+        break;
+      case 4:
+        startingDayOfWeek = StartingDayOfWeek.thursday;
+        break;
+      case 5:
+        startingDayOfWeek = StartingDayOfWeek.friday;
+        break;
+      case 6:
+        startingDayOfWeek = StartingDayOfWeek.saturday;
+        break;
+      case 7:
+        startingDayOfWeek = StartingDayOfWeek.sunday;
+        break;
+    }
+
+    var selectHoliday = DateTime.sunday;
+
+    if (Provider.of<testProvider>(context).selectHoliday[0] == true) {
+      selectHoliday = DateTime.monday;
+    } else if (Provider.of<testProvider>(context).selectHoliday[1] == true) {
+      selectHoliday = DateTime.tuesday;
+    } else if (Provider.of<testProvider>(context).selectHoliday[2] == true) {
+      selectHoliday = DateTime.wednesday;
+    } else if (Provider.of<testProvider>(context).selectHoliday[3] == true) {
+      selectHoliday = DateTime.thursday;
+    } else if (Provider.of<testProvider>(context).selectHoliday[4] == true) {
+      selectHoliday = DateTime.friday;
+    } else if (Provider.of<testProvider>(context).selectHoliday[5] == true) {
+      selectHoliday = DateTime.saturday;
+    } else if (Provider.of<testProvider>(context).selectHoliday[6] == true) {
+      selectHoliday = DateTime.sunday;
+    }
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
@@ -128,6 +172,10 @@ class _CalendarState extends State<Calendar> {
                   );
                 },
 
+                // 휴일 날짜 지정
+                weekendDays: [selectHoliday],
+                // 시작요일 변경 부분
+                startingDayOfWeek: startingDayOfWeek,
                 //locale: 'ko_KR',
                 focusedDay: focusedDay,
                 firstDay: DateTime(1800),
@@ -156,11 +204,12 @@ class _CalendarState extends State<Calendar> {
                     isTodayHighlighted: false,
                     defaultDecoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
-                      color: Colors.grey.withOpacity(0.5),
+                      color: Colors.indigo[50],
                     ),
                     weekendDecoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
-                      color: Colors.purple.withOpacity(0.5),
+                      color: Provider.of<testProvider>(context)
+                          .holidayBackgroundColor,
                     ),
                     weekendTextStyle: TextStyle(
                       fontSize: screenSize.height * 0.025,
@@ -168,7 +217,7 @@ class _CalendarState extends State<Calendar> {
                       decoration: TextDecoration.none,
                     ),
                     selectedDecoration: BoxDecoration(
-                      color: Colors.green.withOpacity(0.5),
+                      color: Provider.of<testProvider>(context).backGroundColor,
                       borderRadius: BorderRadius.circular(15),
                     ),
                     outsideDecoration:
@@ -203,7 +252,11 @@ class _CalendarState extends State<Calendar> {
                           '월',
                           style: TextStyle(
                             fontSize: screenSize.height * 0.025,
-                            color: Colors.black,
+                            color: (Provider.of<testProvider>(context)
+                                    .selectHoliday[0])
+                                ? Provider.of<testProvider>(context)
+                                    .holidayColor
+                                : Colors.black,
                             decoration: TextDecoration.none,
                           ),
                         ),
@@ -214,7 +267,11 @@ class _CalendarState extends State<Calendar> {
                           '화',
                           style: TextStyle(
                             fontSize: screenSize.height * 0.025,
-                            color: Colors.black,
+                            color: (Provider.of<testProvider>(context)
+                                    .selectHoliday[1])
+                                ? Provider.of<testProvider>(context)
+                                    .holidayColor
+                                : Colors.black,
                             decoration: TextDecoration.none,
                           ),
                         ),
@@ -225,7 +282,11 @@ class _CalendarState extends State<Calendar> {
                           '수',
                           style: TextStyle(
                             fontSize: screenSize.height * 0.025,
-                            color: Colors.black,
+                            color: (Provider.of<testProvider>(context)
+                                    .selectHoliday[2])
+                                ? Provider.of<testProvider>(context)
+                                    .holidayColor
+                                : Colors.black,
                             decoration: TextDecoration.none,
                           ),
                         ),
@@ -236,7 +297,11 @@ class _CalendarState extends State<Calendar> {
                           '목',
                           style: TextStyle(
                             fontSize: screenSize.height * 0.025,
-                            color: Colors.black,
+                            color: (Provider.of<testProvider>(context)
+                                    .selectHoliday[3])
+                                ? Provider.of<testProvider>(context)
+                                    .holidayColor
+                                : Colors.black,
                             decoration: TextDecoration.none,
                           ),
                         ),
@@ -247,7 +312,11 @@ class _CalendarState extends State<Calendar> {
                           '금',
                           style: TextStyle(
                             fontSize: screenSize.height * 0.025,
-                            color: Colors.black,
+                            color: (Provider.of<testProvider>(context)
+                                    .selectHoliday[4])
+                                ? Provider.of<testProvider>(context)
+                                    .holidayColor
+                                : Colors.black,
                             decoration: TextDecoration.none,
                           ),
                         ),
@@ -258,7 +327,11 @@ class _CalendarState extends State<Calendar> {
                           '토',
                           style: TextStyle(
                             fontSize: screenSize.height * 0.025,
-                            color: Colors.black,
+                            color: (Provider.of<testProvider>(context)
+                                    .selectHoliday[5])
+                                ? Provider.of<testProvider>(context)
+                                    .holidayColor
+                                : Colors.black,
                             decoration: TextDecoration.none,
                           ),
                         ),
@@ -269,7 +342,11 @@ class _CalendarState extends State<Calendar> {
                           '일',
                           style: TextStyle(
                             fontSize: screenSize.height * 0.025,
-                            color: Colors.black,
+                            color: (Provider.of<testProvider>(context)
+                                    .selectHoliday[6])
+                                ? Provider.of<testProvider>(context)
+                                    .holidayColor
+                                : Colors.black,
                             decoration: TextDecoration.none,
                           ),
                         ),

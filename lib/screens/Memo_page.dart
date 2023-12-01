@@ -2,11 +2,14 @@ import 'package:calendar/popup/change_background_color.dart';
 import 'package:calendar/popup/change_ddays_color.dart';
 import 'package:calendar/popup/change_font_color.dart';
 import 'package:calendar/popup/change_font_size.dart';
+import 'package:calendar/widgets/test_record2.dart';
 import 'package:flutter/material.dart';
 import 'package:calendar/widgets/dday_checkbox.dart';
 import 'package:calendar/widgets/memo_headline.dart';
 import 'package:calendar/widgets/memo_text.dart';
 import 'package:calendar/screens/todolist_page.dart';
+import 'package:provider/provider.dart';
+import 'package:calendar/provider/test_provider.dart';
 
 class Memo_Page extends StatefulWidget {
   Memo_Page({super.key, DateTime? date});
@@ -71,7 +74,7 @@ class MemoPage extends State<Memo_Page> {
     var screenSize = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: const Color(0xFFFFF3D9),
+      backgroundColor: Provider.of<testProvider>(context).backGroundColor,
       //메모장 자체 배경색상 변경-값 넘기기
       body: SingleChildScrollView(
         child: Column(
@@ -81,16 +84,9 @@ class MemoPage extends State<Memo_Page> {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                IconButton(
-                  icon: Icon(Icons.format_list_bulleted_outlined,
-                      size: 22, color: Colors.grey.shade400), //녹음
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const Todolist_page()),
-                    );
-                  },
+                const Padding(
+                  padding: EdgeInsets.only(left: 5),
+                  child: test_record2(),
                 ),
                 IconButton(
                   icon: Icon(Icons.format_list_bulleted_outlined,
