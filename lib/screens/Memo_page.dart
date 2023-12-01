@@ -10,6 +10,7 @@ import 'package:calendar/widgets/memo_text.dart';
 import 'package:calendar/screens/todolist_page.dart';
 import 'package:provider/provider.dart';
 import 'package:calendar/provider/test_provider.dart';
+import 'package:calendar/screens/record_player.dart';
 
 class Memo_Page extends StatefulWidget {
   const Memo_Page({super.key, DateTime? date});
@@ -78,7 +79,7 @@ class MemoPage extends State<Memo_Page> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const Todolist_page()),
+                          builder: (context) => const record_player()),
                     );
                   },
                 ),
