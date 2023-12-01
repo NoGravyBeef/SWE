@@ -16,6 +16,9 @@ class testProvider extends ChangeNotifier {
   Color _holidayBackgroundColor = Colors.purple.withOpacity(0.5);
   Color get holidayBackgroundColor => _holidayBackgroundColor;
 
+  Color _fontColor = Colors.grey;
+  Color get fontColor => _fontColor;
+
   bool changeStatus = true;
 
   double _size_font = 15;
@@ -43,6 +46,11 @@ class testProvider extends ChangeNotifier {
 
   void change_font_size(size) {
     _size_font = size;
+    notifyListeners();
+  }
+
+  void change_font_color(changeFontColor) {
+    _fontColor = changeFontColor;
     notifyListeners();
   }
 }

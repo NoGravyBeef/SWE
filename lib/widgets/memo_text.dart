@@ -41,7 +41,7 @@ class _MemomainState extends State<Memomain> {
               inputFormatters: [LengthLimitingTextInputFormatter(20)],
               style: TextStyle(
                 fontSize: Provider.of<testProvider>(context).size_font,
-                color: Colors.grey,
+                color: Provider.of<testProvider>(context).fontColor,
                 decoration: widget.isUnderlined
                     ? TextDecoration.underline
                     : TextDecoration.none,

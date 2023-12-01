@@ -1,6 +1,7 @@
 import 'package:calendar/provider/test_provider.dart';
 import 'package:calendar/widgets/test_change.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class change_font_color extends StatefulWidget {
   // ㅜㅜ
@@ -14,10 +15,12 @@ class change_font_color extends StatefulWidget {
 
 class _change_font_colorState extends State<change_font_color> {
   Color test_color = Colors.white;
-
+  late testProvider _provider;
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
+    _provider = Provider.of<testProvider>(context, listen: false);
+
     return Container(
       width: screenSize.width * 0.686,
       height: screenSize.height * 0.062,
@@ -40,7 +43,7 @@ class _change_font_colorState extends State<change_font_color> {
                       screenSize.width * 0.0726, screenSize.height * 0.0402)),
               onPressed: () {
                 setState(() {
-                  test_color = const Color(0xff767676);
+                  _provider.change_font_color(const Color(0xff767676));
                 });
               },
               child: const Text('')),
@@ -52,7 +55,9 @@ class _change_font_colorState extends State<change_font_color> {
                   backgroundColor: const Color(0xffff8A8A),
                   fixedSize: Size(
                       screenSize.width * 0.0726, screenSize.height * 0.0402)),
-              onPressed: () {},
+              onPressed: () {
+                _provider.change_font_color(const Color(0xffff8A8A));
+              },
               child: const Text('')),
           ElevatedButton(
               style: ElevatedButton.styleFrom(
@@ -62,7 +67,9 @@ class _change_font_colorState extends State<change_font_color> {
                   backgroundColor: const Color(0xff8A8AFF),
                   fixedSize: Size(
                       screenSize.width * 0.0726, screenSize.height * 0.0402)),
-              onPressed: () {},
+              onPressed: () {
+                _provider.change_font_color(const Color(0xff8A8AFF));
+              },
               child: const Text('')),
           ElevatedButton(
               style: ElevatedButton.styleFrom(
@@ -72,7 +79,9 @@ class _change_font_colorState extends State<change_font_color> {
                   backgroundColor: const Color(0xff8AFF92),
                   fixedSize: Size(
                       screenSize.width * 0.0726, screenSize.height * 0.0402)),
-              onPressed: () {},
+              onPressed: () {
+                _provider.change_font_color(const Color(0xff8AFF92));
+              },
               child: const Text('')),
           ElevatedButton(
               style: ElevatedButton.styleFrom(
@@ -82,7 +91,9 @@ class _change_font_colorState extends State<change_font_color> {
                   backgroundColor: const Color(0xffe1e1e1),
                   fixedSize: Size(
                       screenSize.width * 0.0726, screenSize.height * 0.0402)),
-              onPressed: () {},
+              onPressed: () {
+                _provider.change_font_color(const Color(0xffe1e1e1));
+              },
               child: const Text('')),
         ],
       ),
