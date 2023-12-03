@@ -5,6 +5,7 @@ import 'package:calendar/screens/calendar.dart';
 import 'package:calendar/screens/fmanage_list.dart';
 import 'package:calendar/screens/login.dart';
 import 'package:calendar/widgets/test_change.dart';
+import 'package:calendar/widgets/test_player.dart';
 import 'package:calendar/widgets/test_record2.dart';
 import 'package:flutter/material.dart';
 import 'package:calendar/screens/friends_list.dart';
@@ -41,10 +42,7 @@ class _AppState extends State<App> {
     return ChangeNotifierProvider.value(
         value: testProvider(),
         child: const MaterialApp(
-          home: Scaffold(
-            backgroundColor: Color(0xffEFEFEF),
-            body: LoginPage(),
-          ),
+          home: Scaffold(backgroundColor: Color(0xffEFEFEF), body: Calendar()),
         ));
   }
 }

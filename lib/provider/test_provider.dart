@@ -24,6 +24,9 @@ class testProvider extends ChangeNotifier {
   double _size_font = 15;
   double get size_font => _size_font;
 
+  String? _audioPath;
+  String? get audioPath => _audioPath;
+
   void change_background_color(changeColor) {
     _backGroundColor = changeColor;
     notifyListeners();
@@ -51,6 +54,12 @@ class testProvider extends ChangeNotifier {
 
   void change_font_color(changeFontColor) {
     _fontColor = changeFontColor;
+    notifyListeners();
+  }
+
+  void get_audioPath(path) {
+    _audioPath = path;
+
     notifyListeners();
   }
 }
