@@ -27,6 +27,9 @@ class testProvider extends ChangeNotifier {
   String? _audioPath;
   String? get audioPath => _audioPath;
 
+  DateTime _record_day = DateTime.now();
+  DateTime get record_day => _record_day;
+
   void change_background_color(changeColor) {
     _backGroundColor = changeColor;
     notifyListeners();
@@ -59,7 +62,11 @@ class testProvider extends ChangeNotifier {
 
   void get_audioPath(path) {
     _audioPath = path;
+    notifyListeners();
+  }
 
+  void change_record_day(recordDay) {
+    _record_day = record_day;
     notifyListeners();
   }
 }

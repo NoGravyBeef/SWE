@@ -70,34 +70,37 @@ class _test_playerState extends State<test_player> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 300,
-      height: 400,
+    var screenSize = MediaQuery.of(context).size;
+    return Container(
+      width: screenSize.width * (320 / screenSize.width),
+      height: screenSize.height * (250 / screenSize.height),
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(15),
+          boxShadow: const [BoxShadow(blurRadius: 2, offset: Offset(0, 2))]),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
+          Text((DateFormat('yyyy-MM-dd')
+                  .format(Provider.of<testProvider>(context).record_day))
+              .toString()),
           AudioFileWaveforms(
+              //margin: const EdgeInsets.all(0),
               enableSeekGesture: true,
-              size: Size(MediaQuery.of(context).size.width / 2, 50),
+              size: Size(screenSize.width / 1.5,
+                  screenSize.height * (50 / screenSize.height)),
+              waveformType: WaveformType.fitWidth,
               playerWaveStyle: const PlayerWaveStyle(
+                  spacing: 5,
                   showSeekLine: false,
                   scaleFactor: 200,
                   fixedWaveColor: Colors.white30,
-                  liveWaveColor: Colors.white,
+                  liveWaveColor: Colors.redAccent,
                   waveCap: StrokeCap.butt),
               decoration: BoxDecoration(
-                  color: Colors.blue, borderRadius: BorderRadius.circular(15)),
+                  color: Colors.grey[100],
+                  borderRadius: BorderRadius.circular(15)),
               playerController: playerController),
-          ElevatedButton(
-              onPressed: () {
-                startPlayer();
-              },
-              child: const Text('play')),
-          ElevatedButton(
-              onPressed: () {
-                pausePlayer();
-              },
-              child: const Text('stop')),
           StreamBuilder<int>(
             stream: playerController.onCurrentDurationChanged,
             builder: (context, snapshot) {
@@ -110,6 +113,33 @@ class _test_playerState extends State<test_player> {
                 return const Text('00:00', style: TextStyle(fontSize: 20));
               }
             },
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              IconButton(
+                  onPressed: () {
+                    startPlayer();
+                  },
+                  icon: Icon(
+                    (isCompleted) ? Icons.refresh : Icons.play_arrow,
+                    size: 30,
+                    color: Colors.black87,
+                  )),
+              IconButton(
+                  style: IconButton.styleFrom(
+                      minimumSize: Size.zero,
+                      padding: EdgeInsets.zero,
+                      backgroundColor: Colors.white),
+                  onPressed: () {
+                    pausePlayer();
+                  },
+                  icon: const Icon(
+                    Icons.pause,
+                    size: 30,
+                    color: Colors.black87,
+                  )),
+            ],
           ),
         ],
       ),
