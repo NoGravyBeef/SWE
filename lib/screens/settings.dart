@@ -110,7 +110,6 @@ class _settingsState extends State<settings> {
                         child: Text('알림')),
                     CupertinoSwitch(
                       value: isChecked,
-                      activeColor: Colors.grey,
                       onChanged: (value) {
                         setState(() {
                           isChecked = value;
