@@ -50,13 +50,16 @@ class _test_playerState extends State<test_player> {
     if (isCompleted) {
       await playerController.stopPlayer();
       await playerController.preparePlayer(path: path!);
-      isCompleted = false; // 재생이 다시 시작되었으므로 완료 여부를 false로 변경
+      setState(() {
+        isCompleted = false;
+      }); // 재생이 다시 시작되었으므로 완료 여부를 false로 변경
     }
     await playerController.startPlayer(finishMode: FinishMode.stop);
   }
 
   void pausePlayer() async {
     await playerController.pausePlayer();
+    isCompleted = false;
   }
 
   String formatDuration(int milliseconds) {
@@ -89,7 +92,7 @@ class _test_playerState extends State<test_player> {
               enableSeekGesture: true,
               size: Size(screenSize.width / 1.5,
                   screenSize.height * (50 / screenSize.height)),
-              waveformType: WaveformType.fitWidth,
+              //waveformType: WaveformType.fitWidth,
               playerWaveStyle: const PlayerWaveStyle(
                   spacing: 5,
                   showSeekLine: false,
