@@ -1,6 +1,9 @@
 import 'dart:io';
 import 'package:audio_waveforms/audio_waveforms.dart';
+import 'package:calendar/widgets/test_player.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:calendar/provider/test_provider.dart';
 
 class test_record2 extends StatefulWidget {
   const test_record2({super.key});
@@ -11,6 +14,8 @@ class test_record2 extends StatefulWidget {
 class _test_record2State extends State<test_record2> {
   late RecorderController recorderController;
   late Directory directory;
+  late final PlayerController playerController;
+  late testProvider _provider;
 
   String? path;
   bool isRecording = false;
@@ -32,9 +37,11 @@ class _test_record2State extends State<test_record2> {
   void _initialiseController() async {
     recorderController = RecorderController()
       ..androidEncoder = AndroidEncoder.aac
-      ..androidOutputFormat = AndroidOutputFormat.mpeg4
+      ..androidOutputFormat = AndroidOutputFormat.aac_adts
       ..iosEncoder = IosEncoder.kAudioFormatMPEG4AAC
       ..sampleRate = 16000;
+
+    playerController = PlayerController();
   }
 
   Future<void> _startRecording() async {
@@ -44,10 +51,12 @@ class _test_record2State extends State<test_record2> {
   Future<void> _stopRecording() async {
     path = await recorderController.stop();
     print('$path');
+    _provider.get_audioPath(path);
   }
 
   @override
   Widget build(BuildContext context) {
+    _provider = Provider.of<testProvider>(context, listen: false);
     return Container(
       width: MediaQuery.of(context).size.width * 0.58,
       height: 36,
@@ -61,6 +70,7 @@ class _test_record2State extends State<test_record2> {
         AudioWaveforms(
           enableGesture: true,
           size: Size(MediaQuery.of(context).size.width / 3.7, 30),
+
           recorderController: recorderController,
           waveStyle: const WaveStyle(
             waveColor: Colors.redAccent,
@@ -109,6 +119,41 @@ class _test_record2State extends State<test_record2> {
             )
           ],
         ),
+        IconButton(
+            onPressed: () {
+              if (Provider.of<testProvider>(context, listen: false).audioPath ==
+                  null) {
+                showDialog(
+                    barrierDismissible: true,
+                    context: context,
+                    builder: ((context) {
+                      return AlertDialog(
+                        backgroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15)),
+                        content: const Text(
+                          '녹음본이 존재하지 않습니다!',
+                          style: TextStyle(fontSize: 17),
+                        ),
+                      );
+                    }));
+              } else {
+                showDialog(
+                    barrierDismissible: true,
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        backgroundColor: Colors.transparent,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15)),
+                        contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 0, vertical: 0),
+                        content: const test_player(),
+                      );
+                    });
+              }
+            },
+            icon: const Icon(Icons.play_arrow)),
       ]),
     );
   }

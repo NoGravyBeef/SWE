@@ -19,6 +19,7 @@ class Calendar extends StatefulWidget {
 class _CalendarState extends State<Calendar> {
   DateTime selectedDay = DateTime.now();
   DateTime focusedDay = DateTime.now();
+  late testProvider _provider;
 
   @override
   void initState() {
@@ -29,7 +30,7 @@ class _CalendarState extends State<Calendar> {
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
-
+    _provider = Provider.of<testProvider>(context, listen: false);
     const defaultTextStyle = TextStyle(
       color: Colors.black,
       fontSize: 21,
@@ -163,12 +164,15 @@ class _CalendarState extends State<Calendar> {
                   setState(() {
                     this.selectedDay = selectedDay;
                     this.focusedDay = focusedDay;
+                    print(selectedDay);
+                    _provider.change_record_day(this.selectedDay);
                   });
                   // 메모 화면으로 이동
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => Memo_Page(date: selectedDay)),
+                      builder: (context) => Memo_Page(date: selectedDay),
+                    ),
                   );
                 },
 
