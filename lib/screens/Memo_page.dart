@@ -2,6 +2,7 @@ import 'package:calendar/popup/change_background_color.dart';
 import 'package:calendar/popup/change_ddays_color.dart';
 import 'package:calendar/popup/change_font_color.dart';
 import 'package:calendar/popup/change_font_size.dart';
+import 'package:calendar/widgets/simple_count.dart';
 import 'package:calendar/widgets/test_record2.dart';
 import 'package:flutter/material.dart';
 import 'package:calendar/widgets/dday_checkbox.dart';
@@ -100,31 +101,35 @@ class MemoPage extends State<Memo_Page> {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                IconButton(
-                  icon: Icon(Icons.format_list_bulleted_outlined,
-                      size: 22, color: Colors.grey.shade400), //타이머
-                  onPressed: () {},
-                ),
+                // Transform.scale(
+                //   scale: 0.8,
+                //   child: const simple_count(),
+                // ),
+                const simple_count(),
                 Expanded(child: Container()),
-                IconButton(
-                  icon: Icon(Icons.notifications_none,
-                      size: 22, color: Colors.grey.shade400), //알람메모
-                  onPressed: () {
-                    Future<TimeOfDay?> selectedTime = showTimePicker(
-                      context: context,
-                      initialTime: TimeOfDay.now(),
-                    );
+                Padding(
+                  padding: const EdgeInsets.only(right: 13),
+                  child: IconButton(
+                    icon: Icon(Icons.notifications_none,
+                        size: 30, color: Colors.grey.shade400), //알람메모
+                    onPressed: () {
+                      Future<TimeOfDay?> selectedTime = showTimePicker(
+                        context: context,
+                        initialTime: TimeOfDay.now(),
+                      );
 
-                    selectedTime.then((timeOfDay) {
-                      setState(() {
-                        _selectTime = '${timeOfDay!.hour}:${timeOfDay.minute}';
+                      selectedTime.then((timeOfDay) {
+                        setState(() {
+                          _selectTime =
+                              '${timeOfDay!.hour}:${timeOfDay.minute}';
+                        });
                       });
-                    });
-                  },
+                    },
+                  ),
                 ),
               ],
             ),
-            SizedBox(width: screenSize.width * 0.01),
+            //SizedBox(width: screenSize.width * 0.08),
             //1. 메모 본문 & D-day
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 0, 15, 0),

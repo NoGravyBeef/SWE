@@ -4,6 +4,7 @@ import 'package:calendar/screens/Memo_page.dart';
 import 'package:calendar/screens/calendar.dart';
 import 'package:calendar/screens/fmanage_list.dart';
 import 'package:calendar/screens/login.dart';
+import 'package:calendar/widgets/simple_count.dart';
 import 'package:calendar/widgets/test_change.dart';
 import 'package:calendar/widgets/test_player.dart';
 import 'package:calendar/widgets/test_record2.dart';
