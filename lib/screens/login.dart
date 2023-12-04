@@ -2,6 +2,7 @@ import 'package:calendar/screens/join_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:calendar/screens/calendar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 // 로그인 페이지를 위한 StatefulWidget 클래스
 var user;
@@ -251,7 +252,9 @@ class _LoginPageState extends State<LoginPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ElevatedButton(
-                      onPressed: () {}, // 구글 로그인 버튼 클릭 시 수행할 동작
+                      onPressed: () {
+                        signInWithGoogle();
+                      }, // 구글 로그인 버튼 클릭 시 수행할 동작
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color>(
                             const Color.fromARGB(255, 255, 255, 255)),
@@ -284,6 +287,11 @@ class _LoginPageState extends State<LoginPage> {
                         ],
                       ),
                     ),
+                    ElevatedButton(
+                        onPressed: () {
+                          googleSignOut();
+                        },
+                        child: const Text('로그아웃'))
                   ],
                 ),
               ],
@@ -329,19 +337,52 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  /*Future<void> _sign(BuildContext context) async {
-    try {
-      final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
+  // Future<void> _sign(BuildContext context) async {
+  //   try {
+  //     final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
 
-      if (googleUser != null) {
-        navigatorKey.currentState?.push(
-          MaterialPageRoute(builder: (context) => const Calendar()),
-        );
-      }
-    } catch (error) {
-      scaffoldMessengerKey.currentState?.showSnackBar(
-        SnackBar(content: Text('Google Sign In 에러: $error')),
-      );
-    }
-  }*/
+  //     if (googleUser != null) {
+  //       navigatorKey.currentState?.push(
+  //         MaterialPageRoute(builder: (context) => const Calendar()),
+  //       );
+  //     }
+  //   } catch (error) {
+  //     scaffoldMessengerKey.currentState?.showSnackBar(
+  //       SnackBar(content: Text('Google Sign In 에러: $error')),
+  //     );
+  //   }
+  // }
+
+  // void signInWithGoogle() async {
+  //   final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+  //   if (googleUser != null) {
+  //     print('name = ${googleUser.displayName}');
+  //     print('email = ${googleUser.email}');
+  //     print('id = ${googleUser.id}');
+  //     Navigator.of(context)
+  //         .push(MaterialPageRoute(builder: (context) => const Calendar()));
+  //   }
+  // }
+
+  Future<void> navigateToCalendar() async {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => const Calendar()));
+  }
+
+  Future<UserCredential> signInWithGoogle() async {
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+    final GoogleSignInAuthentication? googleAuth =
+        await googleUser?.authentication;
+    final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth?.accessToken, idToken: googleAuth?.idToken);
+    UserCredential userCredential =
+        await FirebaseAuth.instance.signInWithCredential(credential);
+
+    await navigateToCalendar();
+    return userCredential;
+  }
+
+  void googleSignOut() async {
+    await GoogleSignIn().signOut();
+  }
 }
