@@ -245,7 +245,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 50.0),
+                const SizedBox(height: 30.0),
 
                 // 구글 로그인 버튼
                 Row(
@@ -287,11 +287,6 @@ class _LoginPageState extends State<LoginPage> {
                         ],
                       ),
                     ),
-                    ElevatedButton(
-                        onPressed: () {
-                          googleSignOut();
-                        },
-                        child: const Text('로그아웃'))
                   ],
                 ),
               ],
@@ -336,33 +331,6 @@ class _LoginPageState extends State<LoginPage> {
       MaterialPageRoute(builder: (context) => const JoinScreen()),
     );
   }
-
-  // Future<void> _sign(BuildContext context) async {
-  //   try {
-  //     final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
-
-  //     if (googleUser != null) {
-  //       navigatorKey.currentState?.push(
-  //         MaterialPageRoute(builder: (context) => const Calendar()),
-  //       );
-  //     }
-  //   } catch (error) {
-  //     scaffoldMessengerKey.currentState?.showSnackBar(
-  //       SnackBar(content: Text('Google Sign In 에러: $error')),
-  //     );
-  //   }
-  // }
-
-  // void signInWithGoogle() async {
-  //   final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-  //   if (googleUser != null) {
-  //     print('name = ${googleUser.displayName}');
-  //     print('email = ${googleUser.email}');
-  //     print('id = ${googleUser.id}');
-  //     Navigator.of(context)
-  //         .push(MaterialPageRoute(builder: (context) => const Calendar()));
-  //   }
-  // }
 
   Future<void> navigateToCalendar() async {
     Navigator.of(context)

@@ -6,8 +6,7 @@ class YearMonthSelector extends StatefulWidget {
   final Function(int year, int month) onYearMonthSelected;
 
   // 필수 콜백 함수를 포함한 생성자입니다.
-  const YearMonthSelector({Key? key, required this.onYearMonthSelected})
-      : super(key: key);
+  const YearMonthSelector({super.key, required this.onYearMonthSelected});
 
   @override
   // 위젯의 상태를 생성합니다.
@@ -36,7 +35,13 @@ class _YearMonthSelectorState extends State<YearMonthSelector> {
             itemCount: years.length,
             itemBuilder: (context, index) {
               return ListTile(
-                title: Text("${years[index]}년"),
+                title: Text(
+                  "${years[index]}년",
+                  style: TextStyle(
+                      color: selectedYear == years[index]
+                          ? Colors.amber
+                          : Colors.black),
+                ),
                 onTap: () {
                   setState(() {
                     selectedYear = years[index];
@@ -56,7 +61,13 @@ class _YearMonthSelectorState extends State<YearMonthSelector> {
             itemCount: months.length,
             itemBuilder: (context, index) {
               return ListTile(
-                title: Text(months[index]),
+                title: Text(
+                  months[index],
+                  style: TextStyle(
+                      color: selectedMonth == index + 1
+                          ? Colors.amber
+                          : Colors.black),
+                ),
                 onTap: () {
                   setState(() {
                     selectedMonth = index + 1;
