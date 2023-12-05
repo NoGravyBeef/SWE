@@ -7,6 +7,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 // 로그인 페이지를 위한 StatefulWidget 클래스
 var user;
 final auth = FirebaseAuth.instance;
+String message = '올바른 양식 입력하셈';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -84,6 +85,7 @@ class _LoginPageState extends State<LoginPage> {
                         const SizedBox(width: 10.0),
                         Expanded(
                           child: TextFormField(
+                            keyboardType: TextInputType.emailAddress,
                             controller: _usernameController,
                             decoration: const InputDecoration(
                               border: InputBorder.none,
@@ -200,6 +202,7 @@ class _LoginPageState extends State<LoginPage> {
                               builder: (context) => const Calendar()));
                         } on FirebaseAuthException catch (error) {
                           String? errorCode;
+                          print(error.code);
                           switch (error.code) {
                             case "invalid-email":
                               errorCode = error.code;
@@ -213,12 +216,16 @@ class _LoginPageState extends State<LoginPage> {
                             case "wrong-password":
                               errorCode = error.code;
                               break;
+                            case "invalid-credential":
+                              errorCode = error.code;
+                              message = '아이디나 비밀번호를 확인해주세요!';
+                              break;
                             default:
                               errorCode = null;
                           }
                           if (errorCode != null) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(content: Text('올바른 양식 입력하셈')));
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(SnackBar(content: Text(message)));
                           }
                         }
                       }, // 로그인 버튼 클릭 시 수행할 동작

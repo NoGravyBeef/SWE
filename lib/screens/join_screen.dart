@@ -23,6 +23,7 @@ class _JoinScreenState extends State<JoinScreen> {
   var user;
   bool isPasswordVisiable = true;
   bool isPasswordCheckVisiable = true;
+  String message = '';
   @override
   void setState(fn) {
     super.setState(fn);
@@ -83,6 +84,7 @@ class _JoinScreenState extends State<JoinScreen> {
                       ),
                     ),
                     child: TextFormField(
+                      keyboardType: TextInputType.emailAddress,
                       controller: emailController,
                       decoration: const InputDecoration(
                         labelText: '이메일',
@@ -410,25 +412,30 @@ class _JoinScreenState extends State<JoinScreen> {
                                 builder: (context) => const LoginPage()));
                           } on FirebaseAuthException catch (error) {
                             String? errorCode;
+                            print(error);
                             switch (error.code) {
                               case "email-already-in-use":
                                 errorCode = error.code;
+                                message = '이미 존재하는 이메일입니다!';
                                 break;
                               case "invalid-email":
                                 errorCode = error.code;
+                                message = '올바른 양식 입력하셈';
                                 break;
                               case "weak-password":
                                 errorCode = error.code;
+                                message = '올바른 양식 입력하셈';
                                 break;
                               case "operation-not-allowed":
                                 errorCode = error.code;
+                                message = '올바른 양식 입력하셈';
                                 break;
                               default:
                                 errorCode = null;
                             }
                             if (errorCode != null) {
                               ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(content: Text('올바른 양식 입력하셈')));
+                                  SnackBar(content: Text(message)));
                             }
                           }
                         },
