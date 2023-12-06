@@ -2,10 +2,12 @@ import 'package:calendar/screens/join_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:calendar/screens/calendar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 // 로그인 페이지를 위한 StatefulWidget 클래스
 var user;
 final auth = FirebaseAuth.instance;
+String message = '올바른 양식 입력하세요';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -83,6 +85,7 @@ class _LoginPageState extends State<LoginPage> {
                         const SizedBox(width: 10.0),
                         Expanded(
                           child: TextFormField(
+                            keyboardType: TextInputType.emailAddress,
                             controller: _usernameController,
                             decoration: const InputDecoration(
                               border: InputBorder.none,
@@ -195,13 +198,19 @@ class _LoginPageState extends State<LoginPage> {
                             ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(content: Text('server error')));
                           }
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const Calendar()));
+                          Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Calendar()),
+                            (Route<dynamic> route) => false,
+                          );
                         } on FirebaseAuthException catch (error) {
                           String? errorCode;
+                          print(error.code);
                           switch (error.code) {
                             case "invalid-email":
                               errorCode = error.code;
+                              message = '이메일 양식이 올바르지 않습니다.';
                               break;
                             case "user-disabled":
                               errorCode = error.code;
@@ -212,12 +221,19 @@ class _LoginPageState extends State<LoginPage> {
                             case "wrong-password":
                               errorCode = error.code;
                               break;
+                            case "invalid-credential":
+                              errorCode = error.code;
+                              message = '아이디나 비밀번호를 확인해주세요!';
+                              break;
+                            case "channel-error":
+                              errorCode = error.code;
+                              message = '아이디와 비밀번호를 입력하세요!';
                             default:
                               errorCode = null;
                           }
                           if (errorCode != null) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(content: Text('올바른 양식 입력하셈')));
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(SnackBar(content: Text(message)));
                           }
                         }
                       }, // 로그인 버튼 클릭 시 수행할 동작
@@ -244,14 +260,16 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 50.0),
+                const SizedBox(height: 30.0),
 
                 // 구글 로그인 버튼
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ElevatedButton(
-                      onPressed: () {}, // 구글 로그인 버튼 클릭 시 수행할 동작
+                      onPressed: () {
+                        signInWithGoogle();
+                      }, // 구글 로그인 버튼 클릭 시 수행할 동작
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all<Color>(
                             const Color.fromARGB(255, 255, 255, 255)),
@@ -329,19 +347,28 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  /*Future<void> _sign(BuildContext context) async {
-    try {
-      final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
+  Future<void> navigateToCalendar() async {
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(builder: (context) => const Calendar()),
+      (Route<dynamic> route) => false,
+    );
+  }
 
-      if (googleUser != null) {
-        navigatorKey.currentState?.push(
-          MaterialPageRoute(builder: (context) => const Calendar()),
-        );
-      }
-    } catch (error) {
-      scaffoldMessengerKey.currentState?.showSnackBar(
-        SnackBar(content: Text('Google Sign In 에러: $error')),
-      );
-    }
-  }*/
+  Future<UserCredential> signInWithGoogle() async {
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+    final GoogleSignInAuthentication? googleAuth =
+        await googleUser?.authentication;
+    final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth?.accessToken, idToken: googleAuth?.idToken);
+    UserCredential userCredential =
+        await FirebaseAuth.instance.signInWithCredential(credential);
+
+    await navigateToCalendar();
+    return userCredential;
+  }
+
+  void googleSignOut() async {
+    await GoogleSignIn().signOut();
+  }
 }

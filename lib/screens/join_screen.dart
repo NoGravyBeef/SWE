@@ -21,16 +21,17 @@ class _JoinScreenState extends State<JoinScreen> {
   final TextEditingController lastname = TextEditingController();
   var ispasswordcorrect = true;
   var user;
+  bool isPasswordVisiable = true;
+  bool isPasswordCheckVisiable = true;
+  String message = '';
   @override
   void setState(fn) {
-    // TODO: implement setState
     super.setState(fn);
   }
 
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
-
     return Container(
       // 배경 이미지 설정
       decoration: const BoxDecoration(
@@ -83,6 +84,7 @@ class _JoinScreenState extends State<JoinScreen> {
                       ),
                     ),
                     child: TextFormField(
+                      keyboardType: TextInputType.emailAddress,
                       controller: emailController,
                       decoration: const InputDecoration(
                         labelText: '이메일',
@@ -137,36 +139,52 @@ class _JoinScreenState extends State<JoinScreen> {
                       ),
                     ),
                     child: TextFormField(
+                      obscureText: isPasswordVisiable,
                       controller: passwordController,
-                      decoration: const InputDecoration(
-                        labelText: '비밀번호',
-                        hintText: 'Enter the Password',
-                        contentPadding: EdgeInsets.symmetric(
-                          vertical: 10,
-                          horizontal: 10,
-                        ), // 내부 패딩 조절
-                        labelStyle: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 12, // 폰트 크기 조절
-                          fontFamily: 'JetBrain',
-                          fontWeight: FontWeight.w900,
-                          letterSpacing: 2,
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            width: 1, // 테두리 두께 조절
-                            color: Colors.white,
+                      decoration: InputDecoration(
+                          labelText: '비밀번호',
+                          hintText: 'Enter the Password',
+                          contentPadding: const EdgeInsets.symmetric(
+                            vertical: 10,
+                            horizontal: 10,
+                          ), // 내부 패딩 조절
+                          labelStyle: const TextStyle(
+                            color: Colors.grey,
+                            fontSize: 12, // 폰트 크기 조절
+                            fontFamily: 'JetBrain',
+                            fontWeight: FontWeight.w900,
+                            letterSpacing: 2,
                           ),
-                          borderRadius: BorderRadius.all(Radius.circular(18.0)),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(18.0)),
-                          borderSide: BorderSide(
-                            width: 1,
-                            color: Colors.redAccent,
+                          enabledBorder: const OutlineInputBorder(
+                            borderSide: BorderSide(
+                              width: 1, // 테두리 두께 조절
+                              color: Colors.white,
+                            ),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(18.0)),
                           ),
-                        ),
-                      ),
+                          focusedBorder: const OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(18.0)),
+                            borderSide: BorderSide(
+                              width: 1,
+                              color: Colors.redAccent,
+                            ),
+                          ),
+                          suffixIcon: IconButton(
+                            padding: const EdgeInsets.only(right: 20),
+                            onPressed: () {
+                              setState(() {
+                                isPasswordVisiable = !isPasswordVisiable;
+                              });
+                            },
+                            icon: Icon(
+                              isPasswordVisiable
+                                  ? Icons.visibility_off
+                                  : Icons.visibility,
+                              color: Colors.grey,
+                            ),
+                          )),
                     ),
                   ),
                 ),
@@ -191,35 +209,52 @@ class _JoinScreenState extends State<JoinScreen> {
                       ),
                     ),
                     child: TextFormField(
-                      decoration: const InputDecoration(
-                        labelText: '비밀번호 확인',
-                        hintText: 'Check the Password',
-                        contentPadding: EdgeInsets.symmetric(
-                          vertical: 10,
-                          horizontal: 10,
-                        ), // 내부 패딩 조절
-                        labelStyle: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 12, // 폰트 크기 조절
-                          fontFamily: 'JetBrain',
-                          fontWeight: FontWeight.w900,
-                          letterSpacing: 2,
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            width: 1, // 테두리 두께 조절
-                            color: Colors.white,
+                      obscureText: isPasswordCheckVisiable,
+                      decoration: InputDecoration(
+                          labelText: '비밀번호 확인',
+                          hintText: 'Check the Password',
+                          contentPadding: const EdgeInsets.symmetric(
+                            vertical: 10,
+                            horizontal: 10,
+                          ), // 내부 패딩 조절
+                          labelStyle: const TextStyle(
+                            color: Colors.grey,
+                            fontSize: 12, // 폰트 크기 조절
+                            fontFamily: 'JetBrain',
+                            fontWeight: FontWeight.w900,
+                            letterSpacing: 2,
                           ),
-                          borderRadius: BorderRadius.all(Radius.circular(18.0)),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(18.0)),
-                          borderSide: BorderSide(
-                            width: 1,
-                            color: Colors.redAccent,
+                          enabledBorder: const OutlineInputBorder(
+                            borderSide: BorderSide(
+                              width: 1, // 테두리 두께 조절
+                              color: Colors.white,
+                            ),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(18.0)),
                           ),
-                        ),
-                      ),
+                          focusedBorder: const OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(18.0)),
+                            borderSide: BorderSide(
+                              width: 1,
+                              color: Colors.redAccent,
+                            ),
+                          ),
+                          suffixIcon: IconButton(
+                            padding: const EdgeInsets.only(right: 20),
+                            onPressed: () {
+                              setState(() {
+                                isPasswordCheckVisiable =
+                                    !isPasswordCheckVisiable;
+                              });
+                            },
+                            icon: Icon(
+                              isPasswordCheckVisiable
+                                  ? Icons.visibility_off
+                                  : Icons.visibility,
+                              color: Colors.grey,
+                            ),
+                          )),
                       validator: (String? value) {
                         if (value != passwordController) {
                           setState(() {
@@ -377,25 +412,30 @@ class _JoinScreenState extends State<JoinScreen> {
                                 builder: (context) => const LoginPage()));
                           } on FirebaseAuthException catch (error) {
                             String? errorCode;
+                            print(error);
                             switch (error.code) {
                               case "email-already-in-use":
                                 errorCode = error.code;
+                                message = '이미 존재하는 이메일입니다!';
                                 break;
                               case "invalid-email":
                                 errorCode = error.code;
+                                message = '올바른 이메일 양식을 입력하세요!';
                                 break;
                               case "weak-password":
                                 errorCode = error.code;
+                                message = '비밀번호는 6자리 이상이어야 합니다!';
                                 break;
                               case "operation-not-allowed":
                                 errorCode = error.code;
+                                message = '올바른 양식 입력하셈';
                                 break;
                               default:
                                 errorCode = null;
                             }
                             if (errorCode != null) {
                               ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(content: Text('올바른 양식 입력하셈')));
+                                  SnackBar(content: Text(message)));
                             }
                           }
                         },
@@ -420,53 +460,6 @@ class _JoinScreenState extends State<JoinScreen> {
                               letterSpacing: 1,
                             ),
                           ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: screenSize.height * 0.15),
-                // 구글로 시작 버튼
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      width: screenSize.width * 0.7,
-                      height: screenSize.height * 0.055,
-                      child: ElevatedButton(
-                        onPressed: () async {
-                          //final googleSignIn = GoogleSignIn();asdf
-                        },
-                        style: ButtonStyle(
-                          padding: MaterialStateProperty.all(EdgeInsets.zero),
-                          backgroundColor:
-                              MaterialStateProperty.all(Colors.white),
-                          shape: MaterialStateProperty.all(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                          ),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              'assets/google_logo.png',
-                              width: screenSize.height * 0.05,
-                              height: screenSize.height * 0.05,
-                            ),
-                            SizedBox(width: screenSize.width * 0.03),
-                            const Text(
-                              'Start with google',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontFamily: 'JetBrain',
-                                fontWeight: FontWeight.w900,
-                                color: Color.fromARGB(255, 116, 115, 115),
-                                letterSpacing: 1,
-                              ),
-                            ),
-                          ],
                         ),
                       ),
                     ),

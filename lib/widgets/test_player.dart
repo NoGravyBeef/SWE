@@ -59,7 +59,7 @@ class _test_playerState extends State<test_player> {
 
   void pausePlayer() async {
     await playerController.pausePlayer();
-    isCompleted = false;
+    //isCompleted = false;
   }
 
   String formatDuration(int milliseconds) {
@@ -89,15 +89,15 @@ class _test_playerState extends State<test_player> {
               .toString()),
           AudioFileWaveforms(
               //margin: const EdgeInsets.all(0),
-              enableSeekGesture: true,
+              //enableSeekGesture: true,
               size: Size(screenSize.width / 1.5,
                   screenSize.height * (50 / screenSize.height)),
-              //waveformType: WaveformType.fitWidth,
+              waveformType: WaveformType.long,
               playerWaveStyle: const PlayerWaveStyle(
                   spacing: 5,
                   showSeekLine: false,
                   scaleFactor: 200,
-                  fixedWaveColor: Colors.white30,
+                  fixedWaveColor: Colors.grey,
                   liveWaveColor: Colors.redAccent,
                   waveCap: StrokeCap.butt),
               decoration: BoxDecoration(
