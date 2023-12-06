@@ -530,10 +530,13 @@ class _settingsState extends State<settings> {
                                   onPressed: () {
                                     auth.signOut();
                                     GoogleSignIn().signOut();
-                                    Navigator.of(context).push(
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                const LoginPage()));
+                                    Navigator.pushAndRemoveUntil(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const LoginPage()),
+                                      (Route<dynamic> route) => false,
+                                    );
                                   },
                                   child: const Text('예')),
                               ElevatedButton(
