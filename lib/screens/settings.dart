@@ -1,11 +1,15 @@
 import 'package:calendar/popup/holyday_setup.dart';
 import 'package:calendar/provider/test_provider.dart';
+import 'package:calendar/screens/login.dart';
 import 'package:calendar/widgets/calander_start_days.dart';
 import 'package:calendar/widgets/fixdays.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';
-import 'package:table_calendar/table_calendar.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+final auth = FirebaseAuth.instance;
 
 class settings extends StatefulWidget {
   const settings({super.key});
@@ -506,7 +510,7 @@ class _settingsState extends State<settings> {
               height: screenSize.height * 0.02,
             ),
             SizedBox(
-              width: screenSize.width * 0.25,
+              width: screenSize.width * 0.3,
               height: screenSize.height * 0.0442,
               child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
@@ -520,18 +524,20 @@ class _settingsState extends State<settings> {
                         context: context,
                         builder: (context) {
                           return AlertDialog(
-                            content: const Text('변경사항을 저장하시겠습니까?'),
+                            content: const Text('로그아웃 하시겠습니까?'),
                             actions: [
                               ElevatedButton(
                                   onPressed: () {
-                                    _provider.changeStatus = true;
-                                    Navigator.of(context).pop();
+                                    auth.signOut();
+                                    GoogleSignIn().signOut();
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const LoginPage()));
                                   },
                                   child: const Text('예')),
                               ElevatedButton(
                                   onPressed: () {
-                                    _provider.changeStatus = false;
-                                    print(_provider.changeStatus);
                                     Navigator.of(context).pop();
                                   },
                                   child: const Text('아니요'))
@@ -540,7 +546,7 @@ class _settingsState extends State<settings> {
                         });
                   },
                   child: const Text(
-                    '저장',
+                    '로그아웃',
                     style: TextStyle(color: Colors.white54, fontSize: 18),
                   )),
             )

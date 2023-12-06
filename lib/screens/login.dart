@@ -221,6 +221,9 @@ class _LoginPageState extends State<LoginPage> {
                               errorCode = error.code;
                               message = '아이디나 비밀번호를 확인해주세요!';
                               break;
+                            case "channel-error":
+                              errorCode = error.code;
+                              message = '아이디와 비밀번호를 입력하세요!';
                             default:
                               errorCode = null;
                           }
