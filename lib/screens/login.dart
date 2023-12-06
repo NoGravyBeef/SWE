@@ -206,7 +206,7 @@ class _LoginPageState extends State<LoginPage> {
                           switch (error.code) {
                             case "invalid-email":
                               errorCode = error.code;
-                              message = ''
+                              message = '이메일 양식이 올바르지 않습니다.';
                               break;
                             case "user-disabled":
                               errorCode = error.code;
