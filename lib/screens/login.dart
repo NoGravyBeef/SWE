@@ -198,8 +198,12 @@ class _LoginPageState extends State<LoginPage> {
                             ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(content: Text('server error')));
                           }
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const Calendar()));
+                          Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Calendar()),
+                            (Route<dynamic> route) => false,
+                          );
                         } on FirebaseAuthException catch (error) {
                           String? errorCode;
                           print(error.code);
@@ -341,8 +345,11 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Future<void> navigateToCalendar() async {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => const Calendar()));
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(builder: (context) => const Calendar()),
+      (Route<dynamic> route) => false,
+    );
   }
 
   Future<UserCredential> signInWithGoogle() async {
