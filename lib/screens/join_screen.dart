@@ -420,11 +420,11 @@ class _JoinScreenState extends State<JoinScreen> {
                                 break;
                               case "invalid-email":
                                 errorCode = error.code;
-                                message = '올바른 양식 입력하셈';
+                                message = '올바른 이메일 양식을 입력하세요!';
                                 break;
                               case "weak-password":
                                 errorCode = error.code;
-                                message = '올바른 양식 입력하셈';
+                                message = '비밀번호는 6자리 이상이어야 합니다!';
                                 break;
                               case "operation-not-allowed":
                                 errorCode = error.code;

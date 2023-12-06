@@ -27,6 +27,15 @@ class _CalendarState extends State<Calendar> {
     initializeDateFormatting('ko_KR', null);
   }
 
+  // Map<DateTime, List<Event>> events = {
+  //   DateTime.utc(2023, 12, 6): [Event('title'), Event('titme2')],
+  //   DateTime.utc(2023, 12, 25): [Event('title3')],
+  // };
+
+  // List<Event> _getEventsForDay(DateTime day) {
+  //   return events[day] ?? [];
+  // }
+
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -161,12 +170,13 @@ class _CalendarState extends State<Calendar> {
                 ),
                 SizedBox(height: screenSize.height * 0.02),
                 TableCalendar(
+//                  eventLoader: _getEventsForDay,
                   onDaySelected: (selectedDay, focusedDay) {
                     setState(() {
                       this.selectedDay = selectedDay;
                       this.focusedDay = focusedDay;
                       print(selectedDay);
-                      _provider.change_record_day(this.selectedDay);
+                      _provider.change_record_day(selectedDay);
                     });
                     // 메모 화면으로 이동
                     Navigator.push(
@@ -243,7 +253,10 @@ class _CalendarState extends State<Calendar> {
                         fontSize: screenSize.height * 0.025,
                         color: Colors.black,
                         decoration: TextDecoration.none,
-                      )),
+                      ),
+                      markerSize: 7,
+                      markerDecoration: const BoxDecoration(
+                          color: Colors.red, shape: BoxShape.circle)),
 
                   selectedDayPredicate: (DateTime date) {
                     return date.year == selectedDay.year &&
@@ -392,4 +405,9 @@ class _CalendarState extends State<Calendar> {
       },
     );
   }
+}
+
+class Event {
+  String title;
+  Event(this.title);
 }

@@ -7,7 +7,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 // 로그인 페이지를 위한 StatefulWidget 클래스
 var user;
 final auth = FirebaseAuth.instance;
-String message = '올바른 양식 입력하셈';
+String message = '올바른 양식 입력하세요';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -206,6 +206,7 @@ class _LoginPageState extends State<LoginPage> {
                           switch (error.code) {
                             case "invalid-email":
                               errorCode = error.code;
+                              message = ''
                               break;
                             case "user-disabled":
                               errorCode = error.code;
