@@ -75,7 +75,8 @@ class MemoPage extends State<Memo_Page> {
                 ),
                 IconButton(
                   icon: Icon(Icons.format_list_bulleted_outlined,
-                      size: 22, color: Colors.grey.shade400), //녹음 옆
+                      size: screenSize.height * 0.03,
+                      color: Colors.grey.shade400), //녹음 옆
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -87,9 +88,11 @@ class MemoPage extends State<Memo_Page> {
                 Expanded(child: Container()),
                 IconButton(
                   //메모장 나가기(저장)
-                  icon: Icon(Icons.sensor_door_outlined,
-                      size: screenSize.height * 0.03,
-                      color: Colors.grey.shade400),
+                  icon: Icon(
+                    Icons.arrow_back_rounded,
+                    size: screenSize.height *
+                        0.03, /*color: Colors.grey.shade400*/
+                  ),
                   onPressed: () {
                     Navigator.pop(context);
                   },

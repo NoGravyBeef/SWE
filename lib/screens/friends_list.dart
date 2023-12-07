@@ -32,7 +32,7 @@ class _Friends_list extends State<Friends_list> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(
-              height: screenSize.height * 0.03,
+              height: screenSize.height * 0.025,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -40,9 +40,11 @@ class _Friends_list extends State<Friends_list> {
                 SizedBox(width: screenSize.width * 0.06),
                 IconButton(
                   //나가기
-                  icon: Icon(Icons.sensor_door_outlined,
-                      size: screenSize.height * 0.03,
-                      color: Colors.grey.shade400),
+                  icon: Icon(
+                    Icons.arrow_back_rounded,
+                    size: screenSize.height *
+                        0.03, /*color: Colors.grey.shade400*/
+                  ),
                   onPressed: () {
                     Navigator.pop(context);
                   },
