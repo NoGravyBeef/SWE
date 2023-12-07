@@ -58,8 +58,7 @@ class _FriendRequestScreenState extends State<FriendRequestScreen> {
                   //나가기
                   icon: Icon(
                     Icons.arrow_back_rounded,
-                    size: screenSize.height *
-                        0.03, /*color: Colors.grey.shade400*/
+                    size: screenSize.height * 0.03,
                   ),
                   onPressed: () {
                     Navigator.pop(context);
