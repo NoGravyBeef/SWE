@@ -58,7 +58,10 @@ class _settingsState extends State<settings> {
                       onPressed: () {
                         Navigator.pop(context);
                       },
-                      icon: const Icon(Icons.arrow_back_rounded)),
+                      icon: Icon(
+                        Icons.arrow_back_rounded,
+                        size: screenSize.height * 0.03,
+                      )),
                 ],
               ),
             ),

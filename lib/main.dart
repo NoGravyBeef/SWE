@@ -1,4 +1,5 @@
 import 'package:calendar/popup/change_background_color.dart';
+import 'package:calendar/popup/logout.dart';
 import 'package:calendar/provider/test_provider.dart';
 import 'package:calendar/screens/Memo_page.dart';
 import 'package:calendar/screens/calendar.dart';
@@ -41,9 +42,10 @@ class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider.value(
-        value: testProvider(),
-        child: const MaterialApp(
-          home: Scaffold(backgroundColor: Color(0xffEFEFEF), body: LoginPage()),
-        ));
+      value: testProvider(),
+      child: const MaterialApp(
+          home:
+              Scaffold(backgroundColor: Color(0xffEFEFEF), body: LoginPage())),
+    );
   }
 }

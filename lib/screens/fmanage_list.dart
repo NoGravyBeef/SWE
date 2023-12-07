@@ -42,9 +42,10 @@ class _Friends_list extends State<FManage_list> {
                 SizedBox(width: screenSize.width * 0.06),
                 IconButton(
                   //나가기
-                  icon: Icon(Icons.sensor_door_outlined,
-                      size: screenSize.height * 0.03,
-                      color: Colors.grey.shade400),
+                  icon: Icon(
+                    Icons.arrow_back_rounded,
+                    size: screenSize.height * 0.03,
+                  ),
                   onPressed: () {
                     Navigator.pop(context);
                   },

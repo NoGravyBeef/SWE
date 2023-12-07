@@ -44,8 +44,26 @@ class _UserSearchScreenState extends State<UserSearchScreen> {
           child: Column(
             children: [
               // 상단 여백
-              SizedBox(height: screenSize.height * 0.05),
+              SizedBox(height: screenSize.height * 0.025),
               // 타이틀 행
+              Padding(
+                padding: const EdgeInsets.only(right: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    IconButton(
+                        style: IconButton.styleFrom(
+                          minimumSize: Size.zero,
+                          padding: EdgeInsets.zero,
+                        ),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        icon: const Icon(Icons.arrow_back_rounded)),
+                  ],
+                ),
+              ),
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
