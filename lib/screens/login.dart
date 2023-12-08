@@ -1,8 +1,10 @@
 import 'package:calendar/screens/join_screen.dart';
+import 'package:calendar/screens/test_search.dart';
 import 'package:flutter/material.dart';
 import 'package:calendar/screens/calendar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 // 로그인 페이지를 위한 StatefulWidget 클래스
 var user;
@@ -54,7 +56,6 @@ class _LoginPageState extends State<LoginPage> {
                 ),
 
                 const SizedBox(height: 50.0),
-
                 // 사용자 이름 입력 필드
                 Flexible(
                   child: Container(
@@ -194,6 +195,10 @@ class _LoginPageState extends State<LoginPage> {
                                   password: _passwordController.text);
                           if (credential.user != null) {
                             user = credential.user;
+                            FirebaseFirestore.instance
+                                .collection('user_information')
+                                .doc(auth.currentUser?.displayName)
+                                .set({'id': auth.currentUser?.displayName});
                           } else {
                             ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(content: Text('server error')));
@@ -363,6 +368,10 @@ class _LoginPageState extends State<LoginPage> {
         accessToken: googleAuth?.accessToken, idToken: googleAuth?.idToken);
     UserCredential userCredential =
         await FirebaseAuth.instance.signInWithCredential(credential);
+    FirebaseFirestore.instance
+        .collection('user_information')
+        .doc(googleUser?.displayName)
+        .set({'id': googleUser?.displayName});
 
     await navigateToCalendar();
     return userCredential;
