@@ -63,8 +63,10 @@ class Todolist extends State<Todolist_page> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   IconButton(
-                    icon: Icon(Icons.sensor_door_outlined,
-                        size: 22, color: Colors.grey.shade400),
+                    icon: Icon(
+                      Icons.arrow_back_rounded,
+                      size: screenSize.height * 0.03,
+                    ),
                     onPressed: () {
                       Navigator.pop(context);
                     },

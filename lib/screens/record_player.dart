@@ -35,8 +35,9 @@ class _record_playerState extends State<record_player> {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    icon: const Icon(
+                    icon: Icon(
                       Icons.arrow_back_rounded,
+                      size: screenSize.height * 0.03,
                     )),
               ],
             ),
